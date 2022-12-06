@@ -1,0 +1,5 @@
+Dlaczego CSS:
+	- krótszy i przejrzysty kod
+	- w łatwy sposób można dokonać modyfikacji rodzaju formatowania jednocześnie we wszystkich dokumentach, zmieniając kod tylko w jednym pliku
+	- możliwość stosowania klas selektorów, dzięki czemu w jednym miejscu określamy wszystkie atrybuty formatowania, odnoszące się do wielu elementów, które mają wyglądać tak samo
+	- różne możliwości formatowania tekstu (np pogrubienie czcionki)
