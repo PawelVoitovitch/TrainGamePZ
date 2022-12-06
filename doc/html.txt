@@ -1,0 +1,5 @@
+Dlaczego HTML5:
+	- standaryzacja (strona wygląda tak samo na każdej przeglądarce)
+	- prostota (łatwiejsza składnia w porównaniu do poprzednich wersji)
+	- semantyka kodu (wykorzystywanie znaczników zamiast samych div pozwala łatwiej określić ich rolę)
+	- znaczny rozwój formularzy (nowe typy pól)
