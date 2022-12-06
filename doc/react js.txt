@@ -1,0 +1,12 @@
+Dlaczego React:
+	- łatwy do nauczenia
+	- ma dużą społeczność developerów (przez co łatwo znaleźć rozwiązanie danego problemu)
+	- ma wysoką wydajność, ponieważ opiera się na domenie wirtualnej (https://geek.justjoin.it/zalety-wady-reactjs/#7_Virtual_DOM  )
+	- możliwość wykorzystania dowolnego backendu
+	- dowolność stylowania (nie narzuca sposobu stylowania)
+- komponenty wielokrotnego użytku (raz stworzone komponenty można używać do woli, unikanie duplikowania kodu)
+
+Dlaczego JS:
+	- prosta i intuicyjna składnia
+	- popularność ( łatwość znalezienia poradników i kursów)
+	- uniwersalność ( kod JS pozwala na wykonanie niemalże dowolnego działania na stronie od zmiany koloru czcionki zaczynając, kończąc na zaawansowanych operacjach czyniących interaktywną stronę internetową)
