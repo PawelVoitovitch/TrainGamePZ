@@ -1,0 +1,6 @@
+Dlaczego SpringBoot:
+-mała lub nawet brak potrzeby konfiguracji(w porównaniu do Springa)
+-szybkość pisania kodu- adnotacje
+-łatwa komunikacja z bazą danych- Hibernate
+-proste dodawanie potrzebnych bibliotek- Maven
+-szeroka gama bibliotek Javovych ułatwiających pracę np.Lomobk
