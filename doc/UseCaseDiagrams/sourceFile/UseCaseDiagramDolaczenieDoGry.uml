@@ -73,13 +73,13 @@
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">136</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">224</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">230</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">241</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">45</XPD:ATTR>
 <XPD:REF name="Model">FRKHs4vBtUm/gYQOO6V1FwAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="YfUc5MTAJkOSIdRctvJwrgAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="GEVBwibcqESARJVeEndL2AAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">Klikniecie w otrzymany link</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">Wpisanie otrzymanego kodu</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="GxcRp+1AeUm736Ni6llG6wAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -254,7 +254,7 @@
 <XPD:OBJ name="OwnedViews[6]" type="UMLExtendView" guid="2fchQHmhlUOpcJYTOIPmogAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">488,188;340,224</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">489,188;344,224</XPD:ATTR>
 <XPD:REF name="Model">oYe58arG0kqDsgMp2Xnd9QAA</XPD:REF>
 <XPD:REF name="Head">toL2s3lEg06O+7hLcEl3qAAA</XPD:REF>
 <XPD:REF name="Tail">Id0ZcJNSAUqNZ0IVWBy5lwAA</XPD:REF>
@@ -306,7 +306,7 @@
 <XPD:OBJ name="OwnedViews[8]" type="UMLExtendView" guid="jXMEpotmqUOv1zwV1prWjgAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">524,360;303,268</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">525,360;308,268</XPD:ATTR>
 <XPD:REF name="Model">VJMWg2Sd+06NNNluIW6oCwAA</XPD:REF>
 <XPD:REF name="Head">toL2s3lEg06O+7hLcEl3qAAA</XPD:REF>
 <XPD:REF name="Tail">oTH43W78UUOJTROLNp4mGgAA</XPD:REF>
@@ -353,7 +353,7 @@
 <XPD:REF name="Associations[0]">N3+Xcp2teEqqqEDyTQjwPgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[1]" type="UMLUseCase" guid="FRKHs4vBtUm/gYQOO6V1FwAA">
-<XPD:ATTR name="Name" type="string">Klikniecie w otrzymany link</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">Wpisanie otrzymanego kodu</XPD:ATTR>
 <XPD:REF name="Namespace">pwnPb75ZzkCenk9hiRr4FAAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">toL2s3lEg06O+7hLcEl3qAAA</XPD:REF>
@@ -392,8 +392,8 @@
 <XPD:REF name="Participant">l2astm6dj0yoaYMpU/NauwAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">u/AShi26606q+rTQUIMWJAAA</XPD:REF>
-<XPD:REF name="Views[1]">9jL8F9wQiEOZbb5f9k+J8wAA</XPD:REF>
-<XPD:REF name="Views[2]">Zh9XKJNTlkSXdd0jKPHYgQAA</XPD:REF>
+<XPD:REF name="Views[1]">Zh9XKJNTlkSXdd0jKPHYgQAA</XPD:REF>
+<XPD:REF name="Views[2]">9jL8F9wQiEOZbb5f9k+J8wAA</XPD:REF>
 <XPD:REF name="Views[3]">jNURLPCL5EOvKXdNDFREoAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Connections[1]" type="UMLAssociationEnd" guid="bKyyMRYVjkCkyoNOeQDadAAA">
@@ -401,8 +401,8 @@
 <XPD:REF name="Participant">FRKHs4vBtUm/gYQOO6V1FwAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">RM52gVrdXEu+BBUzgjugQQAA</XPD:REF>
-<XPD:REF name="Views[1]">Y6zwLQOKwk6xmcypayebQgAA</XPD:REF>
-<XPD:REF name="Views[2]">BL/kJ+DiQUK4OAOXwPWNPQAA</XPD:REF>
+<XPD:REF name="Views[1]">BL/kJ+DiQUK4OAOXwPWNPQAA</XPD:REF>
+<XPD:REF name="Views[2]">Y6zwLQOKwk6xmcypayebQgAA</XPD:REF>
 <XPD:REF name="Views[3]">NekPFxU3kEaPKVRctYbr+AAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>

@@ -249,13 +249,13 @@
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">172</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">216</XPD:ATTR>
-<XPD:ATTR name="Width" type="integer">306</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">308</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">45</XPD:ATTR>
 <XPD:REF name="Model">9t5EIo08l0mQbjzMdZepEgAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="JFwv3iVtG0+gWh2IbTJiIQAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="ynaeTI+xAUyw5kxmtU/1gAAA">
 <XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">rozeslanie linku na dolaczenie do gry</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">rozeslanie kodu na dolaczenie do gry</XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="rhsSJOfyzkK7bC+0drQUVQAA">
 <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
@@ -313,7 +313,7 @@
 <XPD:OBJ name="OwnedViews[8]" type="UMLExtendView" guid="1mKUvQJSz0Wpb7ukZb3CRQAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">556,167;396,216</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">556,167;397,216</XPD:ATTR>
 <XPD:REF name="Model">PqeafrArRE6eEV6FOnp9QgAA</XPD:REF>
 <XPD:REF name="Head">y7u/iifXv0i9m5b4s2yQrAAA</XPD:REF>
 <XPD:REF name="Tail">XZdENcFiGUSLWHGuhd9O5QAA</XPD:REF>
@@ -339,7 +339,7 @@
 <XPD:OBJ name="OwnedViews[9]" type="UMLIncludeView" guid="nbMb7BtJYkyHjo1q3i9a1QAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">485,300;381,260</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">485,300;382,260</XPD:ATTR>
 <XPD:REF name="Model">2XW6wx0Yk0uotIDOKyaHeAAA</XPD:REF>
 <XPD:REF name="Head">y7u/iifXv0i9m5b4s2yQrAAA</XPD:REF>
 <XPD:REF name="Tail">Ox2s8qwSkEu6jqGJtqHrAAAA</XPD:REF>
@@ -375,7 +375,7 @@
 <XPD:OBJ name="OwnedViews[11]" type="UMLAssociationView" guid="waZDM6yqAU2A+uafpHmSGwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">106,308;255,260</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">106,308;256,260</XPD:ATTR>
 <XPD:REF name="Model">2JpCgKE1cEue2+FpK40icwAA</XPD:REF>
 <XPD:REF name="Head">y7u/iifXv0i9m5b4s2yQrAAA</XPD:REF>
 <XPD:REF name="Tail">/I7pLKYqpUyLEoRViAhhQgAA</XPD:REF>
@@ -488,7 +488,7 @@
 <XPD:REF name="Includes[0]">2XW6wx0Yk0uotIDOKyaHeAAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[2]" type="UMLUseCase" guid="9t5EIo08l0mQbjzMdZepEgAA">
-<XPD:ATTR name="Name" type="string">rozeslanie linku na dolaczenie do gry</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">rozeslanie kodu na dolaczenie do gry</XPD:ATTR>
 <XPD:REF name="Namespace">jdPfInyZ8kCfu8SQEO3KSwAA</XPD:REF>
 <XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
 <XPD:REF name="Views[0]">y7u/iifXv0i9m5b4s2yQrAAA</XPD:REF>
