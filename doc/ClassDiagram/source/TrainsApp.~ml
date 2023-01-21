@@ -1570,7 +1570,7 @@
 <XPD:ATTR name="Left" type="integer">2300</XPD:ATTR>
 <XPD:ATTR name="Top" type="integer">236</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">247</XPD:ATTR>
-<XPD:ATTR name="Height" type="integer">225</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">238</XPD:ATTR>
 <XPD:REF name="Model">A6V3tfxxSk+r5DhRTlDmpwAA</XPD:REF>
 <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="SAAE1sj7WUqznNyqZxiRWwAA">
 <XPD:OBJ name="NameLabel" type="LabelView" guid="KHyiTB6EE06Dedl2nSwniQAA">
@@ -1629,7 +1629,7 @@
 <XPD:OBJ name="OwnedViews[36]" type="UMLAssociationView" guid="6MYx5yLs+0GxXJHLkjO9ygAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2310,520;2349,460</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2311,520;2343,473</XPD:ATTR>
 <XPD:REF name="Model">nhSS6I8nUEKjVVhPPEwGSQAA</XPD:REF>
 <XPD:REF name="Head">o6AfKKmyTUWR49lHN+HGcgAA</XPD:REF>
 <XPD:REF name="Tail">eRZaV9yde0O4iqTXZRAiQAAA</XPD:REF>
@@ -2091,7 +2091,7 @@
 <XPD:OBJ name="OwnedViews[46]" type="UMLDependencyView" guid="5uM27bEe30+TxBPQ/sedewAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2176,346;2300,347</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2176,348;2300,351</XPD:ATTR>
 <XPD:REF name="Model">fgnhdyvfFkCO5hFsIWXZ6gAA</XPD:REF>
 <XPD:REF name="Head">o6AfKKmyTUWR49lHN+HGcgAA</XPD:REF>
 <XPD:REF name="Tail">kGZ+pnVIWEO6u890Kz3RDwAA</XPD:REF>
@@ -4436,7 +4436,7 @@
 <XPD:REF name="TypedParameters[1]">mLYURIkZtk6+W2+mSBCd8wAA</XPD:REF>
 <XPD:ATTR name="#Associations" type="integer">1</XPD:ATTR>
 <XPD:REF name="Associations[0]">htpn5k+JMkKg7P3s/D8bbAAA</XPD:REF>
-<XPD:ATTR name="#Attributes" type="integer">7</XPD:ATTR>
+<XPD:ATTR name="#Attributes" type="integer">8</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="yz8lfxXomkm2zvY5pbuyWQAA">
 <XPD:ATTR name="Name" type="string">id</XPD:ATTR>
 <XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
@@ -4478,6 +4478,12 @@
 <XPD:ATTR name="Name" type="string">enabled</XPD:ATTR>
 <XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">Boolean</XPD:ATTR>
+<XPD:REF name="Owner">A6V3tfxxSk+r5DhRTlDmpwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Attributes[7]" type="UMLAttribute" guid="NHmsNE/mGU+u6/U+nghpfwAA">
+<XPD:ATTR name="Name" type="string">role</XPD:ATTR>
+<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
+<XPD:ATTR name="TypeExpression" type="string">String</XPD:ATTR>
 <XPD:REF name="Owner">A6V3tfxxSk+r5DhRTlDmpwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
@@ -5417,7 +5423,6 @@
 <XPD:ATTR name="#Operations" type="integer">3</XPD:ATTR>
 <XPD:OBJ name="Operations[0]" type="UMLOperation" guid="mCj+lBXVdE2oTCN06Op42QAA">
 <XPD:ATTR name="Name" type="string">saveToken</XPD:ATTR>
-<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
 <XPD:REF name="Owner">4Xo7sAEctE+FMB6q1WBnvgAA</XPD:REF>
 <XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
 <XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="J+Kzvq5ofU2Ts5ImtZSlIgAA">
@@ -5433,7 +5438,6 @@
 </XPD:OBJ>
 <XPD:OBJ name="Operations[1]" type="UMLOperation" guid="vnGvfU/lekCjEqhlyc3KbwAA">
 <XPD:ATTR name="Name" type="string">getToken</XPD:ATTR>
-<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
 <XPD:REF name="Owner">4Xo7sAEctE+FMB6q1WBnvgAA</XPD:REF>
 <XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
 <XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="MyVXfL1rSUm2Ms5aZvkfGQAA">
@@ -5449,7 +5453,6 @@
 </XPD:OBJ>
 <XPD:OBJ name="Operations[2]" type="UMLOperation" guid="a0QSppgJVE6p2AmM1mFI+AAA">
 <XPD:ATTR name="Name" type="string">setConfirmation</XPD:ATTR>
-<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
 <XPD:REF name="Owner">4Xo7sAEctE+FMB6q1WBnvgAA</XPD:REF>
 <XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
 <XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="CKFGonlsqkKsQ5R4iv7KtQAA">
