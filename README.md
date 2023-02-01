@@ -1,6 +1,8 @@
 
 # Train Game
 
+https://docs.google.com/document/d/1S7zgQhnVAtx4eOaVBSJujdr2iT0fE728yZbA4pfw7Q8/edit
+
 🇬🇧
 Internet version of the board game "Ticket to ride". It allows free gameplay (and fun!) with friends without the need to download.
 
@@ -8,10 +10,7 @@ Internet version of the board game "Ticket to ride". It allows free gameplay (an
 Internetowa wersja gry planszowej "Wsiąść do pociągu". Umożliwia darmową rozgrywkę (i rozrywkę!) ze znajomymi bez konieczności pobierania.
 
 
-![App Screenshot](https://github.com/PawelVoitovitch/TrainGamePZ/blob/main/doc/GUIMockups/3.%20Game%20Page.png)
-
-
-![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
+![App Screenshot](https://raw.githubusercontent.com/PawelVoitovitch/TrainGamePZ/main/doc/Art/GUIMockups/3.%20Game%20Page.png)
 
 
 ## Rules
