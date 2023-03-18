@@ -1,0 +1,29 @@
+8 kolorów kart:
+-różowy
+-biały
+-niebieski
+-żółty
+-pomarańczowy
+-czarny
+-czerwony
+-zielony
+-(+ dziewiąty tęczowy)
+
+92 karty pociagów:
+-10 różowych
+-10 białych
+-10 niebieskich
+-10 żółtych
+-10 pomarańczowych
+-10 czarnych
+-10 czerwonych
+-10 zielonych
+-12 tęczowych
+
+24 karty ticketów (CityFrom->CityDestination)
+
+140 pociągów (przy grze dla 4 graczy):
+-35 pociągów w kolorze niebieskim
+-35 pociągów w kolorze czerwonym
+-35 pociągów w kolorze zielonym
+-35 pociągów w kolorze żółtym

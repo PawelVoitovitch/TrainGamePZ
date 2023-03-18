@@ -1,0 +1,24 @@
+1.	Saint Louis - Salt Lake City	5
+2.	Houston - Miami 		5
+3.	Chicago - Helena 		5
+4.	Dallas - San Francisco		6
+5.	Toronto - New Orleans		7
+6.	Hawaje - Portland 		7
+7.	Miami - Phoenix			7
+8.	Hawaje - Kansas City		7
+9.	Dallas - Salt Lake City		7
+10.	New Orleans - Omaha 		8
+11.	Winnipeg - Washington		8
+12.	Toronto - Portland		10
+13.	Saint Louis - Winnipeg		10
+14.	Boston - Miami			11
+15.	Los Angeles - Atlanta		13
+16.	Helena - Atlanta 		13
+17.	Omaha - San Francisco		13
+18.	New York -Phoenix		13
+19.	Washington - Helena		16
+20.	Helena - Atlanta		20
+21	Winnipeg - Miami		20
+22.	Seattle - New York		20
+23. 	Portland - Miami 		22
+24. 	Boston - Hawaje			22
