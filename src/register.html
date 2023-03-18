@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koleją przez stany</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="./dist/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.1.96/css/materialdesignicons.min.css">
+<script src="https://kit.fontawesome.com/7e5f0f75ea.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <nav class="nav">
+    <div class="wrapper">
+        <div class="nav_navigation">
+            <a href="index.html" class="nav_navigation-logo"><img src="./dist/img/logo-min.png" alt="game logo"></a>
+            <ul class="nav_navigation-list">
+                <li class="element"><a href="#" class="link">About Game</a></li>
+                <li class="element"><a href="#" class="link">Contact Us</a></li>
+                <li class="element" id="login"><a href="#" class="link">Login</a></li>
+                <li class="element"><a href="register.html" class="link">Register</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <main class="register">
+        <div class="wrapper">
+
+            <div class="mainRegister">
+                <section class="main_login">
+    <div class="email">
+        <input type="email" id="email" placeholder="Email">
+    </div>
+    <div class="pass">
+        <input type="password" id="password" placeholder="Password">
+    </div>
+    <div class="check">
+        <input type="checkbox" id="checkbox">
+        <label for="checkbox">Remember me</label>
+    </div>
+    <button class="send">Login</button>
+</section>
+
+                <section class="registerForm">
+                    <input type="text" placeholder="Login" id="login" class="inputRegister">
+                    <input type="email" placeholder="Email" id="email" class="inputRegister">
+                    <input type="password" placeholder="Password" id="password" class="inputRegister">
+                    <input type="password" placeholder="Confirm Password" id="confirmPassword" class="inputRegister">
+                    <div class="checkTerms inputRegister">
+                        <input type="checkbox" id="terms">
+                        <label for="terms"> I accept terms and conditions</label>
+                    </div>
+                    <button class="registerButton inputRegister">Register</button>
+                </section>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="./dist/js/main.js"></script>
+</body>
+
+</html>

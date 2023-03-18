@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koleją przez stany</title>
+    <!-- @include 'link.kit' -->
+</head>
+
+<body>
+
+    <!-- @include 'nav.kit' -->
+    <main class="register">
+        <div class="wrapper">
+
+            <div class="mainRegister">
+                <!-- @include 'loginForm.kit' -->
+
+                <section class="registerForm">
+                    <input type="text" placeholder="Login" id="login" class="inputRegister">
+                    <input type="email" placeholder="Email" id="email" class="inputRegister">
+                    <input type="password" placeholder="Password" id="password" class="inputRegister">
+                    <input type="password" placeholder="Confirm Password" id="confirmPassword" class="inputRegister">
+                    <div class="checkTerms inputRegister">
+                        <input type="checkbox" id="terms">
+                        <label for="terms"> I accept terms and conditions</label>
+                    </div>
+                    <button class="registerButton inputRegister">Register</button>
+                </section>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="./dist/js/main.js"></script>
+</body>
+
+</html>

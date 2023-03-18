@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koleją przez stany</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="./dist/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.1.96/css/materialdesignicons.min.css">
+<script src="https://kit.fontawesome.com/7e5f0f75ea.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="nav">
+    <div class="wrapper">
+        <div class="nav_navigation">
+            <a href="index.html" class="nav_navigation-logo"><img src="./dist/img/logo-min.png" alt="game logo"></a>
+            <ul class="nav_navigation-list">
+                <li class="element"><a href="#" class="link">About Game</a></li>
+                <li class="element"><a href="#" class="link">Contact Us</a></li>
+                <li class="element" id="login"><a href="#" class="link">Login</a></li>
+                <li class="element"><a href="register.html" class="link">Register</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <main class="mainCreate">
+        <div class="wrapper">
+            <div class="main">
+                <section class="main_login">
+    <div class="email">
+        <input type="email" id="email" placeholder="Email">
+    </div>
+    <div class="pass">
+        <input type="password" id="password" placeholder="Password">
+    </div>
+    <div class="check">
+        <input type="checkbox" id="checkbox">
+        <label for="checkbox">Remember me</label>
+    </div>
+    <button class="send">Login</button>
+</section>
+                <div class="mainCreateBox">
+                    <section class="boxLeft">
+                        <h1 class="boxLeft_title">
+                            Your Name's Table
+                        </h1>
+                        <div class="boxLeft_users">
+                            <div class="boxLeft_users-user">
+                                <span class="mdi mdi-train-car-box icon"></span>
+                                <p class="text">Your Name</p>
+                            </div>
+                            <div class="boxLeft_users-user">
+                                <span class="mdi mdi-train-car-box icon"></span>
+                                <p class="text">Your Name</p>
+                            </div>
+                            <div class="boxLeft_users-user">
+                                <span class="mdi mdi-train-car-box icon"></span>
+                                <p class="text">Your Name</p>
+                            </div>
+                            <div class="boxLeft_users-user">
+                                <span class="mdi mdi-train-car-box icon"></span>
+                                <p class="text">Your Name</p>
+                            </div>
+                            <div class="boxLeft_users-user">
+                                <span class="mdi mdi-train-car-box icon"></span>
+                                <p class="text">Your Name</p>
+                            </div>
+                            <div class="boxLeft_users-user">
+                                <span class="mdi mdi-train-car-box icon"></span>
+                                <p class="text">Your Name</p>
+                            </div>
+                            <div class="boxLeft_users-user">
+                                <span class="mdi mdi-train-car-box icon"></span>
+                                <p class="text">Your Name</p>
+                            </div>
+                            <div class="boxLeft_users-user">
+                                <span class="mdi mdi-train-car-box icon"></span>
+                                <p class="text">Your Name</p>
+                            </div>
+
+                        </div>
+                    </section>
+                    <section class="boxRight">
+                        <div class="boxRight_game-setup">
+                            <div class="boxRight_game-setup-players">
+                                <label for="players">Players: </label>
+                                <input type="number" min="4" max="8" id="players" placeholder="4">
+                            </div>
+                            <div class="boxRight_game-setup-turnTime">
+                                <label for="turnTime">Turn time: <p class="minutes">(in minutes)</p></label>
+                                <input type="number" min="1" max="10" id="turnTime" placeholder="1">
+                            </div>
+                            <div class="boxRight_game-setup-inviteLink">
+                                <label for="inviteLink">Invite:</label>
+                                <p id="inviteLink">https://ride.gg/ab3Fsg</p>
+                            </div>
+                        </div>
+                        <div class="boxRight_game-buttons">
+                            <button class="boxRight_game-buttons-button"> <a href="#" class="link">Start
+                                    Game</a></button>
+                            <button class="boxRight_game-buttons-button"> <a href="#" class="link">Leave</a></button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="./dist/js/main.js"></script>
+</body>
+
+</html>
