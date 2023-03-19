@@ -146,10 +146,12 @@ public class GameService {
     }
 
     public Game connectToGame(String login, String gameId){
-        if (!GamesStorage.getInstance().getGames().containsKey(gameId)){
-            return new Game();
-        }
+//        if (!GamesStorage.getInstance().getGames().containsKey(gameId)){
+//            return null;
+//        }
         Game game = GamesStorage.getInstance().getGames().get(gameId);
+        if(game.getPlayers().size()>=4)
+            return null;
         Player player = new Player();
         player.setLogin(login);
         player.setPlayerColor(PlayerColor.RED);
