@@ -17,7 +17,7 @@ public class GameService {
         //player
         Player player = new Player();
         player.setLogin(login);
-        player.setPlayerColor(PlayerColor.RED);
+        player.setPlayerColor(PlayerColor.BLUE);
         player.setPoints(0);
         player.setTrains(35);
         player.setTicketCards(new ArrayList<TicketCard>());
@@ -146,15 +146,20 @@ public class GameService {
     }
 
     public Game connectToGame(String login, String gameId){
-//        if (!GamesStorage.getInstance().getGames().containsKey(gameId)){
-//            return null;
-//        }
+        if (!GamesStorage.getInstance().getGames().containsKey(gameId)){
+            return null;
+        }
         Game game = GamesStorage.getInstance().getGames().get(gameId);
         if(game.getPlayers().size()>=4)
             return null;
         Player player = new Player();
         player.setLogin(login);
-        player.setPlayerColor(PlayerColor.RED);
+        if(game.getPlayers().size()==1)
+            player.setPlayerColor(PlayerColor.RED);
+        if(game.getPlayers().size()==2)
+            player.setPlayerColor(PlayerColor.GREEN);
+        if(game.getPlayers().size()==3)
+            player.setPlayerColor(PlayerColor.YELLOW);
         player.setPoints(0);
         player.setTrains(35);
         player.setTicketCards(new ArrayList<TicketCard>());
