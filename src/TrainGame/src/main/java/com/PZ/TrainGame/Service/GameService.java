@@ -145,10 +145,17 @@ public class GameService {
 
     }
 
+    public boolean isGameCreated(String gameId){
+        return (GamesStorage.getInstance().getGames().get(gameId)!=null);
+    }
+
+    public Game getGame(String gameId){
+        return GamesStorage.getInstance().getGames().get(gameId);
+    }
     public Game connectToGame(String login, String gameId){
-        if (!GamesStorage.getInstance().getGames().containsKey(gameId)){
-            return null;
-        }
+//        if (!GamesStorage.getInstance().getGames().containsKey(gameId)){
+//            return null;
+//        }
         Game game = GamesStorage.getInstance().getGames().get(gameId);
         if(game.getPlayers().size()>=4)
             return null;

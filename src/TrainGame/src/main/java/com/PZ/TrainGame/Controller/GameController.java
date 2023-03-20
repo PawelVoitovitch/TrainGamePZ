@@ -27,12 +27,14 @@ public class GameController {
     @PostMapping(path = "/join")
     public Game joinGame(@RequestBody ConnectDTO connectDTO){
         try {
+            if(gameService.getGame(connectDTO.getGameId()).getPlayers().size()>=4)
+                throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Game full");
             Game game = gameService.connectToGame(connectDTO.getPlayer(), connectDTO.getGameId());
             return game;
         }
-        catch (GameNotFoundException exception){
+        catch (Exception exception){
             throw new ResponseStatusException(
-                    HttpStatus.NOT_FOUND, "Game not found", exception);
+                    HttpStatus.NOT_FOUND, "Game not found");
         }
     }
 
