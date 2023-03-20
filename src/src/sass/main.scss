@@ -1,0 +1,444 @@
+@use "./colors" as c;
+@use "./animation" as a;
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	position: relative;
+	min-height: 100vh;
+	width: 100%;
+	font-size: 1.6rem;
+	background-color: c.$background;
+	color: c.$dark;
+	font-family: "Open Sans", sans-serif;
+}
+
+.wrapper {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1200px;
+	height: 100%;
+}
+
+.link {
+	text-decoration: none;
+	color: c.$milk-white;
+	text-transform: uppercase;
+}
+
+.nav {
+	width: 100%;
+	background-color: c.$dark;
+	margin: 0;
+	padding: 0;
+	&_navigation {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 100px;
+
+		&-logo {
+			height: 100%;
+			margin-left: 1em;
+			cursor: pointer;
+			img {
+				height: 100%;
+			}
+		}
+		&-list {
+			height: 100%;
+
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			flex-direction: row;
+
+			.element {
+				height: 100%;
+				width: auto;
+				font-size: 1.4rem;
+				transition: background-color 0.5s;
+				.link {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					padding: 0 1em;
+					height: 100%;
+					width: 100%;
+					transition: color 0.5s;
+				}
+				.link:hover {
+					color: c.$dark;
+				}
+				.link:nth-last-child(n) {
+					margin-right: 1em;
+				}
+			}
+
+			.element:hover {
+				background-color: c.$beige;
+			}
+		}
+	}
+}
+main {
+	.backgroundPopup {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(128, 128, 128, 0.9);
+		z-index: 1;
+		display: none;
+	}
+	.main {
+		position: relative;
+		width: 100%;
+		height: calc(100vh - 100px);
+		&_section {
+			width: 100%;
+			min-height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			.logo {
+				padding: 0.5em;
+			}
+
+			.link-btn {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 2.5rem;
+				border-radius: 20px;
+				height: 60px;
+				width: 250px;
+				text-decoration: none;
+				border: none;
+				color: c.$milk-white;
+				text-transform: uppercase;
+				margin-bottom: 1.5em;
+				cursor: pointer;
+				background-color: c.$red;
+				box-shadow: 0 0 10px 5px c.$red;
+				transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+			}
+			.link-btn:hover {
+				background-color: c.$beige;
+				box-shadow: 0 0 10px 5px c.$beige;
+				color: c.$grey;
+			}
+		}
+		&_login {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			flex-direction: column;
+			position: absolute;
+			padding: 1em;
+			top: 0;
+			right: 5%;
+			width: 250px;
+			height: 175px;
+			border-bottom-left-radius: 20px;
+			border-bottom-right-radius: 20px;
+			background-color: c.$beige;
+			visibility: hidden;
+
+			.email,
+			.pass {
+				width: 100%;
+				#email,
+				#password {
+					width: 100%;
+					padding: 0.5em;
+					border-radius: 10px;
+					border: none;
+				}
+			}
+			.check {
+				font-size: 1.2rem;
+			}
+
+			.send {
+				width: 100%;
+				padding: 0.5em;
+				border-radius: 10px;
+				border: none;
+				cursor: pointer;
+				background-color: c.$red;
+				color: c.$milk-white;
+				box-shadow: 0 0 5px 2px c.$red;
+				text-transform: uppercase;
+				transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+			}
+
+			.send:hover {
+				color: c.$dark;
+				background-color: c.$milk-white;
+				box-shadow: 0 0 5px 2px c.$milk-white;
+			}
+		}
+
+		.popup {
+			display: none;
+			justify-content: center;
+			align-items: flex-end;
+			flex-direction: column;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 500px;
+			height: 200px;
+			border-radius: 15px;
+			padding: 2em 1em;
+			background-color: c.$grey;
+			box-shadow: 0 0 20px 10px c.$grey;
+			z-index: 5;
+			.textPopup {
+				display: flex;
+				justify-content: start;
+				align-items: flex-start;
+				flex-direction: column;
+				width: 100%;
+				height: 150px;
+				color: c.$milk-white;
+
+				#inviteLink {
+					margin-top: 1em;
+					width: 100%;
+					padding: 0.5em;
+				}
+			}
+
+			.joinToGame {
+				width: 100px;
+				padding: 0.5em;
+				border-radius: 10px;
+				border: none;
+				background-color: c.$red;
+				color: c.$milk-white;
+				text-transform: uppercase;
+				box-shadow: 0 0 10px 4px c.$red;
+				transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+				cursor: pointer;
+			}
+
+			.joinToGame:hover {
+				background-color: c.$milk-white;
+				color: c.$grey;
+				box-shadow: 0 0 10px 4px c.$milk-white;
+			}
+		}
+	}
+}
+
+.mainCreate {
+	width: 100%;
+	height: calc(100vh - 100px);
+	padding: 0 1em;
+	.mainCreateBox {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		flex-direction: row;
+		height: 100%;
+		width: 100%;
+		padding: 5em 0;
+		.boxLeft {
+			width: 60%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			flex-direction: column;
+			margin-right: 1em;
+			&_title {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				min-height: 20%;
+				width: 100%;
+				background-color: c.$dark;
+				padding: 1em;
+				font-size: 3rem;
+				color: c.$milk-white;
+				text-align: center;
+				border-radius: 20px;
+			}
+			&_users {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				width: 100%;
+				min-height: 70%;
+				flex-wrap: wrap;
+				background-color: c.$beige;
+				border-radius: 20px;
+				&-user {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					flex-direction: row;
+					font-size: 2.5rem;
+					padding: 0.5em;
+					width: 45%;
+					.icon {
+						font-size: 3rem;
+						margin-right: 0.5em;
+					}
+				}
+			}
+		}
+		.boxRight {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			flex-direction: column;
+			width: 30%;
+			min-height: 100%;
+			background-color: c.$grey;
+			padding: 1em;
+			border-radius: 20px;
+			color: c.$milk-white;
+			&_game-setup {
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				flex-direction: column;
+				height: 60%;
+				width: 100%;
+				&-players,
+				&-turnTime,
+				&-inviteLink {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					width: 100%;
+					padding: 0.5em;
+					font-size: 2rem;
+				}
+				.minutes {
+					font-size: 1.5rem;
+				}
+				#players,
+				#turnTime,
+				#inviteLink {
+					width: 100px;
+					text-align: center;
+					padding: 0.3em;
+					border: none;
+					border-radius: 4em;
+				}
+				#inviteLink {
+					margin-top: 1em;
+					width: 100%;
+					background-color: c.$milk-white;
+					color: c.$dark;
+				}
+
+				&-inviteLink {
+					margin-top: 2em;
+					flex-direction: column;
+					align-items: start;
+				}
+			}
+			&_game-buttons {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+				width: 100%;
+				&-button {
+					margin: 0.7em;
+					width: 80%;
+					border: none;
+					border-radius: 20px;
+					box-shadow: 0 0 10px 4px c.$red;
+
+					transition: box-shadow 0.3s;
+					a {
+						border-radius: 20px;
+						background-color: c.$red;
+						padding: 1em;
+						display: block;
+						color: c.$milk-white;
+						width: 100%;
+						height: 100%;
+						cursor: pointer;
+						transition: background-color 0.3s, color 0.3s;
+					}
+					a:hover {
+						background-color: c.$milk-white;
+						color: c.$dark;
+					}
+				}
+				&-button:hover {
+					box-shadow: 0 0 10px 4px c.$milk-white;
+				}
+			}
+		}
+	}
+}
+
+.mainRegister {
+	position: relative;
+	width: 100%;
+	height: calc(100vh - 100px);
+	.registerForm {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+
+		.inputRegister {
+			margin: 0.6em;
+			width: 40%;
+			padding: 0.5em;
+			border-radius: 10px;
+			border: none;
+			font-size: 2rem;
+		}
+
+		.checkTerms {
+			font-size: 1.5rem;
+			color: c.$milk-white;
+		}
+
+		.registerButton {
+			margin-top: 1em;
+			background-color: c.$red;
+			color: c.$milk-white;
+			box-shadow: 0 0 10px 4px c.$red;
+			padding: 0.5em;
+			cursor: pointer;
+			transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+			text-transform: uppercase;
+		}
+
+		.registerButton:hover {
+			background-color: c.$beige;
+			color: c.$dark;
+			box-shadow: 0 0 10px 4px c.$beige;
+		}
+	}
+}
