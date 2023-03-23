@@ -4,8 +4,8 @@ const btnJoin = document.querySelector(".joinToGame");
 
 btnJoin.addEventListener("click", async (event) => {
 	event.preventDefault();
-	const playerName = playerNameInput.value;
-	const gameId = gameIdInput.value;
+	let playerName = playerNameInput.value;
+	let gameId = gameIdInput.value;
 	console.log(playerName);
 	console.log(gameId);
 	const response = await fetch(`${url}/join`, {
@@ -24,6 +24,8 @@ btnJoin.addEventListener("click", async (event) => {
 		popupText.textContent = "Joined to game";
 		popupBtn.addEventListener("click", () => {
 			window.location.href = `/lobby.html?gameId=${game.id}`;
+			hidePopup();
+			popupAlert.classList.remove("showAlertPopup");
 		});
 		popupAlert.classList.add("showAlertPopup");
 	} else {
@@ -38,14 +40,12 @@ btnJoin.addEventListener("click", async (event) => {
 			popupText.textContent = `Set the player's name`;
 			popupBtn.addEventListener("click", () => {
 				popupAlert.classList.remove("showAlertPopup");
-				gameIdInput.value = "";
 			});
 			popupAlert.classList.add("showAlertPopup");
 		} else if (gameId === "") {
 			popupText.textContent = `Set the game's ID`;
 			popupBtn.addEventListener("click", () => {
 				popupAlert.classList.remove("showAlertPopup");
-				playerNameInput.value = "";
 			});
 			popupAlert.classList.add("showAlertPopup");
 		} else {
@@ -53,7 +53,6 @@ btnJoin.addEventListener("click", async (event) => {
 			popupBtn.addEventListener("click", () => {
 				popupAlert.classList.remove("showAlertPopup");
 				gameIdInput.value = "";
-				playerNameInput.value = "";
 			});
 			popupAlert.classList.add("showAlertPopup");
 		}

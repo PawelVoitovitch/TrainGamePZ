@@ -24,6 +24,10 @@ createButton.addEventListener("click", async (event) => {
 		popupText.textContent = "Created new game";
 		popupBtn.addEventListener("click", () => {
 			window.location.href = `/lobby.html?gameId=${game.id}`;
+			popup.style.display = "none";
+			backgroundPopup.style.display = "none";
+			playerName.value = "";
+			popupAlert.classList.remove("showAlertPopup");
 		});
 		popupAlert.classList.add("showAlertPopup");
 	} else {
