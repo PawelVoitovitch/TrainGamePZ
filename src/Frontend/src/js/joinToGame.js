@@ -23,9 +23,7 @@ btnJoin.addEventListener("click", async (event) => {
 		console.log(`Dołączyłeś do gry ${game.id} jako ${playerName}`);
 		popupText.textContent = "Joined to game";
 		popupBtn.addEventListener("click", () => {
-			window.location.href = `/lobby.html?gameId=${
-				game.id
-			}&players=${JSON.stringify(game.players)}`;
+			window.location.href = `/lobby.html?gameId=${game.id}`;
 		});
 		popupAlert.classList.add("showAlertPopup");
 	} else {

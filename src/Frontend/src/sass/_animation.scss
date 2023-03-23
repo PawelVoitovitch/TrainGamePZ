@@ -6,3 +6,32 @@
 		opacity: 1;
 	}
 }
+
+@keyframes showAlert {
+	from {
+		top: -300px;
+		opacity: 0;
+	}
+	to {
+		top: 50px;
+		opacity: 1;
+	}
+}
+
+@keyframes buttonPulse {
+	0% {
+		scale: 1;
+	}
+	40% {
+		scale: 1.2;
+	}
+	50% {
+		scale: 1;
+	}
+	60% {
+		scale: 1.2;
+	}
+	100% {
+		scale: 1;
+	}
+}

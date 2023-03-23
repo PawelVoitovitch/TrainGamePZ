@@ -23,7 +23,7 @@
             <ul class="nav_navigation-list">
                 <li class="element"><a href="#" class="link">About Game</a></li>
                 <li class="element"><a href="#" class="link">Contact Us</a></li>
-                <li class="element" id="login"><a href="#" class="link">Login</a></li>
+                <li class="element loginEL" id="login"><a href="#" class="link">Login</a></li>
                 <li class="element"><a href="register.html" class="link">Register</a></li>
             </ul>
         </div>
@@ -47,15 +47,20 @@
     <button class="send">Login</button>
 </section>
                 <div class="mainCreateBox">
+                    
+                    <div class="alertPopup">
+                        <p class="alertPopup_text">Jakiś tekst</p>
+                        <button class="alertPopup_btn">OK</button>
+                    </div>
+
                     <section class="boxLeft">
                         <h1 class="boxLeft_title">
                             Your Name's Table
                         </h1>
                         <div class="boxLeft_users">
-
-
                         </div>
                     </section>
+                    
                     <section class="boxRight">
                         <div class="boxRight_game-setup">
                             <div class="boxRight_game-setup-players">
@@ -80,11 +85,8 @@
                     </section>
                 </div>
             </div>
-            <div class="popup1 ">
-                <p class="popupText1"></p>
-                <button class="popupButton1">OK</button>
-            </div>
         </div>
+
     </main>
 
     <script src="../dist/js/lobby.js"></script>

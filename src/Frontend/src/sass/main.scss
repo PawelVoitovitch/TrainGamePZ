@@ -36,7 +36,9 @@ body {
 	color: c.$milk-white;
 	text-transform: uppercase;
 }
-
+// ===================
+// ===  NAWIGACJA ====
+// ===================
 .nav {
 	width: 100%;
 	background-color: c.$dark;
@@ -94,51 +96,18 @@ body {
 			}
 		}
 	}
+
+	.loginIsActive {
+		background-color: c.$beige;
+		color: c.$dark;
+	}
 }
+
+// ======================================
+// === STRONA TWORZENIA I DOŁĄCZANIA ====
+// ======================================
+
 main {
-	position: relative;
-
-	.alertPopup {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-direction: column;
-		position: absolute;
-		top: 50px;
-		right: 50px;
-		width: 300px;
-		height: 150px;
-		background-color: c.$milk-white;
-		border-radius: 10em;
-		overflow: hidden;
-		box-shadow: 0 0 20px 10px c.$red;
-		opacity: 0;
-		z-index: 100000;
-		&_text {
-			font-size: 2rem;
-			margin-bottom: 1em;
-		}
-		&_btn {
-			width: 100px;
-			height: 30px;
-			border: none;
-			border-radius: 20px;
-			background-color: c.$red;
-			color: c.$milk-white;
-			box-shadow: 0 0 5px 2px c.$red;
-			cursor: pointer;
-			transition: background-color 0.3s, box-shadow 0.3s;
-		}
-		&_btn:hover {
-			background-color: c.$grey;
-			box-shadow: 0 0 5px 2px c.$grey;
-		}
-	}
-
-	.showAlertPopup {
-		animation: popupAnimation 0.4s linear forwards;
-	}
-
 	.backgroundPopup {
 		position: fixed;
 		top: 0;
@@ -149,49 +118,6 @@ main {
 		display: none;
 	}
 
-	.popup1 {
-		position: absolute;
-		display: block;
-		background-color: c.$milk-white;
-		top: 5%;
-		left: 70%;
-		transform: translate(-50%, -50%);
-		min-height: 100px;
-		min-width: 200px;
-		border-radius: 10px;
-		box-shadow: 0 0 20px 20px red;
-		opacity: 0;
-
-		.popupText1 {
-			padding: 20px 20px;
-
-			text-align: center;
-			font-size: 1.5rem;
-		}
-		.popupButton1 {
-			position: absolute;
-			bottom: 15%;
-			right: 10%;
-			width: 50px;
-			border: none;
-			background-color: c.$red;
-			padding: 2px;
-			color: c.$milk-white;
-			border-radius: 15px;
-			cursor: pointer;
-			box-shadow: 0 0 3px 2px c.$red;
-			transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-		}
-		.popupButton1:hover {
-			background-color: c.$beige;
-			color: c.$grey;
-			box-shadow: 0 0 3px 2px c.$beige;
-		}
-	}
-
-	.active {
-		animation: popupAnimation 1s linear forwards;
-	}
 	.main {
 		position: relative;
 		width: 100%;
@@ -251,7 +177,7 @@ main {
 			border-bottom-right-radius: 20px;
 			background-color: c.$beige;
 			visibility: hidden;
-
+			z-index: 100;
 			.email,
 			.pass {
 				width: 100%;
@@ -341,11 +267,16 @@ main {
 	}
 }
 
+// ===================
+// ===  LOBBY ====
+// ===================
 .mainCreate {
 	width: 100%;
 	height: calc(100vh - 100px);
 	padding: 0 1em;
+
 	.mainCreateBox {
+		position: relative;
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
@@ -491,9 +422,21 @@ main {
 					box-shadow: 0 0 10px 4px c.$milk-white;
 				}
 			}
+
+			.start {
+				animation: buttonPulse 1.3s linear infinite;
+			}
 		}
 	}
+
+	.active {
+		animation: popupAnimation 1s linear forwards;
+	}
 }
+
+// =====================
+// ===  REJESTRACJA ====
+// =====================
 
 .mainRegister {
 	position: relative;
@@ -540,6 +483,10 @@ main {
 	}
 }
 
+// ============================
+// ===  USTAWIENIE KOLORÓW ====
+// ============================
+
 .BLUE {
 	color: blue;
 }
@@ -551,4 +498,48 @@ main {
 }
 .GREEN {
 	color: green;
+}
+
+// ============================
+// ===  POPUPY ALERTÓw ====
+// ============================
+.alertPopup {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	position: absolute;
+	top: -300px;
+	right: 50px;
+	width: 300px;
+	height: 150px;
+	background-color: c.$milk-white;
+	border-radius: 10em;
+	overflow: hidden;
+	box-shadow: 0 0 20px 10px c.$red;
+	opacity: 0;
+	z-index: 100000;
+	&_text {
+		font-size: 2rem;
+		margin-bottom: 1em;
+	}
+	&_btn {
+		width: 100px;
+		height: 30px;
+		border: none;
+		border-radius: 20px;
+		background-color: c.$red;
+		color: c.$milk-white;
+		box-shadow: 0 0 5px 2px c.$red;
+		cursor: pointer;
+		transition: background-color 0.3s, box-shadow 0.3s;
+	}
+	&_btn:hover {
+		background-color: c.$grey;
+		box-shadow: 0 0 5px 2px c.$grey;
+	}
+}
+
+.showAlertPopup {
+	animation: showAlert 0.4s linear forwards;
 }
