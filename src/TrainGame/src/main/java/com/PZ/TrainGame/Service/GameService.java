@@ -39,7 +39,7 @@ public class GameService {
         }
         trainDeck.add(TrainCard.RAINBOW);
         trainDeck.add(TrainCard.RAINBOW);
-        Collections.shuffle(trainDeck,new Random(100));
+        Collections.shuffle(trainDeck,new Random());
         game.setVisibleTrains(new TrainCard[]{trainDeck.get(0),trainDeck.get(1),trainDeck.get(2),trainDeck.get(3),trainDeck.get(4)});
         for (int i = 0; i < 5; i++)
             trainDeck.remove(0);
@@ -70,7 +70,7 @@ public class GameService {
         ticketDeck.add(TicketCard.Seattle_NewYork);
         ticketDeck.add(TicketCard.Portland_Miami);
         ticketDeck.add(TicketCard.Boston_Hawaje);
-        Collections.shuffle(ticketDeck,new Random(100));
+        Collections.shuffle(ticketDeck,new Random());
         game.setTicketDeck(ticketDeck);
         //Board
         ArrayList<BoardPlace> board = new ArrayList<>();
