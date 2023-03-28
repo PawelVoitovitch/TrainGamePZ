@@ -2,7 +2,9 @@ package com.PZ.TrainGame.Service;
 
 import com.PZ.TrainGame.Model.Game.*;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.*;
 
@@ -153,12 +155,11 @@ public class GameService {
         return GamesStorage.getInstance().getGames().get(gameId);
     }
     public Game connectToGame(String login, String gameId){
-//        if (!GamesStorage.getInstance().getGames().containsKey(gameId)){
-//            return null;
-//        }
         Game game = GamesStorage.getInstance().getGames().get(gameId);
+        if(game == null)
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Game of this id has not been found!");
         if(game.getPlayers().size()>=4)
-            return null;
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Game full");
         Player player = new Player();
         player.setLogin(login);
         if(game.getPlayers().size()==1)
