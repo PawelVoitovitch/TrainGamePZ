@@ -24,15 +24,18 @@
             <ul class="nav_navigation-list">
                 <li class="element"><a href="#" class="link">About Game</a></li>
                 <li class="element"><a href="#" class="link">Contact Us</a></li>
-                <li class="element" id="login"><a href="#" class="link">Login</a></li>
+                <li class="element loginEL" id="login"><a href="#" class="link">Login</a></li>
                 <li class="element"><a href="register.html" class="link">Register</a></li>
             </ul>
         </div>
     </div>
 </nav>
     <main>
-        <section class="backgroundPopup"></section>
+        <section class="backgroundPopup">
+            <span class="mdi mdi-close closeBtn"></span>
+        </section>
         <div class="wrapper">
+
             <div class="main">
                 <section class="main_login">
     <div class="email">
@@ -48,14 +51,27 @@
     <button class="send">Login</button>
 </section>
                 <section class="main_section">
-                    <img src="./dist/img/logo-white.png" alt="logo gry koleją przez stany"
-                        class="logo">
-                    <a href="lobby.html" class="link-btn createGame">create game</a>
-                    <button class="link-btn joinLobby">join Lobby</button>
+
+                    <img src="./dist/img/logo-white.png" alt="logo gry koleją przez stany" class="logo">
+                    <label for="playerName">Player name:</label>
+                    <input type="text" class="playerName" id="playerName">
+                    <a href="#" class="link-btn createGame">create game</a>
+                    <button class="link-btn joinLobby" type="submit">join Lobby</button>
+                </section>
+
+                <section class="alert">
+                    <div class="alertPopup">
+                        <p class="alertPopup_text">Jakiś tekst</p>
+                        <button class="alertPopup_btn">OK</button>
+                    </div>
                 </section>
 
                 <section class="popup">
-                    <div class="textPopup">
+
+
+                    <div class="textPopup ">
+                        <label for="playerNameJoin">Player name:</label>
+                        <input type="text" id="playerNameJoin">
                         <label for="inviteLink">Write invitation link below:</label>
                         <input type="text" id="inviteLink">
                     </div>
@@ -65,6 +81,8 @@
         </div>
     </main>
 
+    <script src="../dist/js/createGame.js"></script>
+    <script src="../dist/js/joinToGame.js"></script>
     <script src="../dist/js/popup.js"></script>
     <script src="./dist/js/main.js"></script>
 </body>

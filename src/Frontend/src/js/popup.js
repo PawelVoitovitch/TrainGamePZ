@@ -2,6 +2,7 @@ const joinLobby = document.querySelector(".joinLobby");
 const joinToGame = document.querySelector(".joinToGame");
 const backgroundPopup = document.querySelector(".backgroundPopup");
 const popup = document.querySelector(".popup");
+const close = document.querySelector(".closeBtn");
 
 const showPopup = () => {
 	backgroundPopup.style.display = "block";
@@ -11,7 +12,9 @@ const showPopup = () => {
 const hidePopup = () => {
 	backgroundPopup.style.display = "none";
 	popup.style.display = "none";
+	gameIdInput.value = "";
+	playerNameInput.value = "";
 };
 
 joinLobby.addEventListener("click", showPopup);
-joinToGame.addEventListener("click", hidePopup);
+close.addEventListener("click", hidePopup);
