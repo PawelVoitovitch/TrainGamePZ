@@ -6,11 +6,173 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../dist/css/setRoutes.css">
+    <!-- @include 'link.kit' -->
 </head>
 
 <body>
+    <main class="gameMain">
+        <div class="tableName">
+            <p class="tableName-name">Nazwa stołu</p>
+        </div>
+        <div class="wrapper">
+            <div class="table">
+                <section class="gameResources">
+                    <p class="title">Game Resources</p>
+                    <div class="trainCardsActive">
+                        <img src="../dist/img/TrainBlueCard.png" class="card one" alt="karta pociągów">
+                        <img src="../dist/img/TrainOrangeCard.png" class="card two" alt="karta pociągów">
+                        <img src="../dist/img/TrainRainbowCard.png" class="card three" alt="karta pociągów">
+                        <img src="../dist/img/TrainWhiteCard.png" class="card four" alt="karta pociągów">
+                        <img src="../dist/img/TrainYellowCard.png" class="card five" alt="karta pociągów">
+                    </div>
+                    <div class="matchingCards">
+                        <div class="cards">
+                            <p class="title">TrainCards</p>
+                            <div class="box">
+                                <img src="../dist/img/TrainRainbowCard1.png" class="matchingCard matchTickets"
+                                    alt="karta pociągów">
+                                <p class="quantity">x121</p>
+                            </div>
+                        </div>
+                        <div class="cards">
+                            <p class="title">Destination Tickets</p>
+                            <div class="box">
+                                <img src="../dist/img/ExampleCard1.png" class="matchingCard matchDestination"
+                                    alt="tickety lokalizacji">
+                                <p class="quantity">x14</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
+                <section class="boardArea">
+                    <div class="mapBox">
+                        <img src="../dist/img/GameMap.png" alt="plansza" class="board">
+                        <!-- @include 'routes.kit' -->
+                    </div>
+                    <div class="resources">
+                        <div class="leftPart">
+                            <div class="destinationTickets">
+                                <img src="../dist/img/ExampleCard.png" class="destinationTicket"
+                                    alt="tickety lokalizacji">
+                                <img src="../dist/img/ExampleCard.png" class="destinationTicket"
+                                    alt="tickety lokalizacji">
+                                <img src="../dist/img/ExampleCard.png" class="destinationTicket"
+                                    alt="tickety lokalizacji">
+                            </div>
+                            <div class="cards">
+                                <div class="cardBox">
+                                    <img src="../dist/img/TrainBlueCard1.png" class="card blue" alt="karta pociągów">
+                                    <p class="cardsQuantity">0</p>
+                                </div>
+                                <div class="cardBox">
+                                    <img src="../dist/img/TrainBlackCard1.png" class="card black" alt="karta pociągów">
+                                    <p class="cardsQuantity">0</p>
+                                </div>
+                                <div class="cardBox">
+                                    <img src="../dist/img/TrainGreenCard1.png" class="card green" alt="karta pociągów">
+                                    <p class="cardsQuantity">0</p>
+                                </div>
+                                <div class="cardBox">
+                                    <img src="../dist/img/TrainOrangeCard1.png" class="card orange"
+                                        alt="karta pociągów">
+                                    <p class="cardsQuantity">0</p>
+                                </div>
+                                <div class="cardBox">
+                                    <img src="../dist/img/TrainPinkCard1.png" class="card pink" alt="karta pociągów">
+                                    <p class="cardsQuantity">0</p>
+                                </div>
+                                <div class="cardBox">
+                                    <img src="../dist/img/TrainRainbowCard1.png" class="card rainbow"
+                                        alt="karta pociągów">
+                                    <p class="cardsQuantity">0</p>
+                                </div>
+                                <div class="cardBox">
+                                    <img src="../dist/img/TrainRedCard1.png" class="card red" alt="karta pociągów">
+                                    <p class="cardsQuantity">0</p>
+                                </div>
+                                <div class="cardBox">
+                                    <img src="../dist/img/TrainWhiteCard1.png" class="card white" alt="karta pociągów">
+                                    <p class="cardsQuantity">0</p>
+                                </div>
+                                <div class="cardBox">
+                                    <img src="../dist/img/TrainYellowCard1.png" class="card yellow"
+                                        alt="karta pociągów">
+                                    <p class="cardsQuantity">0</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rightPart">
+                            <div class="pointsBox">
+                                <span class="mdi mdi-train-car-box icon"></span>
+                                <p class="points">30</p>
+                                <p class="playerName">Your Name</p>
+                                <p class="trains">
+                                    <span class="trainsQuantity">45</span>x Trains
+                                </p>
+                            </div>
+                            <button class="endTurn">END TURN</button>
+                        </div>
+                    </div>
+                </section>
+                <section class="rivalsPoint">
+                    <div class="box playerOne">
+                        <span class="mdi mdi-train-car-box icon"></span>
+                        <p class="playerName">Your Name</p>
+                        <p class="trains">
+                            <span class="trainsQuantity">45</span>x Destination Tickets
+                        </p>
+                        <p class="destination">
+                            <span class="destinationQuantity">2</span>x Train Tickets
+                        </p>
+                        <p class="trainCards">
+                            <span class="trainCardQuantity">2</span>x Trains
+                        </p>
+                        <p class="points">30</p>
+                    </div>
+                    <div class="box playerTwo">
+                        <span class="mdi mdi-train-car-box icon"></span>
+                        <p class="playerName">Your Name</p>
+                        <p class="trains">
+                            <span class="trainsQuantity">45</span>x Destination Tickets
+                        </p>
+                        <p class="destination">
+                            <span class="destinationQuantity">2</span>x Train Tickets
+                        </p>
+                        <p class="trainCards">
+                            <span class="trainCardQuantity">2</span>x Trains
+                        </p>
+                        <p class="points">30</p>
+                    </div>
+                    <div class="box playerThree">
+                        <span class="mdi mdi-train-car-box icon"></span>
+                        <p class="playerName">Your Name</p>
+                        <p class="trains">
+                            <span class="trainsQuantity">45</span>x Destination Tickets
+                        </p>
+                        <p class="destination">
+                            <span class="destinationQuantity">2</span>x Train Tickets
+                        </p>
+                        <p class="trainCards">
+                            <span class="trainCardQuantity">2</span>x Trains
+                        </p>
+                        <p class="points">30</p>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+        <div class="destinationPopup">
+            <span class="mdi mdi-close closeBtn"></span>
+            <div class="popupCardsBox">
+                <img src="../dist/img/ExampleCard.png" alt="karta miejsc" class="popupCard one">
+                <img src="../dist/img/ExampleCard.png" alt="karta miejsc" class="popupCard two">
+                <img src="../dist/img/ExampleCard.png" alt="karta miejsc" class="popupCard three">
+            </div>
+        </div>
+    </main>
 </body>
-<script src="../dist/js/game.js"></script>
+<script src="../src/js/game.js"></script>
 
 </html>
