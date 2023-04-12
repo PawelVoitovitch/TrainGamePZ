@@ -1,5 +1,8 @@
 package com.PZ.TrainGame.Service;
 
+import com.PZ.TrainGame.DTOs.DrawTicketsDTO;
+import com.PZ.TrainGame.DTOs.DrawTrainsDTO;
+import com.PZ.TrainGame.DTOs.PlaceTrainDTO;
 import com.PZ.TrainGame.Model.Game.*;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -7,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -26,6 +30,9 @@ public class GameService {
         player.setTrainCards(new ArrayList<TrainCard>());
         game.setPlayers(new ArrayList<Player>());
         game.getPlayers().add(player);
+        //playerOrder
+        game.setPlayersOrder(new LinkedList<String>());
+        game.getPlayersOrder().add(login);
         //TrainDeck
         ArrayList<TrainCard> trainDeck= new ArrayList<>();
         for (int i = 0; i<10; i++){
@@ -173,7 +180,123 @@ public class GameService {
         player.setTicketCards(new ArrayList<TicketCard>());
         player.setTrainCards(new ArrayList<TrainCard>());
         game.getPlayers().add(player);
+        game.getPlayersOrder().add(login);
         GamesStorage.getInstance().setGame(game);
+        return game;
+    }
+
+    public Game turn(DrawTicketsDTO drawTicketsDTO) {
+        Game game = GamesStorage.getInstance().getGames().get(drawTicketsDTO.getGameId());
+        Player player = game.getPlayers().stream()
+                .filter(player1 -> drawTicketsDTO.getPlayer().equals(player1.getLogin()))
+                .findFirst()
+                .orElse(null);
+
+        if(player==null)
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "You are not playing this game.");
+
+        if(!player.getLogin().equals(game.getPlayersOrder().element()))
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Not your turn.");
+
+        player.getTicketCards().addAll(drawTicketsDTO.getSaved());
+        for (int i=0; i<3; i++)
+            game.getTicketDeck().remove(0);
+
+        game.getPlayersOrder().add(game.getPlayersOrder().poll());
+
+        return game;
+    }
+
+    public Game turn(DrawTrainsDTO drawTrainsDTO) {
+        Game game = GamesStorage.getInstance().getGames().get(drawTrainsDTO.getGameId());
+        Player player = game.getPlayers().stream()
+                .filter(player1 -> drawTrainsDTO.getPlayer().equals(player1.getLogin()))
+                .findFirst()
+                .orElse(null);
+
+        if(player==null)
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "You are not playing this game.");
+
+        if(!player.getLogin().equals(game.getPlayersOrder().element()))
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Not your turn.");
+
+        if(!drawTrainsDTO.getBlind().isEmpty()) {
+            for (TrainCard trainCard : drawTrainsDTO.getBlind()) {
+                player.getTrainCards().add(trainCard);
+                game.getTicketDeck().remove(0);
+            }
+        }
+
+        if(!drawTrainsDTO.getFromVisible().isEmpty()) {
+            for (TrainCard trainCard : drawTrainsDTO.getFromVisible()) {
+                player.getTrainCards().add(trainCard);
+                for(int i=0; i<5; i++){
+                    if(game.getVisibleTrains()[i].equals(trainCard)){
+                        game.getVisibleTrains()[i]=game.getTrainDeck().remove(0);
+                        break;
+                    }
+                }
+            }
+        }
+
+        game.getPlayersOrder().add(game.getPlayersOrder().poll());
+
+        return game;
+    }
+
+    public Game turn(PlaceTrainDTO placeTrainDTO) {
+        Game game = GamesStorage.getInstance().getGames().get(placeTrainDTO.getGameId());
+        Player player = game.getPlayers().stream()
+                .filter(player1 -> placeTrainDTO.getPlayer().equals(player1.getLogin()))
+                .findFirst()
+                .orElse(null);
+
+        if(player==null)
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "You are not playing this game.");
+
+        if(!player.getLogin().equals(game.getPlayersOrder().element()))
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Not your turn.");
+
+        BoardPlace boardPlace = game.getBoard().get(placeTrainDTO.getBoardPlaceId()-1);
+
+        if(!boardPlace.getColor().toString().equals(placeTrainDTO.getUsed().toString()) && !placeTrainDTO.getUsed().equals(TrainCard.RAINBOW))
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Not enough resources.");
+
+        for(int i = 0; i<boardPlace.getCost(); i++){
+            player.getTrainCards().remove(placeTrainDTO.getUsed());
+        }
+        boardPlace.setIsTaken(Boolean.TRUE);
+        boardPlace.setPlayer(player.getLogin());
+
+        player.setTrains(player.getTrains()-boardPlace.getCost());
+
+        Integer points = switch (boardPlace.getCost()) {
+            case 1 -> 1;
+            case 2 -> 2;
+            case 3 -> 4;
+            case 4 -> 7;
+            case 5 -> 10;
+            case 6 -> 15;
+            default -> 0;
+        };
+
+        player.setPoints(player.getPoints()+points);
+
+        game.getPlayersOrder().add(game.getPlayersOrder().poll());
+
+        if(player.getTrains()<5)
+            endGame(game);
+
+        return game;
+    }
+
+    private Game endGame(Game game){
+        game.setStatus(GameStatus.ENDED);
+        checkTickets(game);
+        return game;
+    }
+
+    private Game checkTickets(Game game){
         return game;
     }
 }
