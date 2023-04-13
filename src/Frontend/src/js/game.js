@@ -6,7 +6,6 @@ const matchDestination = document.querySelector(".matchDestination");
 const destinationPopup = document.querySelector(".destinationPopup");
 const closeBtn = document.querySelector(".closeBtn");
 const routeBox = document.getElementById("one");
-const tableName = document.querySelector(".tableName-name");
 
 // async function getPlayers(gameId) {
 // 	try {
@@ -27,7 +26,6 @@ const tableName = document.querySelector(".tableName-name");
 // 	}
 // }
 
-tableName.textContent = `Game ID: ${gameId}`;
 
 matchDestination.addEventListener("click", () => {
 	destinationPopup.style.opacity = 1;
