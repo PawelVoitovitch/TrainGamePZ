@@ -29,6 +29,7 @@ public class GameController {
     @PostMapping(path = "/create")
     public Game createGame(@RequestBody String login){
         Game game = gameService.createGame(login);
+        simpMessagingTemplate.convertAndSend("/topic/lobby/" + game.getId(), game);
         return game;
     }
 
@@ -37,14 +38,12 @@ public class GameController {
         try {
 
             Game game = gameService.connectToGame(connectDTO.getPlayer(), connectDTO.getGameId());
+            simpMessagingTemplate.convertAndSend("/topic/lobby/" + game.getId(), game);
             return game;
         }
         catch (Exception exception){
             throw exception;
         }
-//            throw new ResponseStatusException(
-//                    HttpStatus.NOT_FOUND, "Game of this Id not found");
-//        }
     }
 
     @RequestMapping(path = "/{gameId}/players", method = RequestMethod.GET)

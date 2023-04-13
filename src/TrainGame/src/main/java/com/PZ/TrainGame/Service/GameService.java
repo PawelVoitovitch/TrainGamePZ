@@ -199,7 +199,7 @@ public class GameService {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Not your turn.");
 
         player.getTicketCards().addAll(drawTicketsDTO.getSaved());
-        for (int i=0; i<3; i++)
+        for (int i=0; i<drawTicketsDTO.getSaved().size(); i++)
             game.getTicketDeck().remove(0);
 
         game.getPlayersOrder().add(game.getPlayersOrder().poll());
@@ -259,7 +259,7 @@ public class GameService {
 
         BoardPlace boardPlace = game.getBoard().get(placeTrainDTO.getBoardPlaceId()-1);
 
-        if(!boardPlace.getColor().toString().equals(placeTrainDTO.getUsed().toString()) && !placeTrainDTO.getUsed().equals(TrainCard.RAINBOW))
+        if(!boardPlace.getColor().toString().equals(placeTrainDTO.getUsed().toString()) && !placeTrainDTO.getUsed().equals(TrainCard.RAINBOW) && !boardPlace.getColor().equals(BoardPlaceColor.GREY))//dopisz
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Not enough resources.");
 
         for(int i = 0; i<boardPlace.getCost(); i++){
@@ -284,7 +284,7 @@ public class GameService {
 
         game.getPlayersOrder().add(game.getPlayersOrder().poll());
 
-        if(player.getTrains()<5)
+        if(player.getTrains()<4)
             endGame(game);
 
         return game;
