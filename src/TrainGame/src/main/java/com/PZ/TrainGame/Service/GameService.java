@@ -180,7 +180,8 @@ public class GameService {
         player.setTicketCards(new ArrayList<TicketCard>());
         player.setTrainCards(new ArrayList<TrainCard>());
         game.getPlayers().add(player);
-        game.getPlayersOrder().add(login);
+        if(game.getPlayers().size()==4)
+            game.setStatus(GameStatus.INPROGRESS);
         GamesStorage.getInstance().setGame(game);
         return game;
     }
