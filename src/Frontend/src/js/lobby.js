@@ -13,7 +13,7 @@ const inviteLink = document.getElementById("inviteLink");
 
 const url = "http://localhost:8090/game";
 
-tableID.textContent = gameId;
+tableID.textContent = `Game ID: ${gameId}`;
 inviteLink.textContent = gameId;
 
 async function getPlayers(gameId) {
