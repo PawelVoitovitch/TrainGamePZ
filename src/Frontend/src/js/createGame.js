@@ -10,30 +10,30 @@ createButton.addEventListener("click", async (event) => {
 	const name = playerName.value;
 
 	console.log(name);
-	const response = await fetch(`${url}/create`, {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-		},
-		body: name,
-	});
-	if (response.ok) {
-		const game = await response.json();
-		console.log(`Game created with ID ${game.id}`);
-		// window.location.href = `/lobby.html?gameId=${game.id}`;
-		popupText.textContent = "Created new game";
+	if (name === "") {
+		popupText.textContent = "Set player name";
 		popupBtn.addEventListener("click", () => {
-			window.location.href = `/lobby.html?gameId=${game.id}`;
-			popup.style.display = "none";
-			backgroundPopup.style.display = "none";
-			playerName.value = "";
 			popupAlert.classList.remove("showAlertPopup");
 		});
 		popupAlert.classList.add("showAlertPopup");
 	} else {
-		if (name === "") {
-			popupText.textContent = `Set the player's name`;
+		const response = await fetch(`${url}/create`, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: name,
+		});
+		if (response.ok) {
+			const game = await response.json();
+			console.log(`Game created with ID ${game.id}`);
+			// window.location.href = `/lobby.html?gameId=${game.id}`;
+			popupText.textContent = "Created new game";
 			popupBtn.addEventListener("click", () => {
+				window.location.href = `/lobby.html?gameId=${game.id}`;
+				popup.style.display = "none";
+				backgroundPopup.style.display = "none";
+				playerName.value = "";
 				popupAlert.classList.remove("showAlertPopup");
 			});
 			popupAlert.classList.add("showAlertPopup");
