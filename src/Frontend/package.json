@@ -25,5 +25,10 @@
 		"gulp-sourcemaps": "^3.0.0",
 		"gulp-uglify": "^3.0.2",
 		"sass": "^1.57.1"
+	},
+	"dependencies": {
+		"@stomp/stompjs": "^7.0.0",
+		"gulp-connect": "^5.7.0",
+		"websocket": "^1.0.34"
 	}
 }

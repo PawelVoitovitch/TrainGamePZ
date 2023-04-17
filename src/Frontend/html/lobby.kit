@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Koleją przez stany</title>
     <!-- @include 'link.kit' -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.1/sockjs.min.js"></script>
 </head>
 
 <body>
@@ -17,7 +19,7 @@
             <div class="main">
                 <!-- @include 'loginForm.kit' -->
                 <div class="mainCreateBox">
-                    
+
                     <div class="alertPopup">
                         <p class="alertPopup_text">Jakiś tekst</p>
                         <button class="alertPopup_btn">OK</button>
@@ -30,7 +32,7 @@
                         <div class="boxLeft_users">
                         </div>
                     </section>
-                    
+
                     <section class="boxRight">
                         <div class="boxRight_game-setup">
                             <div class="boxRight_game-setup-players">
@@ -59,6 +61,8 @@
 
     </main>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="../dist/js/websocket.js"></script>
     <script src="../dist/js/lobby.js"></script>
     <script src="./dist/js/main.js"></script>
 </body>

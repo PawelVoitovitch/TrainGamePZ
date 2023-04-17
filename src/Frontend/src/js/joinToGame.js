@@ -29,7 +29,7 @@ btnJoin.addEventListener("click", async (event) => {
 		});
 		popupAlert.classList.add("showAlertPopup");
 	} else {
-		const response = await fetch(`${url}/join`, {
+		const response = await fetch(`${url}/game/join`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -43,8 +43,9 @@ btnJoin.addEventListener("click", async (event) => {
 			const game = await response.json();
 			console.log(`Dołączyłeś do gry ${game.id} jako ${playerName}`);
 			popupText.textContent = "Joined to game";
+
 			popupBtn.addEventListener("click", () => {
-				window.location.href = `/lobby.html?gameId=${game.id}`;
+				window.location.href = `/lobby.html?gameId=${game.id}&playerName=${playerName}&visibleTrains=${game.visibleTrains}&userTickets=${game.ticketDeck}`;
 				hidePopup();
 				popupAlert.classList.remove("showAlertPopup");
 			});

@@ -502,15 +502,27 @@ main {
 // ============================
 
 .BLUE {
+	background-color: blue;
+}
+.BLUE-icon {
 	color: blue;
 }
 .RED {
+	background-color: red;
+}
+.RED-icon {
 	color: red;
 }
 .YELLOW {
+	background-color: yellow;
+}
+.YELLOW-icon {
 	color: yellow;
 }
 .GREEN {
+	background-color: green;
+}
+.GREEN-icon {
 	color: green;
 }
 
@@ -536,6 +548,8 @@ main {
 	&_text {
 		font-size: 2rem;
 		margin-bottom: 1em;
+
+		color: c.$dark;
 	}
 	&_btn {
 		width: 100px;
@@ -575,6 +589,7 @@ main {
 	}
 
 	.table {
+		position: relative;
 		display: flex;
 		justify-content: flex-start;
 		align-items: center;
@@ -610,6 +625,10 @@ main {
 					cursor: pointer;
 					margin: 0;
 				}
+			}
+
+			.selected {
+				scale: 1.1;
 			}
 			.matchingCards {
 				display: flex;
@@ -648,6 +667,7 @@ main {
 				}
 			}
 		}
+
 		.boardArea {
 			width: 65%;
 			height: 650px;
@@ -665,8 +685,7 @@ main {
 				.trainImg {
 					position: absolute;
 					width: 3.5%;
-					height: 8px;
-					border: 3px solid black;
+					height: 15px;
 				}
 				.clicked {
 					background-color: steelblue;
@@ -687,17 +706,25 @@ main {
 					align-items: flex-start;
 					flex-direction: column;
 					.destinationTickets {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						flex-direction: row;
 						padding: 0.3em;
-						display: block;
 						width: 100%;
 						height: 40%;
+
 						.destinationTicket {
-							width: 22%;
+							width: 125px;
 							height: 100%;
+							display: flex;
+							justify-content: center;
+							margin: 5px;
+							cursor: pointer;
 						}
 					}
 					.cards {
-						height: 60%;
+						height: 55%;
 						width: 100%;
 						display: flex;
 						justify-content: center;
@@ -733,7 +760,7 @@ main {
 						position: relative;
 						width: 90%;
 						height: 60%;
-						background-color: yellow;
+
 						color: c.$dark;
 						border-radius: 10px;
 						margin-bottom: 1em;
@@ -797,19 +824,13 @@ main {
 				margin-bottom: 1em;
 				color: c.$dark;
 				border-radius: 10px;
-				.icon {
-					position: absolute;
-					top: 5%;
-					left: 5%;
-					font-size: 3rem;
-				}
+
 				.playerName {
-					position: absolute;
-					top: 10%;
-					right: 5%;
+					padding-top: 1em;
+					text-align: center;
 					font-size: 2rem;
 				}
-				.trains,
+				.oponentTrains,
 				.trainCards,
 				.destination {
 					position: absolute;
@@ -823,34 +844,95 @@ main {
 				.destination {
 					top: 65%;
 				}
-				.points {
+				.oponentPoints {
 					position: absolute;
 					bottom: 5%;
 					right: 5%;
 					font-size: 2rem;
 				}
 			}
-
-			.playerOne {
-				background-color: red;
-			}
-			.playerTwo {
-				background-color: blue;
-			}
-			.playerThree {
-				background-color: green;
-			}
 		}
 	}
+
 	.destinationPopup {
+		opacity: 1;
+		z-index: 100;
+	}
+
+	.destinationPopupAfterClick {
+		opacity: 0;
+		z-index: -100;
+	}
+
+	.yourDestinationTickets {
+		display: none;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
 		position: fixed;
 		width: 100%;
 		height: 100%;
 		top: 0;
 		left: 0;
-		opacity: 0;
-		z-index: -100;
 		background-color: rgba($color: #000000, $alpha: 0.9);
+
+		.yourDestinationTicketsText {
+			font-size: 5rem;
+			margin: 20px;
+			margin-bottom: 50px;
+		}
+		.popupYourTicketCardsBox {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: row;
+			flex-wrap: wrap;
+
+			.popupYourTicketCard {
+				height: 200px;
+				width: 350px;
+				margin: 20px;
+			}
+		}
+
+		.closeBtnTickets {
+			position: absolute;
+			top: 40px;
+			right: 40px;
+			font-size: 3rem;
+			color: c.$milk-white;
+			background-color: rgba($color: #000000, $alpha: 0.9);
+			border: none;
+			cursor: pointer;
+			transition: color 0.3s;
+		}
+		.closeBtnTickets:hover {
+			color: c.$red;
+		}
+	}
+
+	.destinationPopup,
+	.destinationPopupAfterClick {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+
+		background-color: rgba($color: #000000, $alpha: 0.4);
+		.destinationPopupText {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 75px;
+			font-size: 2.5rem;
+			background-color: c.$dark;
+			color: c.$milk-white;
+			.counter,
+			.counterAfterClick {
+				color: c.$red;
+			}
+		}
 		.closeBtn {
 			position: absolute;
 			top: 5%;
@@ -862,23 +944,51 @@ main {
 		.closeBtn:hover {
 			color: c.$red;
 		}
-		.popupCardsBox {
+		.popupCardsBox,
+		.popupCardsBoxAfterClick {
 			display: flex;
-			flex-direction: column;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			.popupCard {
-				width: 250px;
-				height: 175px;
+			height: 90%;
+			align-items: flex-end;
+			justify-content: center;
+			flex-direction: row;
+			padding: 3%;
+
+			.popupCard,
+			.popupCardAfterClick {
+				width: 200px;
+				height: 125px;
 				margin: 0.5em;
 				cursor: pointer;
 				transition: scale 0.3s;
 			}
+
+			.selectedCard {
+				scale: 1.1;
+			}
 			.popupCard:hover {
 				scale: 1.1;
 			}
+		}
+
+		.sendDestinationCards,
+		.sendDestinationCardsAfterClick {
+			display: none;
+			position: absolute;
+			top: 12.5px;
+			right: 20%;
+			width: 75px;
+			height: 50px;
+			background-color: c.$red;
+			border: none;
+			color: c.$milk-white;
+			cursor: pointer;
+			border-radius: 10px;
+			transition: background-color 0.3s, color 0.3s;
+		}
+		.sendDestinationCards:hover,
+		.sendDestinationCardsAfterClick:hover {
+			background-color: c.$milk-white;
+			color: c.$red;
 		}
 	}
 }

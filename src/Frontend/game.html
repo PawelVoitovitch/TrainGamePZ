@@ -14,23 +14,30 @@
 <link rel="stylesheet" href="./dist/css/main.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.1.96/css/materialdesignicons.min.css">
 <script src="https://kit.fontawesome.com/7e5f0f75ea.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.1/sockjs.min.js"></script>
 </head>
 
 <body>
     <main class="gameMain">
+
         <div class="tableName">
             <p class="tableName-name">Nazwa stołu</p>
         </div>
         <div class="wrapper">
             <div class="table">
+                <div class="alertPopup">
+                    <p class="alertPopup_text">Jakiś tekst</p>
+                    <button class="alertPopup_btn">OK</button>
+                </div>
                 <section class="gameResources">
                     <p class="title">Game Resources</p>
                     <div class="trainCardsActive">
-                        <img src="../dist/img/TrainBlueCard.png" class="card one" alt="karta pociągów">
-                        <img src="../dist/img/TrainOrangeCard.png" class="card two" alt="karta pociągów">
-                        <img src="../dist/img/TrainRainbowCard.png" class="card three" alt="karta pociągów">
-                        <img src="../dist/img/TrainWhiteCard.png" class="card four" alt="karta pociągów">
-                        <img src="../dist/img/TrainYellowCard.png" class="card five" alt="karta pociągów">
+                        <img src="" class="card one" alt="karta pociągów">
+                        <img src="" class="card two" alt="karta pociągów">
+                        <img src="" class="card three" alt="karta pociągów">
+                        <img src="" class="card four" alt="karta pociągów">
+                        <img src="" class="card five" alt="karta pociągów">
                     </div>
                     <div class="matchingCards">
                         <div class="cards">
@@ -38,7 +45,7 @@
                             <div class="box">
                                 <img src="../dist/img/TrainRainbowCard1.png" class="matchingCard matchTickets"
                                     alt="karta pociągów">
-                                <p class="quantity">x121</p>
+                                <p class="quantity trainCardsQuantityAll">x87</p>
                             </div>
                         </div>
                         <div class="cards">
@@ -46,7 +53,7 @@
                             <div class="box">
                                 <img src="../dist/img/ExampleCard1.png" class="matchingCard matchDestination"
                                     alt="tickety lokalizacji">
-                                <p class="quantity">x14</p>
+                                <p class="quantity destinationCardsQuantityAll">x24</p>
                             </div>
                         </div>
                     </div>
@@ -55,7 +62,7 @@
                 <section class="boardArea">
                     <div class="mapBox">
                         <img src="../dist/img/GameMap.png" alt="plansza" class="board">
-                        <div class="routeBox" id="one">
+                        <div class="routeBox" id="_1">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
     <div class="trainImg" id="train3"></div>
@@ -63,97 +70,97 @@
     <div class="trainImg" id="train5"></div>
     <div class="trainImg" id="train6"></div>
 </div>
-<div class="routeBox" id="two">
+<div class="routeBox" id="_2">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
     <div class="trainImg" id="train3"></div>
 </div>
-<div class="routeBox" id="three">
+<div class="routeBox" id="_3">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
     <div class="trainImg" id="train3"></div>
 </div>
-<div class="routeBox" id="four">
+<div class="routeBox" id="_4">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
     <div class="trainImg" id="train3"></div>
 </div>
-<div class="routeBox" id="five">
-    <div class="trainImg" id="train1"></div>
-    <div class="trainImg" id="train2"></div>
-    <div class="trainImg" id="train3"></div>
-    <div class="trainImg" id="train4"></div>
-    <div class="trainImg" id="train5"></div>
-</div>
-<div class="routeBox" id="six">
+<div class="routeBox" id="_5">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
     <div class="trainImg" id="train3"></div>
     <div class="trainImg" id="train4"></div>
     <div class="trainImg" id="train5"></div>
 </div>
-<div class="routeBox" id="seven">
-    <div class="trainImg" id="train1"></div>
-    <div class="trainImg" id="train2"></div>
-</div>
-<div class="routeBox" id="eight">
-    <div class="trainImg" id="train1"></div>
-    <div class="trainImg" id="train2"></div>
-</div>
-<div class="routeBox" id="nine">
-    <div class="trainImg" id="train1"></div>
-    <div class="trainImg" id="train2"></div>
-</div>
-<div class="routeBox" id="ten">
-    <div class="trainImg" id="train1"></div>
-</div>
-<div class="routeBox" id="eleven">
-    <div class="trainImg" id="train1"></div>
-</div>
-<div class="routeBox" id="twelve">
-    <div class="trainImg" id="train1"></div>
-    <div class="trainImg" id="train2"></div>
-    <div class="trainImg" id="train3"></div>
-</div>
-<div class="routeBox" id="thirteen">
-    <div class="trainImg" id="train1"></div>
-    <div class="trainImg" id="train2"></div>
-    <div class="trainImg" id="train3"></div>
-</div>
-<div class="routeBox" id="fourteen">
-    <div class="trainImg" id="train1"></div>
-    <div class="trainImg" id="train2"></div>
-    <div class="trainImg" id="train3"></div>
-    <div class="trainImg" id="train4"></div>
-</div>
-<div class="routeBox" id="fifteen">
+<div class="routeBox" id="_6">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
     <div class="trainImg" id="train3"></div>
     <div class="trainImg" id="train4"></div>
     <div class="trainImg" id="train5"></div>
 </div>
-<div class="routeBox" id="sixteen">
+<div class="routeBox" id="_7">
+    <div class="trainImg" id="train1"></div>
+    <div class="trainImg" id="train2"></div>
+</div>
+<div class="routeBox" id="_8">
+    <div class="trainImg" id="train1"></div>
+    <div class="trainImg" id="train2"></div>
+</div>
+<div class="routeBox" id="_9">
+    <div class="trainImg" id="train1"></div>
+    <div class="trainImg" id="train2"></div>
+</div>
+<div class="routeBox" id="_10">
+    <div class="trainImg" id="train1"></div>
+</div>
+<div class="routeBox" id="_11">
+    <div class="trainImg" id="train1"></div>
+</div>
+<div class="routeBox" id="_12">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
     <div class="trainImg" id="train3"></div>
 </div>
-<div class="routeBox" id="seventeen">
+<div class="routeBox" id="_13">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
+    <div class="trainImg" id="train3"></div>
 </div>
-<div class="routeBox" id="eighteen">
+<div class="routeBox" id="_14">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
+    <div class="trainImg" id="train3"></div>
+    <div class="trainImg" id="train4"></div>
 </div>
-<div class="routeBox" id="nineteen">
+<div class="routeBox" id="_15">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
     <div class="trainImg" id="train3"></div>
     <div class="trainImg" id="train4"></div>
     <div class="trainImg" id="train5"></div>
 </div>
-<div class="routeBox" id="twenty">
+<div class="routeBox" id="_16">
+    <div class="trainImg" id="train1"></div>
+    <div class="trainImg" id="train2"></div>
+    <div class="trainImg" id="train3"></div>
+</div>
+<div class="routeBox" id="_17">
+    <div class="trainImg" id="train1"></div>
+    <div class="trainImg" id="train2"></div>
+</div>
+<div class="routeBox" id="_18">
+    <div class="trainImg" id="train1"></div>
+    <div class="trainImg" id="train2"></div>
+</div>
+<div class="routeBox" id="_19">
+    <div class="trainImg" id="train1"></div>
+    <div class="trainImg" id="train2"></div>
+    <div class="trainImg" id="train3"></div>
+    <div class="trainImg" id="train4"></div>
+    <div class="trainImg" id="train5"></div>
+</div>
+<div class="routeBox" id="_20">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
     <div class="trainImg" id="train3"></div>
@@ -161,186 +168,186 @@
     <div class="trainImg" id="train5"></div>
     <div class="trainImg" id="train6"></div>
 </div>
-<div class="routeBox" id="twentyOne">
+<div class="routeBox" id="_21">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
 </div>
-<div class="routeBox" id="twentyTwo">
+<div class="routeBox" id="_22">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
 </div>
-<div class="routeBox" id="twentyThree">
+<div class="routeBox" id="_23">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
 </div>
-<div class="routeBox" id="twentyFour">
+<div class="routeBox" id="_24">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
 </div>
-<div class="routeBox" id="twentyFive">
+<div class="routeBox" id="_25">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
 </div>
-<div class="routeBox" id="twentySix">
+<div class="routeBox" id="_26">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
 </div>
-<div class="routeBox" id="twentySeven">
-    <div class="trainImg" id="train1"></div>
-    <div class="trainImg" id="train2"></div>
-    <div class="trainImg" id="train3"></div>
-    <div class="trainImg" id="train4"></div>
-</div>
-<div class="routeBox" id="twentyEight">
-    <div class="trainImg" id="train1"></div>
-    <div class="trainImg" id="train2"></div>
-    <div class="trainImg" id="train3"></div>
-</div>
-<div class="routeBox" id="twentyNine">
+<div class="routeBox" id="_27">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
     <div class="trainImg" id="train3"></div>
     <div class="trainImg" id="train4"></div>
-    <div class="trainImg" id="train5"></div>
 </div>
-<div class="routeBox" id="thirty">
-    <div class="trainImg" id="train1"></div>
-    <div class="trainImg" id="train2"></div>
-</div>
-<div class="routeBox" id="thirtyOne">
-    <div class="trainImg" id="train1"></div>
-    <div class="trainImg" id="train2"></div>
-</div>
-<div class="routeBox" id="thirtyTwo">
-    <div class="trainImg" id="train1"></div>
-    <div class="trainImg" id="train2"></div>
-</div>
-<div class="routeBox" id="thirtyThree">
-    <div class="trainImg" id="train1"></div>
-</div>
-<div class="routeBox" id="thirtyFour">
-    <div class="trainImg" id="train1"></div>
-</div>
-<div class="routeBox" id="thirtyFive">
+<div class="routeBox" id="_28">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
     <div class="trainImg" id="train3"></div>
 </div>
-<div class="routeBox" id="thirtySix">
-    <div class="trainImg" id="train1"></div>
-</div>
-<div class="routeBox" id="thirtySeven">
-    <div class="trainImg" id="train1"></div>
-</div>
-<div class="routeBox" id="thirtyEight">
-    <div class="trainImg" id="train1"></div>
-    <div class="trainImg" id="train2"></div>
-    <div class="trainImg" id="train3"></div>
-</div>
-<div class="routeBox" id="thirtyNine">
-    <div class="trainImg" id="train1"></div>
-    <div class="trainImg" id="train2"></div>
-    <div class="trainImg" id="train3"></div>
-</div>
-<div class="routeBox" id="fourty">
-    <div class="trainImg" id="train1"></div>
-    <div class="trainImg" id="train2"></div>
-</div>
-<div class="routeBox" id="fourtyOne">
-    <div class="trainImg" id="train1"></div>
-    <div class="trainImg" id="train2"></div>
-</div>
-<div class="routeBox" id="fourtyTwo">
-    <div class="trainImg" id="train1"></div>
-    <div class="trainImg" id="train2"></div>
-    <div class="trainImg" id="train3"></div>
-</div>
-<div class="routeBox" id="fourtyThree">
-    <div class="trainImg" id="train1"></div>
-</div>
-<div class="routeBox" id="fourtyFour">
-    <div class="trainImg" id="train1"></div>
-</div>
-<div class="routeBox" id="fourtyFive">
-    <div class="trainImg" id="train1"></div>
-</div>
-<div class="routeBox" id="fourtySix">
-    <div class="trainImg" id="train1"></div>
-</div>
-<div class="routeBox" id="fourtySeven">
-    <div class="trainImg" id="train1"></div>
-    <div class="trainImg" id="train2"></div>
-    <div class="trainImg" id="train3"></div>
-</div>
-<div class="routeBox" id="fourtyEight">
+<div class="routeBox" id="_29">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
     <div class="trainImg" id="train3"></div>
     <div class="trainImg" id="train4"></div>
     <div class="trainImg" id="train5"></div>
 </div>
-<div class="routeBox" id="fourtyNine">
+<div class="routeBox" id="_30">
+    <div class="trainImg" id="train1"></div>
+    <div class="trainImg" id="train2"></div>
+</div>
+<div class="routeBox" id="_31">
+    <div class="trainImg" id="train1"></div>
+    <div class="trainImg" id="train2"></div>
+</div>
+<div class="routeBox" id="_32">
+    <div class="trainImg" id="train1"></div>
+    <div class="trainImg" id="train2"></div>
+</div>
+<div class="routeBox" id="_33">
+    <div class="trainImg" id="train1"></div>
+</div>
+<div class="routeBox" id="_34">
+    <div class="trainImg" id="train1"></div>
+</div>
+<div class="routeBox" id="_35">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
     <div class="trainImg" id="train3"></div>
 </div>
-<div class="routeBox" id="fifty">
-    <div class="trainImg" id="train1"></div>
-    <div class="trainImg" id="train2"></div>
-</div>
-<div class="routeBox" id="fiftyOne">
-    <div class="trainImg" id="train1"></div>
-    <div class="trainImg" id="train2"></div>
-</div>
-<div class="routeBox" id="fiftyTwo">
+<div class="routeBox" id="_36">
     <div class="trainImg" id="train1"></div>
 </div>
-<div class="routeBox" id="fiftyThree">
+<div class="routeBox" id="_37">
     <div class="trainImg" id="train1"></div>
 </div>
-<div class="routeBox" id="fiftyFour">
+<div class="routeBox" id="_38">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
     <div class="trainImg" id="train3"></div>
 </div>
-<div class="routeBox" id="fiftyFive">
-    <div class="trainImg" id="train1"></div>
-    <div class="trainImg" id="train2"></div>
-</div>
-<div class="routeBox" id="fiftySix">
+<div class="routeBox" id="_39">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
     <div class="trainImg" id="train3"></div>
 </div>
-<div class="routeBox" id="fiftySeven">
+<div class="routeBox" id="_40">
+    <div class="trainImg" id="train1"></div>
+    <div class="trainImg" id="train2"></div>
+</div>
+<div class="routeBox" id="_41">
+    <div class="trainImg" id="train1"></div>
+    <div class="trainImg" id="train2"></div>
+</div>
+<div class="routeBox" id="_42">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
     <div class="trainImg" id="train3"></div>
 </div>
-<div class="routeBox" id="fiftyEight">
+<div class="routeBox" id="_43">
     <div class="trainImg" id="train1"></div>
 </div>
-<div class="routeBox" id="fiftyNine">
+<div class="routeBox" id="_44">
+    <div class="trainImg" id="train1"></div>
+</div>
+<div class="routeBox" id="_45">
+    <div class="trainImg" id="train1"></div>
+</div>
+<div class="routeBox" id="_46">
+    <div class="trainImg" id="train1"></div>
+</div>
+<div class="routeBox" id="_47">
+    <div class="trainImg" id="train1"></div>
+    <div class="trainImg" id="train2"></div>
+    <div class="trainImg" id="train3"></div>
+</div>
+<div class="routeBox" id="_48">
+    <div class="trainImg" id="train1"></div>
+    <div class="trainImg" id="train2"></div>
+    <div class="trainImg" id="train3"></div>
+    <div class="trainImg" id="train4"></div>
+    <div class="trainImg" id="train5"></div>
+</div>
+<div class="routeBox" id="_49">
+    <div class="trainImg" id="train1"></div>
+    <div class="trainImg" id="train2"></div>
+    <div class="trainImg" id="train3"></div>
+</div>
+<div class="routeBox" id="_50">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
 </div>
-<div class="routeBox" id="sixty">
+<div class="routeBox" id="_51">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
 </div>
-<div class="routeBox" id="sixtyOne">
+<div class="routeBox" id="_52">
+    <div class="trainImg" id="train1"></div>
+</div>
+<div class="routeBox" id="_53">
+    <div class="trainImg" id="train1"></div>
+</div>
+<div class="routeBox" id="_54">
+    <div class="trainImg" id="train1"></div>
+    <div class="trainImg" id="train2"></div>
+    <div class="trainImg" id="train3"></div>
+</div>
+<div class="routeBox" id="_55">
+    <div class="trainImg" id="train1"></div>
+    <div class="trainImg" id="train2"></div>
+</div>
+<div class="routeBox" id="_56">
+    <div class="trainImg" id="train1"></div>
+    <div class="trainImg" id="train2"></div>
+    <div class="trainImg" id="train3"></div>
+</div>
+<div class="routeBox" id="_57">
+    <div class="trainImg" id="train1"></div>
+    <div class="trainImg" id="train2"></div>
+    <div class="trainImg" id="train3"></div>
+</div>
+<div class="routeBox" id="_58">
+    <div class="trainImg" id="train1"></div>
+</div>
+<div class="routeBox" id="_59">
+    <div class="trainImg" id="train1"></div>
+    <div class="trainImg" id="train2"></div>
+</div>
+<div class="routeBox" id="_60">
+    <div class="trainImg" id="train1"></div>
+    <div class="trainImg" id="train2"></div>
+</div>
+<div class="routeBox" id="_61">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
     <div class="trainImg" id="train3"></div>
     <div class="trainImg" id="train4"></div>
 </div>
-<div class="routeBox" id="sixtyTwo">
+<div class="routeBox" id="_62">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
     <div class="trainImg" id="train3"></div>
     <div class="trainImg" id="train4"></div>
 </div>
-<div class="routeBox" id="sixtyThree">
+<div class="routeBox" id="_63">
     <div class="trainImg" id="train1"></div>
     <div class="trainImg" id="train2"></div>
     <div class="trainImg" id="train3"></div>
@@ -349,10 +356,7 @@
                     <div class="resources">
                         <div class="leftPart">
                             <div class="destinationTickets">
-                                <img src="../dist/img/ExampleCard.png" class="destinationTicket"
-                                    alt="tickety lokalizacji">
-                                <img src="../dist/img/ExampleCard.png" class="destinationTicket"
-                                    alt="tickety lokalizacji">
+
                                 <img src="../dist/img/ExampleCard.png" class="destinationTicket"
                                     alt="tickety lokalizacji">
                             </div>
@@ -399,10 +403,10 @@
                             </div>
                         </div>
                         <div class="rightPart">
-                            <div class="pointsBox">
+                            <div class="pointsBox myBox">
                                 <span class="mdi mdi-train-car-box icon"></span>
                                 <p class="points">30</p>
-                                <p class="playerName">Your Name</p>
+                                <p class="playerName yourName">Your Name</p>
                                 <p class="trains">
                                     <span class="trainsQuantity">45</span>x Trains
                                 </p>
@@ -412,62 +416,90 @@
                     </div>
                 </section>
                 <section class="rivalsPoint">
-                    <div class="box playerOne">
-                        <span class="mdi mdi-train-car-box icon"></span>
-                        <p class="playerName">Your Name</p>
-                        <p class="trains">
-                            <span class="trainsQuantity">45</span>x Destination Tickets
+                    <div class="box playersBox">
+
+                        <p class="playerName oponentName"></p>
+                        <p class="oponentTrains">
+                            <span class="oponentsTrainsQuantity"></span>x Trains
                         </p>
                         <p class="destination">
-                            <span class="destinationQuantity">2</span>x Train Tickets
+                            <span class="destinationQuantity"></span>x Destination Tickets
                         </p>
                         <p class="trainCards">
-                            <span class="trainCardQuantity">2</span>x Trains
+                            <span class="trainCardQuantity"></span>x Trains Tickets
                         </p>
-                        <p class="points">30</p>
+                        <p class="oponentPoints"></p>
                     </div>
-                    <div class="box playerTwo">
-                        <span class="mdi mdi-train-car-box icon"></span>
-                        <p class="playerName">Your Name</p>
-                        <p class="trains">
-                            <span class="trainsQuantity">45</span>x Destination Tickets
+                    <div class="box playersBox">
+
+                        <p class="playerName oponentName"></p>
+                        <p class="oponentTrains">
+                            <span class="oponentsTrainsQuantity"></span>x Trains
                         </p>
                         <p class="destination">
-                            <span class="destinationQuantity">2</span>x Train Tickets
+                            <span class="destinationQuantity"></span>x Destination Tickets
                         </p>
                         <p class="trainCards">
-                            <span class="trainCardQuantity">2</span>x Trains
+                            <span class="trainCardQuantity"></span>x Trains Tickets
                         </p>
-                        <p class="points">30</p>
+                        <p class="oponentPoints"></p>
                     </div>
-                    <div class="box playerThree">
-                        <span class="mdi mdi-train-car-box icon"></span>
-                        <p class="playerName">Your Name</p>
-                        <p class="trains">
-                            <span class="trainsQuantity">45</span>x Destination Tickets
+                    <div class="box playersBox">
+
+                        <p class="playerName oponentName"></p>
+                        <p class="oponentTrains">
+                            <span class="oponentsTrainsQuantity"></span>x Trains
                         </p>
                         <p class="destination">
-                            <span class="destinationQuantity">2</span>x Train Tickets
+                            <span class="destinationQuantity"></span>x Destination Tickets
                         </p>
                         <p class="trainCards">
-                            <span class="trainCardQuantity">2</span>x Trains
+                            <span class="trainCardQuantity"></span>x Trains Tickets
                         </p>
-                        <p class="points">30</p>
+                        <p class="oponentPoints"></p>
                     </div>
                 </section>
 
             </div>
-        </div>
-        <div class="destinationPopup">
-            <span class="mdi mdi-close closeBtn"></span>
-            <div class="popupCardsBox">
-                <img src="../dist/img/ExampleCard.png" alt="karta miejsc" class="popupCard one">
-                <img src="../dist/img/ExampleCard.png" alt="karta miejsc" class="popupCard two">
-                <img src="../dist/img/ExampleCard.png" alt="karta miejsc" class="popupCard three">
+            <div class="destinationPopup">
+                <p class="destinationPopupText">You need to select at least&nbsp; <span
+                        class="counter">2</span>&nbsp;more cards</p>
+                <button class="sendDestinationCards">SEND</button>
+                <div class="popupCardsBox">
+                    <img src="../dist/img/ExampleCard.png" alt="karta miejsc" class="popupCard one">
+                    <img src="../dist/img/ExampleCard.png" alt="karta miejsc" class="popupCard two">
+                    <img src="../dist/img/ExampleCard.png" alt="karta miejsc" class="popupCard three">
+                </div>
+            </div>
+            <div class="destinationPopupAfterClick">
+                <p class="destinationPopupText">You need to select at least&nbsp; <span
+                        class="counterAfterClick">1</span>&nbsp;more cards</p>
+                <button class="sendDestinationCardsAfterClick">SEND</button>
+                <div class="popupCardsBoxAfterClick">
+                    <img src="../dist/img/ExampleCard.png" alt="karta miejsc" class="popupCardAfterClick one">
+                    <img src="../dist/img/ExampleCard.png" alt="karta miejsc" class="popupCardAfterClick two">
+                    <img src="../dist/img/ExampleCard.png" alt="karta miejsc" class="popupCardAfterClick three">
+                </div>
+            </div>
+            <div class="yourDestinationTickets">
+                <h2 class="yourDestinationTicketsText">Your tickets</h2>
+                <button class="closeBtnTickets mdi mdi-close"></button>
+                <div class="popupYourTicketCardsBox">
+                    <!-- <img src="../dist/img/ExampleCard.png" alt="karta miejsc" class="popupYourTicketCard one">
+                    <img src="../dist/img/ExampleCard.png" alt="karta miejsc" class="popupYourTicketCard two">
+                    <img src="../dist/img/ExampleCard.png" alt="karta miejsc" class="popupYourTicketCard three"> -->
+
+                </div>
             </div>
         </div>
+
     </main>
 </body>
-<script src="../src/js/game.js"></script>
+<script src="../dist/js/websocket.js"></script>
+<script src="../dist/js/game.js"></script>
+<script src="../dist/js/ticketCards.js"></script>
+<script src="../dist/js/setUsers.js"></script>
+<script src="../dist/js/trainCards.js"></script>
+<script src="../dist/js/setRoutes.js"></script>
 
 </html>

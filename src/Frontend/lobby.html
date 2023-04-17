@@ -13,6 +13,8 @@
 <link rel="stylesheet" href="./dist/css/main.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.1.96/css/materialdesignicons.min.css">
 <script src="https://kit.fontawesome.com/7e5f0f75ea.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.1/sockjs.min.js"></script>
 </head>
 
 <body>
@@ -47,7 +49,7 @@
     <button class="send">Login</button>
 </section>
                 <div class="mainCreateBox">
-                    
+
                     <div class="alertPopup">
                         <p class="alertPopup_text">Jakiś tekst</p>
                         <button class="alertPopup_btn">OK</button>
@@ -60,7 +62,7 @@
                         <div class="boxLeft_users">
                         </div>
                     </section>
-                    
+
                     <section class="boxRight">
                         <div class="boxRight_game-setup">
                             <div class="boxRight_game-setup-players">
@@ -89,6 +91,8 @@
 
     </main>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="../dist/js/websocket.js"></script>
     <script src="../dist/js/lobby.js"></script>
     <script src="./dist/js/main.js"></script>
 </body>

@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Koleją przez stany</title>
     <!-- @include 'link.kit' -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.1/sockjs.min.js"></script>
 </head>
 
 <body>
@@ -52,8 +54,11 @@
         </div>
     </main>
 
-    <script src="../src/js/createGame.js"></script>
-    <script src="../src/js/joinToGame.js"></script>
+
+
+    <script src="../dist/js/websocket.js"></script>
+    <script src="../dist/js/createGame.js"></script>
+    <script src="../dist/js/joinToGame.js"></script>
     <script src="../dist/js/popup.js"></script>
     <script src="./dist/js/main.js"></script>
 </body>

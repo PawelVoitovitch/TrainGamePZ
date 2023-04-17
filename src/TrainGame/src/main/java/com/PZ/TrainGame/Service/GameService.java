@@ -32,7 +32,9 @@ public class GameService {
         game.getPlayers().add(player);
         //playerOrder
         game.setPlayersOrder(new LinkedList<String>());
-        game.getPlayersOrder().add(login);
+
+            game.getPlayersOrder().add(login);
+
         //TrainDeck
         ArrayList<TrainCard> trainDeck= new ArrayList<>();
         for (int i = 0; i<10; i++){
@@ -180,6 +182,7 @@ public class GameService {
         player.setTicketCards(new ArrayList<TicketCard>());
         player.setTrainCards(new ArrayList<TrainCard>());
         game.getPlayers().add(player);
+        game.getPlayersOrder().add(login);
         if(game.getPlayers().size()==4)
             game.setStatus(GameStatus.INPROGRESS);
         GamesStorage.getInstance().setGame(game);
@@ -200,7 +203,7 @@ public class GameService {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "Not your turn.");
 
         player.getTicketCards().addAll(drawTicketsDTO.getSaved());
-        for (int i=0; i<drawTicketsDTO.getSaved().size(); i++)
+        for (int i=0; i<3; i++)
             game.getTicketDeck().remove(0);
 
         game.getPlayersOrder().add(game.getPlayersOrder().poll());
@@ -224,7 +227,7 @@ public class GameService {
         if(!drawTrainsDTO.getBlind().isEmpty()) {
             for (TrainCard trainCard : drawTrainsDTO.getBlind()) {
                 player.getTrainCards().add(trainCard);
-                game.getTicketDeck().remove(0);
+                game.getTrainDeck().remove(0);
             }
         }
 

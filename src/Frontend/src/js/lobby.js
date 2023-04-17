@@ -6,19 +6,20 @@ const popup = document.querySelector(".alertPopup");
 const popupText = document.querySelector(".alertPopup_text");
 const popupButton = document.querySelector(".alertPopup_btn");
 const tableID = document.querySelector(".boxLeft_title");
-
 const urlParams = new URLSearchParams(window.location.search);
+const ticketArr = urlParams.get("userTickets");
 const gameId = urlParams.get("gameId");
 const inviteLink = document.getElementById("inviteLink");
-
-const url = "http://localhost:8090/game";
+const name = urlParams.get("playerName");
+const visibleTrains = urlParams.get("visibleTrains");
+const url = "http://localhost:8090";
 
 tableID.textContent = `Game ID: ${gameId}`;
 inviteLink.textContent = gameId;
 
 async function getPlayers(gameId) {
 	try {
-		const response = await fetch(`${url}/${gameId}/players`);
+		const response = await fetch(`${url}/game/${gameId}/players`);
 		if (!response.ok) {
 			throw new Error("Network response was not ok");
 		}
@@ -26,14 +27,14 @@ async function getPlayers(gameId) {
 		players.forEach((player) => {
 			const newUser = document.createElement("div");
 			newUser.classList.add("boxLeft_users-user");
-			newUser.innerHTML = `<span class="mdi mdi-train-car-box icon ${player.playerColor}"></span><p class="text">${player.login}</p>`;
+			newUser.innerHTML = `<span class="mdi mdi-train-car-box icon ${player.playerColor}-icon"></span><p class="text">${player.login}</p>`;
 			container.appendChild(newUser);
 		});
 		console.log(players);
 		if (players.length === 4) {
 			button.classList.add("start");
 			button.addEventListener("click", () => {
-				window.location.href = `/game.html?gameId=${gameId}`;
+				window.location.href = `/game.html?gameId=${gameId}&playerName=${name}&visibleTrains=${visibleTrains}&userTickets=${ticketArr}`;
 			});
 		} else if (players.length < 4) {
 			button.addEventListener("click", () => {
@@ -44,6 +45,7 @@ async function getPlayers(gameId) {
 				});
 			});
 		}
+		connectToSocket(gameId);
 		return players;
 	} catch (error) {
 		console.error("Error:", error);
