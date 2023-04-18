@@ -40,8 +40,11 @@ function connectToGameSocket(gameId) {
 				trainCardsQuantity.textContent = `x${data.trainDeck.length}`;
 				availableColors = data.trainDeck;
 				tickets = data.ticketDeck;
+				currentBoard = data.board;
+
 				drawDestinationCards(tickets);
 				loadGame();
+				setTrainsOnBoard(data.board);
 			},
 			function (error) {
 				console.log("Error: " + error);

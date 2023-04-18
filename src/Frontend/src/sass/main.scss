@@ -864,7 +864,8 @@ main {
 		z-index: -100;
 	}
 
-	.yourDestinationTickets {
+	.yourDestinationTickets,
+	.trainPopup {
 		display: none;
 		justify-content: center;
 		align-items: center;
@@ -876,22 +877,33 @@ main {
 		left: 0;
 		background-color: rgba($color: #000000, $alpha: 0.9);
 
-		.yourDestinationTicketsText {
+		.yourDestinationTicketsText,
+		.trainPopupText {
 			font-size: 5rem;
 			margin: 20px;
 			margin-bottom: 50px;
 		}
-		.popupYourTicketCardsBox {
+		.popupYourTicketCardsBox,
+		.trainPopupCardsBox {
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			flex-direction: row;
 			flex-wrap: wrap;
 
-			.popupYourTicketCard {
+			.popupYourTicketCard,
+			.trainPopupCard {
 				height: 200px;
-				width: 350px;
+				width: 325px;
 				margin: 20px;
+			}
+
+			.trainPopupCard {
+				cursor: pointer;
+				transition: scale 0.3s;
+			}
+			.trainPopupCard:hover {
+				scale: 1.1;
 			}
 		}
 

@@ -26,8 +26,6 @@ const trainCards = [
 	"YELLOW",
 ];
 
-
-
 function setOponentData(oponent, idx) {
 	oponentsName[idx].textContent = oponent.login;
 	trainsQuantity[idx].textContent = oponent.trains;
@@ -54,6 +52,7 @@ function setMyData(oponent) {
 		const quantity = cardCounts[color] || 0;
 		const cardQuantity = trainsCard[index];
 		cardQuantity.textContent = quantity;
+		cardsQuantity[color] = quantity;
 	});
 }
 
@@ -68,7 +67,6 @@ async function loadGame() {
 			setMyData(oponent);
 		}
 	});
-	
 }
 
 loadGame();

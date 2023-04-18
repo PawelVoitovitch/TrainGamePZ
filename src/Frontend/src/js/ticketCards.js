@@ -146,7 +146,7 @@ yourTickets.addEventListener("click", () => {
 			});
 		})
 		.catch((error) => {
-			console.error(error); // obsłuż błąd
+			console.error(error); 
 		});
 });
 
