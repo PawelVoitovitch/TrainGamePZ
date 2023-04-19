@@ -1,10 +1,8 @@
 const routeBox = document.querySelectorAll(".routeBox");
-const popup = document.querySelector(".alertPopup");
-const popupText = document.querySelector(".alertPopup_text");
-const popupBtn = document.querySelector(".alertPopup_btn");
 const cardBoxes = document.querySelectorAll(".cardBox");
 const trainPopup = document.querySelector(".trainPopup");
 const cards = document.querySelectorAll(".trainPopupCard");
+const alertPopupBtn = document.querySelector(".alertPopup_btn");
 
 let color;
 
@@ -108,17 +106,11 @@ function checkAvailability(id, board, cardsQuantity) {
 				const cardsToUse = enoughCardsInColors;
 				createTrainPopupCards(cardsToUse);
 				trainPopup.style.display = "flex";
-
-				console.log(
-					`Multiple colors are available to take the ${
-						clickedField.color
-					} field: ${cardsToUse.join(", ")}.`
-				);
 				chooseCardColor(playerName, id);
 			} else {
-				console.log(
-					`You don't have enough cards to take the ${clickedField.color} field.`
-				);
+				setPopup("You don't have enough cards");
+				showPopup();
+				alertPopupBtn.addEventListener("click", removePopup);
 			}
 		} else {
 			const colors = [clickedField.color, "RAINBOW"];
@@ -137,9 +129,9 @@ function checkAvailability(id, board, cardsQuantity) {
 				placeTrain(playerName, id, usedColor);
 				console.log(`You can take the ${clickedField.color} field!`);
 			} else {
-				console.log(
-					`You don't have enough cards to take the ${clickedField.color} field.`
-				);
+				setPopup("You don't have enough cards");
+				showPopup();
+				alertPopupBtn.addEventListener("click", removePopup);
 			}
 		}
 	} else {
@@ -199,6 +191,7 @@ async function setTrainsOnBoard(boardData) {
 				children[
 					i
 				].style.backgroundImage = `url('../dist/img/${playerColor}.png')`;
+				children[i].style.pointerEvents = "none";
 			}
 		}
 	}

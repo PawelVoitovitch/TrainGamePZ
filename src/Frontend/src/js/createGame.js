@@ -28,14 +28,17 @@ createButton.addEventListener("click", async (event) => {
 			const game = await response.json();
 			console.log(`Game created with ID ${game.id}`);
 
-			// window.location.href = `/lobby.html?gameId=${game.id}`;
 			popupText.textContent = "Created new game";
 
 			popupBtn.addEventListener("click", () => {
-				window.location.href = `/lobby.html?gameId=${game.id}&playerName=${name}&visibleTrains=${game.visibleTrains}&userTickets=${game.ticketDeck}`;
+				window.location.href = `/lobby.html?gameId=${game.id}&playerName=${btoa(
+					name
+				)}&visibleTrains=${btoa(game.visibleTrains)}&userTickets=${btoa(
+					game.ticketDeck
+				)}`;
 				popup.style.display = "none";
 				backgroundPopup.style.display = "none";
-				playerName.value = "";
+				playerName.textContent = "";
 				popupAlert.classList.remove("showAlertPopup");
 			});
 			popupAlert.classList.add("showAlertPopup");

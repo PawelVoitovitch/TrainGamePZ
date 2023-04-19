@@ -782,6 +782,7 @@ main {
 							font-size: 2.5rem;
 							text-align: center;
 							width: 100%;
+							text-transform: uppercase;
 						}
 						.trains {
 							position: absolute;
@@ -789,21 +790,6 @@ main {
 							width: 100%;
 							text-align: center;
 						}
-					}
-					.endTurn {
-						border: none;
-						background-color: c.$red;
-						font-size: 1.5rem;
-						padding: 0.5em;
-						border-radius: 20px;
-						color: c.$milk-white;
-						box-shadow: 0 0 10px 5px c.$red;
-						cursor: pointer;
-						transition: backgroundColor 0.3s, boxShadow 0.3s;
-					}
-					.endTurn:hover {
-						background-color: c.$dark;
-						box-shadow: 0 0 10px 5px c.$dark;
 					}
 				}
 			}
@@ -822,27 +808,29 @@ main {
 				width: 100%;
 				height: 20%;
 				margin-bottom: 1em;
-				color: c.$dark;
+
 				border-radius: 10px;
+				color: c.$dark;
 
 				.playerName {
-					padding-top: 1em;
+					padding-top: 10px;
 					text-align: center;
 					font-size: 2rem;
+					text-transform: uppercase;
 				}
 				.oponentTrains,
 				.trainCards,
 				.destination {
 					position: absolute;
-					top: 35%;
+					top: 30%;
 					left: 5%;
 					font-size: 1.3rem;
 				}
 				.trainCards {
-					top: 50%;
+					top: 45%;
 				}
 				.destination {
-					top: 65%;
+					top: 60%;
 				}
 				.oponentPoints {
 					position: absolute;
@@ -865,7 +853,8 @@ main {
 	}
 
 	.yourDestinationTickets,
-	.trainPopup {
+	.trainPopup,
+	.turnPopup {
 		display: none;
 		justify-content: center;
 		align-items: center;
@@ -920,6 +909,31 @@ main {
 		}
 		.closeBtnTickets:hover {
 			color: c.$red;
+		}
+	}
+
+	.turnPopup {
+		z-index: 50000;
+		background-color: rgba($color: #000000, $alpha: 0.6);
+		.turnPopupText {
+			text-transform: uppercase;
+			background-image: linear-gradient(
+				315deg,
+				#acabb0 0%,
+				#e01c34 50%,
+				#acabb0 100%
+			);
+			background-size: auto auto;
+			background-clip: border-box;
+			background-size: 200% auto;
+			color: #fff;
+			background-clip: text;
+			// text-fill-color: transparent;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			animation: textclip 3s linear infinite;
+			display: inline-block;
+			font-size: 5rem;
 		}
 	}
 

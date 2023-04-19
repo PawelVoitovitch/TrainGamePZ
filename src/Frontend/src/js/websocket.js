@@ -41,7 +41,8 @@ function connectToGameSocket(gameId) {
 				availableColors = data.trainDeck;
 				tickets = data.ticketDeck;
 				currentBoard = data.board;
-
+				turnArr = data.playersOrder;
+				turn();
 				drawDestinationCards(tickets);
 				loadGame();
 				setTrainsOnBoard(data.board);

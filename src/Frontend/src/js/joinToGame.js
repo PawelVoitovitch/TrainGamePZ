@@ -45,7 +45,11 @@ btnJoin.addEventListener("click", async (event) => {
 			popupText.textContent = "Joined to game";
 
 			popupBtn.addEventListener("click", () => {
-				window.location.href = `/lobby.html?gameId=${game.id}&playerName=${playerName}&visibleTrains=${game.visibleTrains}&userTickets=${game.ticketDeck}`;
+				window.location.href = `/lobby.html?gameId=${game.id}&playerName=${btoa(
+					playerName
+				)}&visibleTrains=${btoa(game.visibleTrains)}&userTickets=${btoa(
+					game.ticketDeck
+				)}`;
 				hidePopup();
 				popupAlert.classList.remove("showAlertPopup");
 			});

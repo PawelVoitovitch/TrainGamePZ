@@ -6,7 +6,9 @@ let availableColors = [];
 let card1 = null;
 let card2 = null;
 
-visibleTrains = urlParams.get("visibleTrains").split(",");
+const visibleTrainsFromURL = urlParams.get("visibleTrains");
+
+visibleTrains = atob(visibleTrainsFromURL).split(",");
 console.log(visibleTrains);
 updateVisibleCards(visibleTrains);
 

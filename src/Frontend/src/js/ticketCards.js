@@ -1,5 +1,7 @@
-const ticketArr = urlParams.get("userTickets");
-const playerName = urlParams.get("playerName");
+const ticketArrFromURL = urlParams.get("userTickets");
+const ticketArr = atob(ticketArrFromURL);
+const playerNameFromURL = urlParams.get("playerName");
+const playerName = atob(playerNameFromURL);
 const tickets = ticketArr.split(",");
 const popupCards = document.querySelectorAll(".popupCard");
 const popupCardsAfterClick = document.querySelectorAll(".popupCardAfterClick");
@@ -9,7 +11,6 @@ const sendChoosenCardBtn = document.querySelector(".sendDestinationCards");
 const sendChoosenCardBtnAfterClick = document.querySelector(
 	".sendDestinationCardsAfterClick"
 );
-
 const yourDestinationTickets = document.querySelector(
 	".yourDestinationTickets"
 );
@@ -19,10 +20,26 @@ const popupYourTicketCardsBox = document.querySelector(
 );
 const yourTickets = document.querySelector(".destinationTicket");
 const closeBtnTickets = document.querySelector(".closeBtnTickets");
+const matchDestination = document.querySelector(".matchDestination");
+const destinationPopup = document.querySelector(".destinationPopup");
+const destinationPopupAfterClick = document.querySelector(
+	".destinationPopupAfterClick"
+);
 
 let userTicketsArr = [];
 let choosenCards = [];
 let choosenCardsAfterClick = [];
+
+matchDestination.addEventListener("click", () => {
+	if (destinationCardsQuantity.textContent == "x0") {
+		setPopup("No more destination cards");
+		showPopup();
+	} else {
+		destinationPopupAfterClick.style.opacity = 1;
+		destinationPopupAfterClick.style.zIndex = 100;
+		alertPopupBtn.addEventListener("click", removePopup);
+	}
+});
 
 async function setUsersTickets() {
 	const players = await getPlayers(gameId);
@@ -114,10 +131,10 @@ const sendChoosenCards = async (choosenCards, destinationPopup) => {
 			destinationPopup.style.opacity = 0;
 			destinationPopup.style.zIndex = -100;
 		} else {
-			console.error("Błąd podczas wysyłania żądania.");
+			console.error("Error while sending request");
 		}
 	} catch (error) {
-		console.error("Błąd podczas wysyłania żądania:", error);
+		console.error("Error while sending request:", error);
 	}
 };
 
@@ -138,7 +155,7 @@ yourTickets.addEventListener("click", () => {
 					player.ticketCards.forEach((card) => {
 						const img = document.createElement("img");
 						img.src = `../dist/img/${card}.png`;
-						img.alt = "karta miejsc";
+						img.alt = "destination card";
 						img.classList.add("popupYourTicketCard");
 						popupYourTicketCardsBox.appendChild(img);
 					});
@@ -146,7 +163,7 @@ yourTickets.addEventListener("click", () => {
 			});
 		})
 		.catch((error) => {
-			console.error(error); 
+			console.error(error);
 		});
 });
 
