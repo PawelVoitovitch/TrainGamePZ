@@ -502,15 +502,27 @@ main {
 // ============================
 
 .BLUE {
+	background-color: blue;
+}
+.BLUE-icon {
 	color: blue;
 }
 .RED {
+	background-color: red;
+}
+.RED-icon {
 	color: red;
 }
 .YELLOW {
+	background-color: yellow;
+}
+.YELLOW-icon {
 	color: yellow;
 }
 .GREEN {
+	background-color: green;
+}
+.GREEN-icon {
 	color: green;
 }
 
@@ -536,6 +548,8 @@ main {
 	&_text {
 		font-size: 2rem;
 		margin-bottom: 1em;
+
+		color: c.$dark;
 	}
 	&_btn {
 		width: 100px;
@@ -575,6 +589,7 @@ main {
 	}
 
 	.table {
+		position: relative;
 		display: flex;
 		justify-content: flex-start;
 		align-items: center;
@@ -610,6 +625,10 @@ main {
 					cursor: pointer;
 					margin: 0;
 				}
+			}
+
+			.selected {
+				scale: 1.1;
 			}
 			.matchingCards {
 				display: flex;
@@ -648,6 +667,7 @@ main {
 				}
 			}
 		}
+
 		.boardArea {
 			width: 65%;
 			height: 650px;
@@ -665,8 +685,7 @@ main {
 				.trainImg {
 					position: absolute;
 					width: 3.5%;
-					height: 8px;
-					border: 3px solid black;
+					height: 15px;
 				}
 				.clicked {
 					background-color: steelblue;
@@ -687,17 +706,25 @@ main {
 					align-items: flex-start;
 					flex-direction: column;
 					.destinationTickets {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						flex-direction: row;
 						padding: 0.3em;
-						display: block;
 						width: 100%;
 						height: 40%;
+
 						.destinationTicket {
-							width: 22%;
+							width: 125px;
 							height: 100%;
+							display: flex;
+							justify-content: center;
+							margin: 5px;
+							cursor: pointer;
 						}
 					}
 					.cards {
-						height: 60%;
+						height: 55%;
 						width: 100%;
 						display: flex;
 						justify-content: center;
@@ -733,7 +760,7 @@ main {
 						position: relative;
 						width: 90%;
 						height: 60%;
-						background-color: yellow;
+
 						color: c.$dark;
 						border-radius: 10px;
 						margin-bottom: 1em;
@@ -755,6 +782,7 @@ main {
 							font-size: 2.5rem;
 							text-align: center;
 							width: 100%;
+							text-transform: uppercase;
 						}
 						.trains {
 							position: absolute;
@@ -762,21 +790,6 @@ main {
 							width: 100%;
 							text-align: center;
 						}
-					}
-					.endTurn {
-						border: none;
-						background-color: c.$red;
-						font-size: 1.5rem;
-						padding: 0.5em;
-						border-radius: 20px;
-						color: c.$milk-white;
-						box-shadow: 0 0 10px 5px c.$red;
-						cursor: pointer;
-						transition: backgroundColor 0.3s, boxShadow 0.3s;
-					}
-					.endTurn:hover {
-						background-color: c.$dark;
-						box-shadow: 0 0 10px 5px c.$dark;
 					}
 				}
 			}
@@ -795,62 +808,157 @@ main {
 				width: 100%;
 				height: 20%;
 				margin-bottom: 1em;
-				color: c.$dark;
+
 				border-radius: 10px;
-				.icon {
-					position: absolute;
-					top: 5%;
-					left: 5%;
-					font-size: 3rem;
-				}
+				color: c.$dark;
+
 				.playerName {
-					position: absolute;
-					top: 10%;
-					right: 5%;
+					padding-top: 10px;
+					text-align: center;
 					font-size: 2rem;
+					text-transform: uppercase;
 				}
-				.trains,
+				.oponentTrains,
 				.trainCards,
 				.destination {
 					position: absolute;
-					top: 35%;
+					top: 30%;
 					left: 5%;
 					font-size: 1.3rem;
 				}
 				.trainCards {
-					top: 50%;
+					top: 45%;
 				}
 				.destination {
-					top: 65%;
+					top: 60%;
 				}
-				.points {
+				.oponentPoints {
 					position: absolute;
 					bottom: 5%;
 					right: 5%;
 					font-size: 2rem;
 				}
 			}
-
-			.playerOne {
-				background-color: red;
-			}
-			.playerTwo {
-				background-color: blue;
-			}
-			.playerThree {
-				background-color: green;
-			}
 		}
 	}
+
 	.destinationPopup {
+		opacity: 1;
+		z-index: 100;
+	}
+
+	.destinationPopupAfterClick {
+		opacity: 0;
+		z-index: -100;
+	}
+
+	.yourDestinationTickets,
+	.trainPopup,
+	.turnPopup {
+		display: none;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
 		position: fixed;
 		width: 100%;
 		height: 100%;
 		top: 0;
 		left: 0;
-		opacity: 0;
-		z-index: -100;
 		background-color: rgba($color: #000000, $alpha: 0.9);
+
+		.yourDestinationTicketsText,
+		.trainPopupText {
+			font-size: 5rem;
+			margin: 20px;
+			margin-bottom: 50px;
+		}
+		.popupYourTicketCardsBox,
+		.trainPopupCardsBox {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: row;
+			flex-wrap: wrap;
+
+			.popupYourTicketCard,
+			.trainPopupCard {
+				height: 200px;
+				width: 325px;
+				margin: 20px;
+			}
+
+			.trainPopupCard {
+				cursor: pointer;
+				transition: scale 0.3s;
+			}
+			.trainPopupCard:hover {
+				scale: 1.1;
+			}
+		}
+
+		.closeBtnTickets {
+			position: absolute;
+			top: 40px;
+			right: 40px;
+			font-size: 3rem;
+			color: c.$milk-white;
+			background-color: rgba($color: #000000, $alpha: 0.9);
+			border: none;
+			cursor: pointer;
+			transition: color 0.3s;
+		}
+		.closeBtnTickets:hover {
+			color: c.$red;
+		}
+	}
+
+	.turnPopup {
+		z-index: 50000;
+		background-color: rgba($color: #000000, $alpha: 0.6);
+		.turnPopupText {
+			text-transform: uppercase;
+			background-image: linear-gradient(
+				315deg,
+				#acabb0 0%,
+				#e01c34 50%,
+				#acabb0 100%
+			);
+			background-size: auto auto;
+			background-clip: border-box;
+			background-size: 200% auto;
+			color: #fff;
+			background-clip: text;
+			// text-fill-color: transparent;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			animation: textclip 3s linear infinite;
+			display: inline-block;
+			font-size: 5rem;
+		}
+	}
+
+	.destinationPopup,
+	.destinationPopupAfterClick {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+
+		background-color: rgba($color: #000000, $alpha: 0.4);
+		.destinationPopupText {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 75px;
+			font-size: 2.5rem;
+			background-color: c.$dark;
+			color: c.$milk-white;
+			.counter,
+			.counterAfterClick {
+				color: c.$red;
+			}
+		}
 		.closeBtn {
 			position: absolute;
 			top: 5%;
@@ -862,23 +970,51 @@ main {
 		.closeBtn:hover {
 			color: c.$red;
 		}
-		.popupCardsBox {
+		.popupCardsBox,
+		.popupCardsBoxAfterClick {
 			display: flex;
-			flex-direction: column;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			.popupCard {
-				width: 250px;
-				height: 175px;
+			height: 90%;
+			align-items: flex-end;
+			justify-content: center;
+			flex-direction: row;
+			padding: 3%;
+
+			.popupCard,
+			.popupCardAfterClick {
+				width: 200px;
+				height: 125px;
 				margin: 0.5em;
 				cursor: pointer;
 				transition: scale 0.3s;
 			}
+
+			.selectedCard {
+				scale: 1.1;
+			}
 			.popupCard:hover {
 				scale: 1.1;
 			}
+		}
+
+		.sendDestinationCards,
+		.sendDestinationCardsAfterClick {
+			display: none;
+			position: absolute;
+			top: 12.5px;
+			right: 20%;
+			width: 75px;
+			height: 50px;
+			background-color: c.$red;
+			border: none;
+			color: c.$milk-white;
+			cursor: pointer;
+			border-radius: 10px;
+			transition: background-color 0.3s, color 0.3s;
+		}
+		.sendDestinationCards:hover,
+		.sendDestinationCardsAfterClick:hover {
+			background-color: c.$milk-white;
+			color: c.$red;
 		}
 	}
 }

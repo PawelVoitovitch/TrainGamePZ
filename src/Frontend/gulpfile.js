@@ -10,8 +10,8 @@ const sourcemaps = require("gulp-sourcemaps");
 const clean = require("gulp-clean");
 const kit = require("gulp-kit");
 const browserSync = require("browser-sync").create();
-const reload = browserSync.reload;
 
+const reload = browserSync.reload;
 const paths = {
 	html: "./html/**/*.kit",
 	sass: "./src/sass/**/*.scss",
@@ -64,6 +64,8 @@ function startBrowserSync(done) {
 		server: {
 			baseDir: "./",
 		},
+		ui: false,
+		ghostMode: false,
 	});
 
 	done();

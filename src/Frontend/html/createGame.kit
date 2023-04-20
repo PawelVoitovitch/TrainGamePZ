@@ -7,39 +7,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Koleją przez stany</title>
     <!-- @include 'link.kit' -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.1/sockjs.min.js"></script>
 </head>
 
 <body>
-
     <!-- @include 'nav.kit' -->
     <main>
         <section class="backgroundPopup">
             <span class="mdi mdi-close closeBtn"></span>
         </section>
         <div class="wrapper">
-
             <div class="main">
                 <!-- @include 'loginForm.kit' -->
                 <section class="main_section">
-
-                    <img src="./dist/img/logo-white.png" alt="logo gry koleją przez stany" class="logo">
-
+                    <img src="./dist/img/logo-white.png" alt="game logo" class="logo">
                     <label for="playerName">Player name:</label>
                     <input type="text" class="playerName" id="playerName">
                     <a href="#" class="link-btn createGame">create game</a>
                     <button class="link-btn joinLobby" type="submit">join Lobby</button>
                 </section>
-
                 <section class="alert">
                     <div class="alertPopup">
                         <p class="alertPopup_text">Jakiś tekst</p>
                         <button class="alertPopup_btn">OK</button>
                     </div>
                 </section>
-
                 <section class="popup">
-
-
                     <div class="textPopup ">
                         <label for="playerNameJoin">Player name:</label>
                         <input type="text" id="playerNameJoin">
@@ -52,10 +46,11 @@
         </div>
     </main>
 
-    <script src="../src/js/createGame.js"></script>
-    <script src="../src/js/joinToGame.js"></script>
-    <script src="../dist/js/popup.js"></script>
-    <script src="./dist/js/main.js"></script>
+    <script src="../dist/js/websocket.js"></script>
+    <script src="../dist/js/createGame.js"></script>
+    <script src="../dist/js/joinToGame.js"></script>
+    <script src="../dist/js/joinToGamePopup.js"></script>
+    <script src="./dist/js/login.js"></script>
 </body>
 
 </html>

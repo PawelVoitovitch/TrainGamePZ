@@ -57,7 +57,7 @@ public class GameController {
         }
     }
 
-    @PostMapping(path = "/turn/drawTickets")
+    @PostMapping(path = "/turn/drawTicket")
     public Game turn(@RequestBody DrawTicketsDTO drawTicketsDTO){
         try {
             Game game = gameService.turn(drawTicketsDTO);
