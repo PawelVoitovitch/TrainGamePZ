@@ -297,7 +297,138 @@ public class GameService {
         return game;
     }
 
-    private Game checkTickets(Game game){
+    public Game checkTickets(Game game){
+        Graph graph = new Graph();
+
+        //dodanie vertexów - miasta
+        Vertex seattle = new Vertex("Seattle");
+        Vertex portland = new Vertex("Portland");
+        Vertex sanFrancisco = new Vertex("SanFrancisco");
+        Vertex losAngeles = new Vertex("LosAngeles");
+        Vertex hawaje = new Vertex("Hawaje");
+        Vertex phoenix = new Vertex("Phoenix");
+        Vertex saltLakeCity = new Vertex("SaltLakeCity");
+        Vertex helena = new Vertex("Helena");
+        Vertex winnipeg = new Vertex("Winnipeg");
+        Vertex denver = new Vertex("Denver");
+        Vertex omaha = new Vertex("Omaha");
+        Vertex kansasCity = new Vertex("KansasCity");
+        Vertex chicago = new Vertex("Chicago");
+        Vertex saintLouis = new Vertex("SaintLouis");
+        Vertex dallas = new Vertex("Dallas");
+        Vertex houston = new Vertex("Houston");
+        Vertex newOrleans = new Vertex("NewOrleans");
+        Vertex miami = new Vertex("Miami");
+        Vertex atlanta = new Vertex("Atlanta");
+        Vertex washington = new Vertex("Washington");
+        Vertex newYork = new Vertex("NewYork");
+        Vertex boston = new Vertex("Boston");
+        Vertex toronto = new Vertex("Toronto");
+
+        graph.addVertex(seattle);
+        graph.addVertex(portland);
+        graph.addVertex(sanFrancisco);
+        graph.addVertex(losAngeles);
+        graph.addVertex(hawaje);
+        graph.addVertex(phoenix);
+        graph.addVertex(saltLakeCity);
+        graph.addVertex(helena);
+        graph.addVertex(winnipeg);
+        graph.addVertex(denver);
+        graph.addVertex(omaha);
+        graph.addVertex(kansasCity);
+        graph.addVertex(chicago);
+        graph.addVertex(saintLouis);
+        graph.addVertex(dallas);
+        graph.addVertex(houston);
+        graph.addVertex(newOrleans);
+        graph.addVertex(miami);
+        graph.addVertex(atlanta);
+        graph.addVertex(washington);
+        graph.addVertex(newYork);
+        graph.addVertex(boston);
+        graph.addVertex(toronto);
+
+        List<BoardPlace> board = game.getBoard();
+
+        //dodanie edge-ów - tras
+        graph.addEdge(hawaje.getId(), houston.getId(), board.get(0).getPlayer());
+        graph.addEdge(hawaje.getId(), phoenix.getId(), board.get(1).getPlayer());
+        graph.addEdge(hawaje.getId(), losAngeles.getId(), board.get(2).getPlayer());
+        graph.addEdge(hawaje.getId(), losAngeles.getId(), board.get(3).getPlayer());
+        graph.addEdge(hawaje.getId(), sanFrancisco.getId(), board.get(4).getPlayer());
+        graph.addEdge(hawaje.getId(), sanFrancisco.getId(), board.get(5).getPlayer());
+        graph.addEdge(sanFrancisco.getId(), losAngeles.getId(), board.get(6).getPlayer());
+        graph.addEdge(sanFrancisco.getId(), losAngeles.getId(), board.get(7).getPlayer());
+        graph.addEdge(sanFrancisco.getId(), portland.getId(), board.get(8).getPlayer());
+        graph.addEdge(portland.getId(), seattle.getId(), board.get(9).getPlayer());
+        graph.addEdge(portland.getId(), seattle.getId(), board.get(10).getPlayer());
+        graph.addEdge(portland.getId(), saltLakeCity.getId(), board.get(11).getPlayer());
+        graph.addEdge(seattle.getId(), saltLakeCity.getId(), board.get(12).getPlayer());
+        graph.addEdge(seattle.getId(), helena.getId(), board.get(13).getPlayer());
+        graph.addEdge(seattle.getId(), winnipeg.getId(), board.get(14).getPlayer());
+        graph.addEdge(losAngeles.getId(), saltLakeCity.getId(), board.get(15).getPlayer());
+        graph.addEdge(losAngeles.getId(), phoenix.getId(), board.get(16).getPlayer());
+        graph.addEdge(helena.getId(), winnipeg.getId(), board.get(17).getPlayer());
+        graph.addEdge(winnipeg.getId(), toronto.getId(), board.get(18).getPlayer());
+        graph.addEdge(winnipeg.getId(), boston.getId(), board.get(19).getPlayer());
+        graph.addEdge(saltLakeCity.getId(), helena.getId(), board.get(20).getPlayer());
+        graph.addEdge(helena.getId(), denver.getId(), board.get(21).getPlayer());
+        graph.addEdge(helena.getId(), omaha.getId(), board.get(22).getPlayer());
+        graph.addEdge(saltLakeCity.getId(), phoenix.getId(), board.get(23).getPlayer());
+        graph.addEdge(saltLakeCity.getId(), phoenix.getId(), board.get(24).getPlayer());
+        graph.addEdge(saltLakeCity.getId(), denver.getId(), board.get(25).getPlayer());
+        graph.addEdge(phoenix.getId(), houston.getId(), board.get(26).getPlayer());
+        graph.addEdge(phoenix.getId(), dallas.getId(), board.get(27).getPlayer());
+        graph.addEdge(phoenix.getId(), kansasCity.getId(), board.get(28).getPlayer());
+        graph.addEdge(phoenix.getId(), denver.getId(), board.get(29).getPlayer());
+        graph.addEdge(denver.getId(), omaha.getId(), board.get(30).getPlayer());
+        graph.addEdge(denver.getId(), kansasCity.getId(), board.get(31).getPlayer());
+        graph.addEdge(dallas.getId(), houston.getId(), board.get(32).getPlayer());
+        graph.addEdge(dallas.getId(), houston.getId(), board.get(33).getPlayer());
+        graph.addEdge(dallas.getId(), saintLouis.getId(), board.get(34).getPlayer());
+        graph.addEdge(houston.getId(), newOrleans.getId(), board.get(35).getPlayer());
+        graph.addEdge(houston.getId(), newOrleans.getId(), board.get(36).getPlayer());
+        graph.addEdge(houston.getId(), saintLouis.getId(), board.get(37).getPlayer());
+        graph.addEdge(newOrleans.getId(), miami.getId(), board.get(38).getPlayer());
+        graph.addEdge(newOrleans.getId(), atlanta.getId(), board.get(39).getPlayer());
+        graph.addEdge(newOrleans.getId(), atlanta.getId(), board.get(40).getPlayer());
+        graph.addEdge(newOrleans.getId(), saintLouis.getId(), board.get(41).getPlayer());
+        graph.addEdge(kansasCity.getId(), saintLouis.getId(), board.get(42).getPlayer());
+        graph.addEdge(kansasCity.getId(), saintLouis.getId(), board.get(43).getPlayer());
+        graph.addEdge(omaha.getId(), kansasCity.getId(), board.get(44).getPlayer());
+        graph.addEdge(omaha.getId(), kansasCity.getId(), board.get(45).getPlayer());
+        graph.addEdge(omaha.getId(), chicago.getId(), board.get(46).getPlayer());
+        graph.addEdge(omaha.getId(), toronto.getId(), board.get(47).getPlayer());
+        graph.addEdge(chicago.getId(), toronto.getId(), board.get(48).getPlayer());
+        graph.addEdge(toronto.getId(), boston.getId(), board.get(49).getPlayer());
+        graph.addEdge(boston.getId(), newYork.getId(), board.get(50).getPlayer());
+        graph.addEdge(saintLouis.getId(), chicago.getId(), board.get(51).getPlayer());
+        graph.addEdge(saintLouis.getId(), chicago.getId(), board.get(52).getPlayer());
+        graph.addEdge(chicago.getId(), newYork.getId(), board.get(53).getPlayer());
+        graph.addEdge(saintLouis.getId(), atlanta.getId(), board.get(54).getPlayer());
+        graph.addEdge(saintLouis.getId(), washington.getId(), board.get(55).getPlayer());
+        graph.addEdge(saintLouis.getId(), newYork.getId(), board.get(56).getPlayer());
+        graph.addEdge(newYork.getId(), washington.getId(), board.get(57).getPlayer());
+        graph.addEdge(newYork.getId(), washington.getId(), board.get(58).getPlayer());
+        graph.addEdge(washington.getId(), atlanta.getId(), board.get(59).getPlayer());
+        graph.addEdge(washington.getId(), miami.getId(), board.get(60).getPlayer());
+        graph.addEdge(washington.getId(), miami.getId(), board.get(61).getPlayer());
+        graph.addEdge(atlanta.getId(), miami.getId(), board.get(62).getPlayer());
+
+        List<Player> players = game.getPlayers();
+        for (Player player : players) {
+            List<TicketCard> ticketCards = player.getTicketCards();
+            for (TicketCard tC : ticketCards){
+                String startCity = tC.name().split("_")[0];
+                String endCity = tC.name().split("_")[1];
+
+                boolean connected = graph.hasPath(graph.getVertex(startCity), graph.getVertex(endCity), player.getLogin());
+                if (connected) player.setPoints(player.getPoints()+tC.getValue());
+            }
+        }
+
+        game.setPlayers(players);
         return game;
     }
 }
