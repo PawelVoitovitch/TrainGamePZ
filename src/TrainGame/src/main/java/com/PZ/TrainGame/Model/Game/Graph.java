@@ -2,7 +2,7 @@ package com.PZ.TrainGame.Model.Game;
 
 import java.util.*;
 
-class Graph {
+public class Graph {
     private Map<String, Vertex> vertices;
 
     public Graph() {

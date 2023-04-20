@@ -25,9 +25,11 @@ public class GameService {
         player.setLogin(login);
         player.setPlayerColor(PlayerColor.BLUE);
         player.setPoints(0);
-        player.setTrains(35);
+        player.setTrains(4);
         player.setTicketCards(new ArrayList<TicketCard>());
+        player.getTicketCards().add(TicketCard.SaintLouis_SaltLakeCity);
         player.setTrainCards(new ArrayList<TrainCard>());
+        player.getTrainCards().add(TrainCard.GREEN);
         game.setPlayers(new ArrayList<Player>());
         game.getPlayers().add(player);
         //playerOrder
@@ -108,13 +110,13 @@ public class GameService {
         board.add(new BoardPlace(23,false,null,2,BoardPlaceColor.RED));
         board.add(new BoardPlace(24,false,null,2,BoardPlaceColor.BLACK));
         board.add(new BoardPlace(25,false,null,2,BoardPlaceColor.ORANGE));
-        board.add(new BoardPlace(26,false,null,2,BoardPlaceColor.YELLOW));
+        board.add(new BoardPlace(26,false,login,2,BoardPlaceColor.YELLOW));
         board.add(new BoardPlace(27,false,null,4,BoardPlaceColor.PINK));
         board.add(new BoardPlace(28,false,null,3,BoardPlaceColor.RED));
         board.add(new BoardPlace(29,false,null,5,BoardPlaceColor.YELLOW));
         board.add(new BoardPlace(30,false,null,2,BoardPlaceColor.WHITE));
         board.add(new BoardPlace(31,false,null,2,BoardPlaceColor.WHITE));
-        board.add(new BoardPlace(32,false,null,2,BoardPlaceColor.BLUE));
+        board.add(new BoardPlace(32,false,login,2,BoardPlaceColor.BLUE));
         board.add(new BoardPlace(33,false,null,1,BoardPlaceColor.GREY));
         board.add(new BoardPlace(34,false,null,1,BoardPlaceColor.GREY));
         board.add(new BoardPlace(35,false,null,3,BoardPlaceColor.GREEN));
