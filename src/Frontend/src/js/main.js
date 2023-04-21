@@ -1,16 +1,17 @@
-const login = document.getElementById("login");
-const loginForm = document.querySelector(".main_login");
-const loginEl = document.querySelector(".loginEL");
-let isOpen = false;
+const navElem = document.querySelector(".nav_navigation-list-elements");
+const navItems = document.querySelectorAll(".element");
+const burgerButton = document.querySelector(".burgerButton");
 
-login.addEventListener("click", () => {
-	if (!isOpen) {
-		loginForm.style.visibility = "visible";
-		loginEl.classList.add("loginIsActive");
-		isOpen = true;
-	} else {
-		loginForm.style.visibility = "hidden";
-		loginEl.classList.remove("loginIsActive");
-		isOpen = false;
-	}
+burgerButton.addEventListener("click", () => {
+	navElem.classList.add("navIsActive");
+});
+
+navElem.addEventListener("click", () => {
+	navElem.classList.remove("navIsActive");
+});
+
+navItems.forEach((item) => {
+	item.addEventListener("click", () => {
+		navElem.classList.remove("navIsActive");
+	});
 });

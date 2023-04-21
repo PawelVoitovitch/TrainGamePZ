@@ -1,0 +1,56 @@
+@media (max-width: 768px) {
+	// strona tworzenia gry i dołączania
+
+	.link {
+		font-size: 1.2rem;
+	}
+
+	main {
+		.main_section {
+			.logo {
+				width: 400px;
+				height: 350px;
+			}
+			.link-btn {
+				width: 200px;
+				height: 65px;
+				font-size: 2rem;
+			}
+			label {
+				font-size: 1.8rem;
+			}
+			.playerName {
+				width: 300px;
+				font-size: 1.7rem;
+				padding: 8px;
+			}
+		}
+	}
+
+	//lobby
+	.boxLeft {
+		#gameTitle {
+			font-size: 2rem;
+		}
+		&_users {
+			&-user {
+				.icon::before {
+					font-size: 4rem;
+					vertical-align: 10px;
+				}
+				.text {
+					font-size: 1.9rem;
+					margin-left: 5px !important;
+				}
+			}
+		}
+	}
+	.boxRight {
+		label {
+			font-size: 1.7rem;
+		}
+		#inviteLink {
+			font-size: 1.4rem;
+		}
+	}
+}

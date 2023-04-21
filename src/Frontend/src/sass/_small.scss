@@ -1,0 +1,290 @@
+@media (max-width: 576px) {
+	// strona tworzenia gry i dołączania
+	.nav {
+		.link {
+			font-size: 1.7rem;
+		}
+		.wrapper {
+			.nav_navigation-list-elements {
+				display: none;
+				position: fixed;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				width: 100%;
+				height: 100%;
+				background-color: c.$background;
+				top: 0;
+				left: 0;
+				text-align: center;
+				z-index: 99;
+				.element {
+					height: 100px;
+					width: 100%;
+					padding: 10px;
+
+					font-size: 2rem;
+				}
+				.activeNav {
+					display: flex;
+				}
+			}
+			.burgerButton {
+				display: flex;
+			}
+		}
+	}
+
+	.popup {
+		align-items: flex-end;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 80%;
+		height: 300px;
+		border-radius: 15px;
+		padding: 2em 1em;
+		background-color: c.$grey;
+		box-shadow: 0 0 20px 10px c.$grey;
+		z-index: 5;
+
+		.textPopup {
+			display: flex;
+			justify-content: start;
+			align-items: flex-start;
+			flex-direction: column;
+			width: 100%;
+			height: 150px;
+			color: c.$milk-white;
+
+			#inviteLink {
+				margin-top: 1em;
+				width: 100%;
+				padding: 0.5em;
+			}
+		}
+
+		.joinToGame {
+			width: 100px;
+			padding: 0.5em;
+			border-radius: 10px;
+			border: none;
+			background-color: c.$red;
+			color: c.$milk-white;
+			text-transform: uppercase;
+			box-shadow: 0 0 10px 4px c.$red;
+			transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+			cursor: pointer;
+		}
+
+		.joinToGame:hover {
+			background-color: c.$milk-white;
+			color: c.$grey;
+			box-shadow: 0 0 10px 4px c.$milk-white;
+		}
+	}
+	main {
+		.main_section {
+			.logo {
+				width: 300px;
+				height: 250px;
+			}
+			.link-btn {
+				width: 150px;
+				height: 50px;
+				font-size: 1.7rem;
+			}
+			label {
+				font-size: 1.7rem;
+			}
+			.playerName {
+				width: 250px;
+				font-size: 1.5rem;
+				padding: 7px;
+			}
+		}
+
+		.main_login {
+			background-color: c.$background;
+			justify-content: center;
+			align-items: center;
+			position: fixed;
+			padding: 1em;
+			top: 0;
+			right: 0;
+			width: 100%;
+			height: 100%;
+			border-bottom-left-radius: 0px;
+			border-bottom-right-radius: 0px;
+			visibility: hidden;
+			.loginText {
+				display: block;
+				color: c.$milk-white;
+			}
+			.closeBtnLogin {
+				display: block;
+				color: c.$milk-white;
+			}
+			.emailLogin,
+			.passLogin {
+				width: 80%;
+				margin-bottom: 20px;
+				#emailLogin,
+				#passwordLogin {
+					width: 100%;
+					font-size: 2rem;
+					padding: 10px;
+					border-radius: 10px;
+					border: none;
+				}
+			}
+			.error-text-login {
+				margin-top: 4px;
+				font-size: 1.3rem;
+			}
+
+			.sendLogin {
+				width: 60%;
+				padding: 15px;
+			}
+		}
+
+		.main {
+			.popup {
+				width: 80%;
+				height: 250px;
+				label {
+					font-size: 1.3rem;
+				}
+				.joinToGame {
+					font-size: 1.3rem;
+				}
+			}
+		}
+	}
+
+	.alertPopup {
+		position: absolute;
+		top: -300px;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 250px;
+		height: 150px;
+
+		opacity: 1;
+
+		&_text {
+			font-size: 1.5rem;
+			margin-bottom: 30px;
+		}
+		&_btn {
+			width: 75px;
+		}
+	}
+
+	.register {
+		h1 {
+			font-size: 3rem;
+		}
+		.form-box {
+			width: 100%;
+			margin-bottom: 10px;
+		}
+
+		.form-box input {
+			width: 100%;
+			padding: 7px;
+			font-size: 1.5rem;
+		}
+
+		.form-box .error-text {
+			margin: 2px 0 0 5px;
+			font-size: 1.1rem;
+		}
+
+		.control-buttons {
+			width: 80%;
+		}
+
+		.popup p {
+			font-size: 1.5rem;
+		}
+
+		.popup .close {
+			width: 75px;
+			padding: 7px;
+		}
+
+		.show-popup {
+			top: 100px;
+		}
+	}
+
+	//lobby
+	.mainCreate {
+		.mainCreateBox {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+			width: 100%;
+			padding: 20px 0;
+			.boxLeft {
+				min-width: 100%;
+				height: 55%;
+				margin: 0;
+				margin-bottom: 10px;
+				&_title {
+					padding: 10px;
+					margin-bottom: 20px;
+				}
+				&_users {
+					padding: 0;
+
+					&-user {
+						width: 100%;
+						height: 20%;
+					}
+				}
+			}
+			.boxRight {
+				min-height: 0;
+				width: 100%;
+				margin-bottom: 10px;
+				img {
+					display: none;
+				}
+				&_game-setup-inviteLink {
+					margin-top: 0;
+				}
+				&_game-buttons {
+					width: 60%;
+				}
+			}
+		}
+	}
+
+	@keyframes showAlert {
+		to {
+			top: 150px;
+		}
+	}
+
+	@keyframes buttonPulse {
+		0% {
+			scale: 1;
+		}
+		40% {
+			scale: 1.1;
+		}
+		50% {
+			scale: 1;
+		}
+		60% {
+			scale: 1.1;
+		}
+		100% {
+			scale: 1;
+		}
+	}
+}

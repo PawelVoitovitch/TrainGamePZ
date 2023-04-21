@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="./dist/css/main.css">
+<link rel="stylesheet" href="../dist/css/main.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.1.96/css/materialdesignicons.min.css">
 <script src="https://kit.fontawesome.com/7e5f0f75ea.js" crossorigin="anonymous"></script>
 </head>
@@ -21,50 +21,83 @@
     <div class="wrapper">
         <div class="nav_navigation">
             <a href="index.html" class="nav_navigation-logo"><img src="./dist/img/logo-min.png" alt="game logo"></a>
-            <ul class="nav_navigation-list">
-                <li class="element"><a href="#" class="link">About Game</a></li>
-                <li class="element"><a href="#" class="link">Contact Us</a></li>
-                <li class="element loginEL" id="login"><a href="#" class="link">Login</a></li>
-                <li class="element"><a href="register.html" class="link">Register</a></li>
-            </ul>
+            <div class="nav_navigation-list">
+                <ul class="nav_navigation-list-elements">
+                    <li class="element"><a href="#" class="link">About Game</a></li>
+                    <li class="element"><a href="#" class="link">Contact Us</a></li>
+                    <li class="element loginEL" id="login"><a href="#" class="link">Login</a></li>
+                    <li class="element"><a href="register.html" class="link">Register</a></li>
+                </ul>
+                <div class="burgerButton">
+                    <div class="line line1"></div>
+                    <div class="line line2"></div>
+                    <div class="line line3"></div>
+                </div>
+
+            </div>
         </div>
     </div>
 </nav>
     <main class="register">
         <div class="wrapper">
 
-            <div class="mainRegister">
+            <form class="form">
                 <section class="main_login">
-    <div class="email">
-        <input type="email" id="email" placeholder="Email">
+    <span class="mdi mdi-close closeBtnLogin"></span>
+    <h2 class="loginText">Log in here !</h2>
+    <div class="emailLogin">
+        <input type="email" id="emailLogin" placeholder="Email">
+        <p class="error-text-login">error</p>
     </div>
-    <div class="pass">
-        <input type="password" id="password" placeholder="Password">
+    <div class="passLogin">
+        <input type="password" id="passwordLogin" placeholder="Password">
+        <p class="error-text-login">error</p>
     </div>
-    <div class="check">
-        <input type="checkbox" id="checkbox">
-        <label for="checkbox">Remember me</label>
-    </div>
-    <button class="send">Login</button>
+    <button class="sendLogin">Login</button>
 </section>
+                <h1>Register here !</h1>
+                <div class="form-box">
+                    <input type="text" id="username" placeholder="Login">
+                    <p class="error-text">error</p>
+                </div>
+                <div class="form-box">
 
-                <section class="registerForm">
-                    <input type="text" placeholder="Login" id="login" class="inputRegister">
-                    <input type="email" placeholder="Email" id="email" class="inputRegister">
-                    <input type="password" placeholder="Password" id="password" class="inputRegister">
-                    <input type="password" placeholder="Confirm Password" id="confirmPassword" class="inputRegister">
-                    <div class="checkTerms inputRegister">
+                    <input type="email" id="email" placeholder="E-mail">
+                    <p class="error-text">error</p>
+                </div>
+                <div class="form-box">
+
+                    <input type="password" id="password" placeholder="Password">
+                    <p class="error-text">error</p>
+                </div>
+                <div class="form-box">
+
+                    <input type="password" id="password2" placeholder="Confirm Password">
+                    <p class="error-text">error</p>
+                </div>
+                <div class="form-box">
+                    <div class="checkTerms">
                         <input type="checkbox" id="terms">
                         <label for="terms"> I accept terms and conditions</label>
                     </div>
-                    <button class="registerButton inputRegister">Register</button>
-                </section>
-            </div>
+                    <p class="error-text">error</p>
+                </div>
+                <div class="control-buttons">
+                    <button class="clear">Clear</button>
+                    <button class="send">Register</button>
+                </div>
+                <div class="popup">
+                    <p>User correctly registered</p>
+                    <button class="close">Ok</button>
+                </div>
+            </form>
         </div>
     </main>
 
 
     <script src="./dist/js/login.js"></script>
+    <script src="../dist/js/formValidation.js"></script>
+    <script src="../dist/js/main.js"></script>
 </body>
 
 </html>
