@@ -1,0 +1,36 @@
+@media (max-width: 928px) {
+	.gameMain {
+		.table {
+			.gameResources {
+				.title {
+					font-size: 1.6rem;
+				}
+			}
+			.rivalsPoint {
+				.box {
+					.playerName {
+						font-size: 1.5rem;
+						font-weight: bold;
+					}
+					.oponentTrains,
+					.trainCards,
+					.destination {
+						font-size: 1.1rem;
+					}
+				}
+			}
+		}
+		.trainPopup {
+			.trainPopupText {
+				font-size: 3.5rem;
+				margin: 0;
+			}
+			.trainPopupCardsBox {
+				.trainPopupCard {
+					width: 250px;
+					height: 175px;
+				}
+			}
+		}
+	}
+}

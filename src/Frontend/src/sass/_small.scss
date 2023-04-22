@@ -264,6 +264,149 @@
 		}
 	}
 
+	//game
+	.gameMain {
+		.table {
+			.gameResources {
+				.title {
+					font-size: 2rem;
+				}
+				.trainCardsActive {
+					padding: 0 5px;
+					margin-bottom: 0;
+					gap: 2px 3px;
+					.card {
+						height: 50px;
+						width: 70px;
+					}
+				}
+				.matchingCards {
+					justify-content: center;
+					.cards {
+						width: 150px;
+						.box {
+							width: 100px;
+							.matchingCard {
+								width: 50px;
+								height: 70px;
+							}
+							.quantity {
+								margin-left: 20px;
+								margin-bottom: 10px;
+								font-size: 1.3rem;
+							}
+						}
+					}
+				}
+			}
+			.boardArea {
+				.mapBox {
+					margin-top: 10px;
+				}
+				.resources {
+					.leftPart {
+						.destinationTickets {
+							.destinationTicket {
+								width: 65px;
+								height: 40px;
+							}
+						}
+						.cards {
+							.cardBox {
+								.cardsQuantity {
+									font-size: 2.5rem;
+								}
+							}
+						}
+					}
+					.rightPart {
+						.myBox {
+							height: 75px;
+							.icon {
+								font-size: 2.5rem;
+							}
+							.points {
+								font-size: 2.5rem;
+							}
+							.yourName {
+								font-size: 1.5rem;
+							}
+							.trains {
+								font-size: 1rem;
+							}
+						}
+					}
+				}
+			}
+
+			.rivalsPoint {
+				height: 40%;
+				.box {
+					.opnentName {
+						margin: 5px;
+					}
+					.oponentTrains,
+					.trainCards,
+					.destination {
+						font-size: 0.9rem;
+					}
+				}
+			}
+		}
+		.destinationPopup,
+		.destinationPopupAfterClick {
+			.destinationPopupText,
+			.destinationPopupTextAfterClick {
+				font-size: 1.4rem;
+			}
+			.sendDestinationCards,
+			.sendDestinationCardsAfterClick {
+				top: 20px;
+				right: 10px;
+				width: 45px;
+				height: 35px;
+				font-size: 1rem;
+			}
+			.popupCardsBox,
+			.popupCardsBoxAfterClick {
+				position: absolute;
+				height: 30%;
+				bottom: 50px;
+				flex-wrap: wrap;
+				.popupCard,
+				.popupCardAfterClick {
+					width: 150px;
+					height: 100px;
+				}
+			}
+		}
+		.trainPopup {
+			.trainPopupText {
+				text-align: center;
+				font-size: 3rem;
+				margin: 10px;
+			}
+			.trainPopupCardsBox {
+				.trainPopupCard {
+					width: 150px;
+					height: 100px;
+					margin: 10px;
+				}
+			}
+		}
+		.yourDestinationTickets {
+			.yourDestinationTicketsText {
+				font-size: 4rem;
+			}
+			.popupYourTicketCardsBox {
+				.popupYourTicketCard {
+					height: 115px;
+					width: 175px;
+					margin: 10px;
+				}
+			}
+		}
+	}
 	@keyframes showAlert {
 		to {
 			top: 150px;

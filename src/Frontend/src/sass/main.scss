@@ -748,6 +748,7 @@ main {
 		justify-content: center;
 		align-items: center;
 		background-color: c.$grey;
+		font-weight: bold;
 		font-size: 3rem;
 		height: 70px;
 	}
@@ -848,7 +849,7 @@ main {
 
 				.trainImg {
 					position: absolute;
-					width: 3.5%;
+					width: 4%;
 					height: 15px;
 				}
 				.clicked {
@@ -937,7 +938,7 @@ main {
 							padding-top: 0.1em;
 							position: absolute;
 							font-size: 3.5rem;
-
+							font-weight: bold;
 							right: 20%;
 						}
 						.playerName {
@@ -947,6 +948,7 @@ main {
 							text-align: center;
 							width: 100%;
 							text-transform: uppercase;
+							font-weight: bold;
 						}
 						.trains {
 							position: absolute;
@@ -981,6 +983,7 @@ main {
 					text-align: center;
 					font-size: 2rem;
 					text-transform: uppercase;
+					font-weight: bold;
 				}
 				.oponentTrains,
 				.trainCards,
@@ -1001,6 +1004,7 @@ main {
 					bottom: 5%;
 					right: 5%;
 					font-size: 2rem;
+					font-weight: bold;
 				}
 			}
 		}
@@ -1078,27 +1082,7 @@ main {
 
 	.turnPopup {
 		z-index: 50000;
-		background-color: rgba($color: #000000, $alpha: 0.6);
-		.turnPopupText {
-			text-transform: uppercase;
-			background-image: linear-gradient(
-				315deg,
-				#acabb0 0%,
-				#e01c34 50%,
-				#acabb0 100%
-			);
-			background-size: auto auto;
-			background-clip: border-box;
-			background-size: 200% auto;
-			color: #fff;
-			background-clip: text;
-			// text-fill-color: transparent;
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-			animation: textclip 3s linear infinite;
-			display: inline-block;
-			font-size: 5rem;
-		}
+		background-color: rgba($color: #000000, $alpha: 0.1);
 	}
 
 	.destinationPopup,
@@ -1110,7 +1094,15 @@ main {
 		left: 0;
 
 		background-color: rgba($color: #000000, $alpha: 0.4);
-		.destinationPopupText {
+		.whoseTurn {
+			position: absolute;
+			top: 100px;
+			left: 30px;
+			color: c.$beige;
+			text-transform: uppercase;
+		}
+		.destinationPopupText,
+		.destinationPopupTextAfterClick {
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -1165,7 +1157,7 @@ main {
 			display: none;
 			position: absolute;
 			top: 12.5px;
-			right: 20%;
+			right: 50px;
 			width: 75px;
 			height: 50px;
 			background-color: c.$red;
@@ -1183,6 +1175,8 @@ main {
 	}
 }
 
+@import "./large";
+@import "./big";
 @import "./medium";
 @import "./small";
 @import "./verySmall";
