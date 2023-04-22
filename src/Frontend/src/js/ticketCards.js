@@ -143,6 +143,9 @@ sendChoosenCardBtn.addEventListener("click", () => {
 });
 sendChoosenCardBtnAfterClick.addEventListener("click", () => {
 	sendChoosenCards(choosenCardsAfterClick, destinationPopupAfterClick);
+	for (let i = 0; i < 3; i++) {
+		popupCardsAfterClick[i].classList.remove("selectedCard");
+	}
 });
 
 yourTickets.addEventListener("click", () => {

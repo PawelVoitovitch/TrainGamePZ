@@ -1,6 +1,7 @@
 const trainsCardsActive = document.querySelectorAll(".trainCardsActive img");
 const trainsCardsArray = Array.from(trainsCardsActive);
 const blindTickets = document.querySelector(".matchTickets");
+
 let visibleTrains = [];
 let availableColors = [];
 let card1 = null;
@@ -59,28 +60,45 @@ function updateBoard(data) {
 
 function updateCards(card) {
 	if (!card1) {
-		card1 = card;
-		card1.classList.add("selected");
-		if (card1.getAttribute("src").includes("RAINBOW")) {
-			const data = {
-				player: playerName,
-				gameId: gameId,
-				fromVisible: [
-					card1
-						.getAttribute("src")
-						.match(/Train(.+)Card/)[1]
-						.toUpperCase(),
-				],
-				blind: [],
-			};
+		handleFirstCard(card);
+	} else if (
+		!card2 &&
+		!card1.getAttribute("src").includes("RAINBOW") &&
+		!card.getAttribute("src").includes("RAINBOW")
+	) {
+		handleSecondCard(card);
+	} else {
+		handleSelectedCards();
+	}
+}
 
-			sendCardsData(data);
-			return data;
-		}
-	} else if (!card2 && !card1.getAttribute("src").includes("RAINBOW")) {
-		card2 = card;
-		card2.classList.add("selected");
+function handleFirstCard(card) {
+	card1 = card;
+	card1.classList.add("selected");
 
+	if (card1.getAttribute("src").includes("RAINBOW")) {
+		const data = {
+			player: playerName,
+			gameId: gameId,
+			fromVisible: [
+				card1
+					.getAttribute("src")
+					.match(/Train(.+)Card/)[1]
+					.toUpperCase(),
+			],
+			blind: [],
+		};
+
+		sendCardsData(data);
+		return data;
+	}
+}
+
+function handleSecondCard(card) {
+	card2 = card;
+	card2.classList.add("selected");
+
+	if (card1 !== card2) {
 		const src1 = card1.getAttribute("src");
 		const src2 = card2.getAttribute("src");
 
@@ -96,7 +114,21 @@ function updateCards(card) {
 
 		sendCardsData(data);
 		return data;
+	} else {
+		card1.classList.remove("selected");
+		card1 = null;
+		card2.classList.remove("selected");
+		card2 = null;
 	}
+}
+
+function handleSelectedCards() {
+	setPopup("select rainbow card first");
+	showPopup();
+	card1.classList.remove("selected");
+	card1 = null;
+
+	alertPopupBtn.addEventListener("click", removePopup);
 }
 
 function updateVisibleCards(arr) {

@@ -368,7 +368,7 @@ main {
 		flex-wrap: wrap;
 		height: 100%;
 		width: 100%;
-		padding: 5em 0;
+		padding: 20px 0;
 		.boxLeft {
 			min-width: 366px;
 			width: 60%;
@@ -439,7 +439,7 @@ main {
 				width: 100%;
 
 				.logoLobby {
-					width: 90%;
+					width: 80%;
 				}
 				&-inviteLink {
 					display: flex;
@@ -455,7 +455,7 @@ main {
 				}
 				#inviteLink {
 					text-align: center;
-					margin-top: 1em;
+					margin-top: 15px;
 					width: 100%;
 					padding: 0.3em;
 					border: none;
@@ -467,7 +467,7 @@ main {
 				}
 
 				&-inviteLink {
-					margin-top: 2em;
+					margin-top: 10px;
 					flex-direction: column;
 					align-items: flex-start;
 				}
