@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 
 @Service
@@ -36,10 +35,7 @@ public class GameService {
             game.getPlayersOrder().add(login);
 
         //TrainDeck
-        //ArrayList<TrainCard> trainDeck= (ArrayList<TrainCard>) shuffledDeck();
-        ArrayList<TrainCard> trainDeck = new ArrayList<TrainCard>();
-        for(int i=0; i<7; i++)
-            trainDeck.add(TrainCard.GREEN);
+        ArrayList<TrainCard> trainDeck= (ArrayList<TrainCard>) shuffledDeck();
         game.setVisibleTrains(new TrainCard[]{trainDeck.get(0),trainDeck.get(1),trainDeck.get(2),trainDeck.get(3),trainDeck.get(4)});
         for (int i = 0; i < 5; i++)
             trainDeck.remove(0);
@@ -229,9 +225,10 @@ public class GameService {
                     }
                 }
             }
-            if (game.getTrainDeck().size()<2)
-                game.setTrainDeck(shuffledDeck());
         }
+
+        if (game.getTrainDeck().size()<2)
+            game.setTrainDeck(new ArrayList<TrainCard>(shuffledDeck()));
 
         game.getPlayersOrder().add(game.getPlayersOrder().poll());
 
@@ -279,6 +276,9 @@ public class GameService {
         game.getPlayersOrder().add(game.getPlayersOrder().poll());
 
         if(player.getTrains()<4)
+            game.getPlayersOrder().add("END");
+
+        if(game.getPlayersOrder().peek().equals("END"))
             endGame(game);
 
         return game;
