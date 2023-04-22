@@ -850,7 +850,7 @@ main {
 				.trainImg {
 					position: absolute;
 					width: 4%;
-					height: 15px;
+					height: 4%;
 				}
 				.clicked {
 					background-color: steelblue;
@@ -1096,9 +1096,15 @@ main {
 		background-color: rgba($color: #000000, $alpha: 0.4);
 		.whoseTurn {
 			position: absolute;
-			top: 100px;
-			left: 30px;
-			color: c.$beige;
+			width: 400px;
+			top: 120px;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			color: gold;
+			font-weight: bold;
+			text-align: center;
+			padding: 10px;
+			background-color: c.$dark;
 			text-transform: uppercase;
 		}
 		.destinationPopupText,
