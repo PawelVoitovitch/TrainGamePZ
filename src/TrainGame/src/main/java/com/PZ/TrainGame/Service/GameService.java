@@ -36,21 +36,10 @@ public class GameService {
             game.getPlayersOrder().add(login);
 
         //TrainDeck
-        ArrayList<TrainCard> trainDeck= new ArrayList<>();
-        for (int i = 0; i<10; i++){
-            trainDeck.add(TrainCard.PINK);
-            trainDeck.add(TrainCard.WHITE);
-            trainDeck.add(TrainCard.BLUE);
-            trainDeck.add(TrainCard.YELLOW);
-            trainDeck.add(TrainCard.ORANGE);
-            trainDeck.add(TrainCard.BLACK);
-            trainDeck.add(TrainCard.RED);
+        //ArrayList<TrainCard> trainDeck= (ArrayList<TrainCard>) shuffledDeck();
+        ArrayList<TrainCard> trainDeck = new ArrayList<TrainCard>();
+        for(int i=0; i<7; i++)
             trainDeck.add(TrainCard.GREEN);
-            trainDeck.add(TrainCard.RAINBOW);
-        }
-        trainDeck.add(TrainCard.RAINBOW);
-        trainDeck.add(TrainCard.RAINBOW);
-        Collections.shuffle(trainDeck,new Random());
         game.setVisibleTrains(new TrainCard[]{trainDeck.get(0),trainDeck.get(1),trainDeck.get(2),trainDeck.get(3),trainDeck.get(4)});
         for (int i = 0; i < 5; i++)
             trainDeck.remove(0);
@@ -155,7 +144,6 @@ public class GameService {
         return game;
 
     }
-
     public boolean isGameCreated(String gameId){
         return (GamesStorage.getInstance().getGames().get(gameId)!=null);
     }
@@ -241,6 +229,8 @@ public class GameService {
                     }
                 }
             }
+            if (game.getTrainDeck().size()<2)
+                game.setTrainDeck(shuffledDeck());
         }
 
         game.getPlayersOrder().add(game.getPlayersOrder().poll());
@@ -294,13 +284,32 @@ public class GameService {
         return game;
     }
 
+    private List<TrainCard> shuffledDeck(){
+        ArrayList<TrainCard> trainDeck= new ArrayList<>();
+        for (int i = 0; i<10; i++){
+            trainDeck.add(TrainCard.PINK);
+            trainDeck.add(TrainCard.WHITE);
+            trainDeck.add(TrainCard.BLUE);
+            trainDeck.add(TrainCard.YELLOW);
+            trainDeck.add(TrainCard.ORANGE);
+            trainDeck.add(TrainCard.BLACK);
+            trainDeck.add(TrainCard.RED);
+            trainDeck.add(TrainCard.GREEN);
+            trainDeck.add(TrainCard.RAINBOW);
+        }
+        trainDeck.add(TrainCard.RAINBOW);
+        trainDeck.add(TrainCard.RAINBOW);
+        Collections.shuffle(trainDeck,new Random());
+        return trainDeck;
+    }
+
     private Game endGame(Game game){
         game.setStatus(GameStatus.ENDED);
         checkTickets(game);
         return game;
     }
 
-    public Game checkTickets(Game game){
+    private Game checkTickets(Game game){
         Graph graph = new Graph();
 
         //dodanie vertexów - miasta
