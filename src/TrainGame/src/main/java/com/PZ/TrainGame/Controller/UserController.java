@@ -1,6 +1,6 @@
 package com.PZ.TrainGame.Controller;
 
-import com.PZ.TrainGame.DTOs.CreateUserDto;
+import com.PZ.TrainGame.DTOs.UserRegisterDTO;
 import com.PZ.TrainGame.DTOs.UserDTO;
 import com.PZ.TrainGame.Model.User.User;
 import com.PZ.TrainGame.Service.UserService;
@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(path = "api/user")
+@RequestMapping(path = "/user")
 public class UserController {
     private final UserService userService;
     private final ModelMapper modelMapper;
 
     @PostMapping
-    public User addNew(@RequestBody CreateUserDto user){
+    public User addNew(@RequestBody UserRegisterDTO user){
         return userService.add(convertToEntity(user));
     }
 
@@ -29,8 +29,8 @@ public class UserController {
         UserDTO userDto = modelMapper.map(user, UserDTO.class);
         return userDto;
     }
-    private User convertToEntity(CreateUserDto createUserDto){
-        User user= modelMapper.map(createUserDto, User.class);
+    private User convertToEntity(UserRegisterDTO userRegisterDTO){
+        User user= modelMapper.map(userRegisterDTO, User.class);
         return user;
     }
 }
