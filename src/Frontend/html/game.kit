@@ -27,11 +27,11 @@
                 <section class="gameResources">
                     <p class="title">Game Resources</p>
                     <div class="trainCardsActive">
-                        <img src="" class="card one" alt="karta pociągów">
-                        <img src="" class="card two" alt="karta pociągów">
-                        <img src="" class="card three" alt="karta pociągów">
-                        <img src="" class="card four" alt="karta pociągów">
-                        <img src="" class="card five" alt="karta pociągów">
+                        <img src="" class="card one" alt="train card">
+                        <img src="" class="card two" alt="train card">
+                        <img src="" class="card three" alt="train card">
+                        <img src="" class="card four" alt="train card">
+                        <img src="" class="card five" alt="train card">
                     </div>
                     <div class="matchingCards">
                         <div class="cards">
@@ -166,7 +166,8 @@
             <div class="destinationPopup">
                 <p class="destinationPopupText">You need to select at least&nbsp; <span
                         class="counter">2</span>&nbsp;more cards</p>
-                <button class="sendDestinationCards">SEND</button>
+                <button class="sendDestinationCards">CHOOSE</button>
+                <p class="whoseTurn"></p>
                 <div class="popupCardsBox">
                     <img src="../dist/img/ExampleCard.png" alt="destination card" class="popupCard one">
                     <img src="../dist/img/ExampleCard.png" alt="destination card" class="popupCard two">
@@ -176,7 +177,7 @@
             <div class="destinationPopupAfterClick">
                 <p class="destinationPopupText">You need to select at least&nbsp; <span
                         class="counterAfterClick">1</span>&nbsp;more cards</p>
-                <button class="sendDestinationCardsAfterClick">SEND</button>
+                <button class="sendDestinationCardsAfterClick">CHOOSE</button>
                 <div class="popupCardsBoxAfterClick">
                     <img src="../dist/img/ExampleCard.png" alt="destination card" class="popupCardAfterClick one">
                     <img src="../dist/img/ExampleCard.png" alt="destination card" class="popupCardAfterClick two">
@@ -187,9 +188,9 @@
                 <h2 class="yourDestinationTicketsText">Your tickets</h2>
                 <button class="closeBtnTickets mdi mdi-close"></button>
                 <div class="popupYourTicketCardsBox">
-                    <!-- <img src="../dist/img/ExampleCard.png" alt="karta miejsc" class="popupYourTicketCard one">
-                    <img src="../dist/img/ExampleCard.png" alt="karta miejsc" class="popupYourTicketCard two">
-                    <img src="../dist/img/ExampleCard.png" alt="karta miejsc" class="popupYourTicketCard three"> -->
+                    <img src="../dist/img/ExampleCard.png" alt="destination card" class="popupYourTicketCard one">
+                    <img src="../dist/img/ExampleCard.png" alt="destination card" class="popupYourTicketCard two">
+                    <img src="../dist/img/ExampleCard.png" alt="destination card" class="popupYourTicketCard three">
 
                 </div>
             </div>
@@ -198,23 +199,26 @@
                 <div class="trainPopupCardsBox">
                     <!-- <img src="../dist/img/TrainBLACKCard.png" alt="karta miejsc" class="trainPopupCard one">
                     <img src="../dist/img/TrainGREENCard.png" alt="karta miejsc" class="trainPopupCard two">
+                    <img src="../dist/img/TrainBLUECard.png" alt="karta miejsc" class="trainPopupCard three">
+                    <img src="../dist/img/TrainBLACKCard.png" alt="karta miejsc" class="trainPopupCard one">
+                    <img src="../dist/img/TrainGREENCard.png" alt="karta miejsc" class="trainPopupCard two">
                     <img src="../dist/img/TrainBLUECard.png" alt="karta miejsc" class="trainPopupCard three"> -->
                 </div>
             </div>
             <div class="turnPopup">
-                <h2 class="turnPopupText">Not your turn</h2>
             </div>
         </div>
 
     </main>
 </body>
 <script src="../dist/js/websocket.js"></script>
+<script src="../dist/js/popupAlert.js"></script>
 <script src="../dist/js/game.js"></script>
 <script src="../dist/js/ticketCards.js"></script>
 <script src="../dist/js/setUsers.js"></script>
 <script src="../dist/js/trainCards.js"></script>
 <script src="../dist/js/setRoutes.js"></script>
-<script src="../dist/js/popupAlert.js"></script>
+
 <script src="../dist/js/turn.js"></script>
 
 </html>

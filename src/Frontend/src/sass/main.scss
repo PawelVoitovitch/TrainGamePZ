@@ -24,6 +24,14 @@ body {
 	font-family: "Open Sans", sans-serif;
 }
 
+input {
+	border-radius: 5px !important;
+}
+
+input:focus {
+	outline: none;
+	border: 2px solid c.$beige !important;
+}
 .wrapper {
 	margin: 0 auto;
 	width: 100%;
@@ -61,39 +69,68 @@ body {
 		}
 		&-list {
 			height: 100%;
-
-			list-style: none;
-			padding: 0;
-			margin: 0;
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
 			flex-direction: row;
-
-			.element {
+			&-elements {
 				height: 100%;
-				width: auto;
-				font-size: 1.4rem;
-				transition: background-color 0.5s;
-				.link {
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					padding: 0 1em;
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				flex-direction: row;
+
+				.element {
 					height: 100%;
-					width: 100%;
-					transition: color 0.5s;
+					width: auto;
+					font-size: 1.4rem;
+					transition: background-color 0.5s;
+					.link {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						padding: 0 1em;
+						height: 100%;
+						width: 100%;
+						transition: color 0.5s;
+					}
+					.link:hover {
+						color: c.$dark;
+					}
+					.link:nth-last-child(n) {
+						margin-right: 1em;
+					}
 				}
-				.link:hover {
-					color: c.$dark;
-				}
-				.link:nth-last-child(n) {
-					margin-right: 1em;
+				.element:hover {
+					background-color: c.$beige;
 				}
 			}
+			.burgerButton {
+				display: none;
+				justify-content: center;
+				align-items: flex-end;
+				flex-direction: column;
 
-			.element:hover {
-				background-color: c.$beige;
+				width: auto;
+				margin-right: 30px;
+				cursor: pointer;
+				.line {
+					height: 2px;
+					background-color: c.$milk-white;
+					margin: 2px;
+				}
+				.line1 {
+					width: 30px;
+				}
+				.line2 {
+					width: 20px;
+				}
+				.line3 {
+					width: 10px;
+				}
 			}
 		}
 	}
@@ -101,6 +138,10 @@ body {
 	.loginIsActive {
 		background-color: c.$beige;
 		color: c.$dark;
+	}
+
+	.navIsActive {
+		display: flex !important;
 	}
 }
 
@@ -145,10 +186,21 @@ main {
 			.logo {
 				padding: 0.5em;
 			}
+			.logo1 {
+				margin-bottom: 20px;
+			}
 
+			label {
+				color: c.$milk-white;
+			}
 			.playerName {
-				margin-bottom: 2em;
+				width: 350px;
+				margin-top: 10px;
+				margin-bottom: 50px;
 				font-size: 2rem;
+				padding: 10px;
+				text-align: center;
+				border-radius: 10px;
 			}
 
 			.link-btn {
@@ -191,6 +243,18 @@ main {
 			background-color: c.$beige;
 			visibility: hidden;
 			z-index: 100;
+			.loginText {
+				display: none;
+				font-size: 2.5rem;
+				margin-bottom: 40px;
+			}
+			.closeBtnLogin {
+				display: none;
+				position: absolute;
+				top: 20px;
+				right: 20px;
+				font-size: 3rem;
+			}
 			.emailLogin,
 			.passLogin {
 				width: 100%;
@@ -206,7 +270,7 @@ main {
 			.error-text-login {
 				font-size: 1rem;
 				text-align: end;
-				color: c.$red;
+				color: rgb(226, 29, 29);
 				visibility: hidden;
 			}
 
@@ -248,23 +312,26 @@ main {
 			z-index: 5;
 			.textPopup {
 				display: flex;
-				justify-content: start;
+				justify-content: flex-start;
 				align-items: flex-start;
 				flex-direction: column;
 				width: 100%;
 				height: 150px;
 				color: c.$milk-white;
 
-				#inviteLink {
-					margin-top: 1em;
+				#inviteLink,
+				#playerNameJoin {
+					margin: 10px 0;
 					width: 100%;
 					padding: 0.5em;
+					font-size: 1.3rem;
 				}
 			}
 
 			.joinToGame {
 				width: 100px;
 				padding: 0.5em;
+				margin-top: 20px;
 				border-radius: 10px;
 				border: none;
 				background-color: c.$red;
@@ -298,10 +365,12 @@ main {
 		justify-content: space-around;
 		align-items: center;
 		flex-direction: row;
+		flex-wrap: wrap;
 		height: 100%;
 		width: 100%;
-		padding: 5em 0;
+		padding: 20px 0;
 		.boxLeft {
+			min-width: 366px;
 			width: 60%;
 			height: 100%;
 			display: flex;
@@ -337,12 +406,12 @@ main {
 					justify-content: center;
 					align-items: center;
 					flex-direction: row;
-					font-size: 3rem;
+					font-size: 2.5rem;
 					width: 45%;
 					max-height: 50%;
 					text-transform: uppercase;
 					.icon {
-						font-size: 5rem;
+						font-size: 6rem;
 					}
 					.text {
 						margin-left: 0.5em;
@@ -364,12 +433,14 @@ main {
 			&_game-setup {
 				display: flex;
 				justify-content: space-between;
-				align-items: flex-start;
+				align-items: center;
 				flex-direction: column;
 				height: 60%;
 				width: 100%;
-				&-players,
-				&-turnTime,
+
+				.logoLobby {
+					width: 80%;
+				}
 				&-inviteLink {
 					display: flex;
 					justify-content: space-between;
@@ -378,33 +449,27 @@ main {
 					padding: 0.5em;
 					font-size: 2rem;
 				}
-				.minutes {
-					font-size: 1.5rem;
+
+				.inviteLinkText {
+					font-size: 1.8rem;
 				}
-				#players,
-				#turnTime,
 				#inviteLink {
-					width: 100px;
 					text-align: center;
+					margin-top: 15px;
+					width: 100%;
 					padding: 0.3em;
 					border: none;
-					border-radius: 4em;
-				}
-
-				#inviteLink {
-					margin-top: 1em;
-					width: 100%;
 					background-color: c.$milk-white;
 					color: c.$dark;
 					border-radius: 1em;
-					font-size: 1.8rem;
+
 					padding: 1em;
 				}
 
 				&-inviteLink {
-					margin-top: 2em;
+					margin-top: 10px;
 					flex-direction: column;
-					align-items: start;
+					align-items: flex-start;
 				}
 			}
 			&_game-buttons {
@@ -490,28 +555,23 @@ main {
 		margin-bottom: 15px;
 	}
 
-	.form-box label {
-		display: inline-block;
-		margin-bottom: 5px;
-	}
-
 	.form-box input {
 		width: 500px;
 		padding: 10px;
 		font-size: 16px;
-		border: 1px solid c.$milk-white;
+
 		border-radius: 5px;
 	}
 
 	.form-box.error input {
-		border: 1px solid c.$red;
+		border: 2px solid c.$red;
 		background-color: c.$milk-white;
 	}
 
 	.form-box .error-text {
 		margin: 5px 0 0 10px;
 		font-size: 1.3rem;
-		color: c.$red;
+		color: rgb(226, 29, 29);
 		visibility: hidden;
 	}
 
@@ -522,10 +582,11 @@ main {
 	.checkTerms {
 		display: flex;
 		width: 100%;
-		justify-content: start;
+		justify-content: flex-start;
 		align-items: center;
 		flex-direction: row;
 		font-size: 1.5rem;
+		color: c.$milk-white;
 		#terms {
 			width: 10%;
 		}
@@ -605,28 +666,28 @@ main {
 // ============================
 
 .BLUE {
-	background-color: blue;
+	background-color: rgb(109, 109, 242);
 }
 .BLUE-icon {
-	color: blue;
+	color: rgb(109, 109, 242);
 }
 .RED {
-	background-color: red;
+	background-color: rgb(224, 65, 65);
 }
 .RED-icon {
-	color: red;
+	color: rgb(224, 65, 65);
 }
 .YELLOW {
-	background-color: yellow;
+	background-color: rgb(236, 222, 25);
 }
 .YELLOW-icon {
-	color: yellow;
+	color: rgb(236, 222, 25);
 }
 .GREEN {
-	background-color: green;
+	background-color: rgb(39, 183, 39);
 }
 .GREEN-icon {
-	color: green;
+	color: rgb(39, 183, 39);
 }
 
 // ============================
@@ -687,6 +748,7 @@ main {
 		justify-content: center;
 		align-items: center;
 		background-color: c.$grey;
+		font-weight: bold;
 		font-size: 3rem;
 		height: 70px;
 	}
@@ -787,8 +849,8 @@ main {
 
 				.trainImg {
 					position: absolute;
-					width: 3.5%;
-					height: 15px;
+					width: 4%;
+					height: 4%;
 				}
 				.clicked {
 					background-color: steelblue;
@@ -876,7 +938,7 @@ main {
 							padding-top: 0.1em;
 							position: absolute;
 							font-size: 3.5rem;
-
+							font-weight: bold;
 							right: 20%;
 						}
 						.playerName {
@@ -886,6 +948,7 @@ main {
 							text-align: center;
 							width: 100%;
 							text-transform: uppercase;
+							font-weight: bold;
 						}
 						.trains {
 							position: absolute;
@@ -920,6 +983,7 @@ main {
 					text-align: center;
 					font-size: 2rem;
 					text-transform: uppercase;
+					font-weight: bold;
 				}
 				.oponentTrains,
 				.trainCards,
@@ -940,6 +1004,7 @@ main {
 					bottom: 5%;
 					right: 5%;
 					font-size: 2rem;
+					font-weight: bold;
 				}
 			}
 		}
@@ -1017,27 +1082,7 @@ main {
 
 	.turnPopup {
 		z-index: 50000;
-		background-color: rgba($color: #000000, $alpha: 0.6);
-		.turnPopupText {
-			text-transform: uppercase;
-			background-image: linear-gradient(
-				315deg,
-				#acabb0 0%,
-				#e01c34 50%,
-				#acabb0 100%
-			);
-			background-size: auto auto;
-			background-clip: border-box;
-			background-size: 200% auto;
-			color: #fff;
-			background-clip: text;
-			// text-fill-color: transparent;
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-			animation: textclip 3s linear infinite;
-			display: inline-block;
-			font-size: 5rem;
-		}
+		background-color: rgba($color: #000000, $alpha: 0.1);
 	}
 
 	.destinationPopup,
@@ -1049,7 +1094,21 @@ main {
 		left: 0;
 
 		background-color: rgba($color: #000000, $alpha: 0.4);
-		.destinationPopupText {
+		.whoseTurn {
+			position: absolute;
+			width: 400px;
+			top: 120px;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			color: gold;
+			font-weight: bold;
+			text-align: center;
+			padding: 10px;
+			background-color: c.$dark;
+			text-transform: uppercase;
+		}
+		.destinationPopupText,
+		.destinationPopupTextAfterClick {
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -1104,7 +1163,7 @@ main {
 			display: none;
 			position: absolute;
 			top: 12.5px;
-			right: 20%;
+			right: 50px;
 			width: 75px;
 			height: 50px;
 			background-color: c.$red;
@@ -1121,3 +1180,9 @@ main {
 		}
 	}
 }
+
+@import "./large";
+@import "./big";
+@import "./medium";
+@import "./small";
+@import "./verySmall";

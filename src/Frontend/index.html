@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="./dist/css/main.css">
+<link rel="stylesheet" href="../dist/css/main.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.1.96/css/materialdesignicons.min.css">
 <script src="https://kit.fontawesome.com/7e5f0f75ea.js" crossorigin="anonymous"></script>
 </head>
@@ -21,12 +21,20 @@
     <div class="wrapper">
         <div class="nav_navigation">
             <a href="index.html" class="nav_navigation-logo"><img src="./dist/img/logo-min.png" alt="game logo"></a>
-            <ul class="nav_navigation-list">
-                <li class="element"><a href="#" class="link">About Game</a></li>
-                <li class="element"><a href="#" class="link">Contact Us</a></li>
-                <li class="element loginEL" id="login"><a href="#" class="link">Login</a></li>
-                <li class="element"><a href="register.html" class="link">Register</a></li>
-            </ul>
+            <div class="nav_navigation-list">
+                <ul class="nav_navigation-list-elements">
+                    <li class="element"><a href="#" class="link">About Game</a></li>
+                    <li class="element"><a href="#" class="link">Contact Us</a></li>
+                    <li class="element loginEL" id="login"><a href="#" class="link">Login</a></li>
+                    <li class="element"><a href="register.html" class="link">Register</a></li>
+                </ul>
+                <div class="burgerButton">
+                    <div class="line line1"></div>
+                    <div class="line line2"></div>
+                    <div class="line line3"></div>
+                </div>
+
+            </div>
         </div>
     </div>
 </nav>
@@ -34,6 +42,8 @@
         <div class="wrapper">
             <div class="main">
                 <section class="main_login">
+    <span class="mdi mdi-close closeBtnLogin"></span>
+    <h2 class="loginText">Log in here !</h2>
     <div class="emailLogin">
         <input type="email" id="emailLogin" placeholder="Email">
         <p class="error-text-login">error</p>
@@ -45,7 +55,7 @@
     <button class="sendLogin">Login</button>
 </section>
                 <section class="main_section">
-                    <img src="./dist/img/logo-white.png" alt="game logo" class="logo">
+                    <img src="./dist/img/logo-white.png" alt="game logo" class="logo logo1">
                     <a href="createGame.html" class="link-btn playButton">PLAY</a>
                 </section>
             </div>
@@ -53,7 +63,8 @@
     </main>
 
 
-    <script src="./dist/js/login.js"></script>
+    <script src="../dist/js/login.js"></script>
+    <script src="../dist/js/main.js"></script>
 </body>
 
 </html>

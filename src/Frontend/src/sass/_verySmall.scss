@@ -1,0 +1,196 @@
+@media (max-width: 376px) {
+	// strona tworzenia gry i dołączania
+
+	main {
+		.main_section {
+			.logo {
+				width: 250px;
+				height: 200px;
+			}
+
+			label {
+				font-size: 1.4rem;
+			}
+			.playerName {
+				width: 200px;
+			}
+		}
+	}
+
+	.mainCreate {
+		.mainCreateBox {
+			.boxLeft {
+				min-width: 100%;
+				height: 50%;
+
+				&_title {
+					margin-left: 30px;
+					margin-right: 30px;
+					font-size: 1.3rem !important;
+					padding: 10px;
+				}
+				&_users {
+					padding: 0;
+					margin-bottom: 10px;
+					&-user {
+						width: 100%;
+						height: 20%;
+					}
+				}
+			}
+			.boxRight {
+				height: 40%;
+				margin-bottom: 20px;
+				&_game-buttons {
+					width: 100%;
+					display: flex;
+					flex-direction: row;
+					.start_game,
+					.leave_game {
+						.link {
+							font-size: 1rem;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	//game
+	.gameMain {
+		.tableName {
+			font-size: 2rem;
+		}
+		.table {
+			.gameResources {
+				.trainCardsActive {
+					.card {
+						height: 40px;
+						width: 60px;
+					}
+				}
+				.matchingCards {
+					.cards {
+						width: 125px;
+						.box {
+							.matchingCard {
+								width: 40px;
+								height: 60px;
+							}
+							.quantity {
+								font-size: 1.2rem;
+							}
+						}
+					}
+				}
+			}
+			.boardArea {
+				.resources {
+					.leftPart {
+						.destinationTickets {
+							.destinationTicket {
+								width: 50px;
+								height: 30px;
+							}
+						}
+						.cards {
+							.cardBox {
+								.cardsQuantity {
+									font-size: 2rem;
+								}
+							}
+						}
+					}
+					.rightPart {
+						.myBox {
+							height: 65px;
+							.icon {
+								font-size: 2.2rem;
+							}
+							.points {
+								font-size: 2rem;
+							}
+							.yourName {
+								font-size: 1.3rem;
+							}
+							.trains {
+								font-size: 1rem;
+							}
+						}
+					}
+				}
+			}
+
+			.rivalsPoint {
+				height: 40%;
+				.box {
+					.playerName {
+						font-size: 1.2rem;
+					}
+					.opnentName {
+						font-size: 1rem;
+						margin: 5px;
+					}
+					.oponentTrains,
+					.trainCards,
+					.destination {
+						font-size: 0.8rem;
+					}
+					.oponentPoints {
+						font-size: 1.5rem;
+					}
+				}
+			}
+		}
+
+		.destinationPopup,
+		.destinationPopupAfterClick {
+			.destinationPopupText,
+			.destinationPopupTextAfterClick {
+				font-size: 1.3rem;
+			}
+			.sendDestinationCards,
+			.sendDestinationCardsAfterClick {
+				top: 70px;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+			.popupCardsBox,
+			.popupCardsBoxAfterClick {
+				height: 35%;
+				bottom: 30px;
+				.popupCard {
+					width: 100px;
+					height: 65px;
+				}
+			}
+		}
+
+		.trainPopup {
+			.trainPopupText {
+				font-size: 2rem;
+			}
+			.trainPopupCardsBox {
+				.trainPopupCard {
+					width: 120px;
+					height: 80px;
+					margin: 10px;
+				}
+			}
+		}
+
+		.yourDestinationTickets {
+			.yourDestinationTicketsText {
+				font-size: 3rem;
+				margin: 10px;
+			}
+			.popupYourTicketCardsBox {
+				.popupYourTicketCard {
+					height: 95px;
+					width: 150px;
+					margin: 10px;
+				}
+			}
+		}
+	}
+}

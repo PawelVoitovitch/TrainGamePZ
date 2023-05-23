@@ -2,7 +2,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const gameId = urlParams.get("gameId");
 const url = "http://localhost:8090";
 const container = document.querySelector("body");
-const tableName = document.querySelector(".tableName-name");
+
 
 async function getPlayers(gameId) {
 	try {
@@ -17,6 +17,6 @@ async function getPlayers(gameId) {
 	}
 }
 
-tableName.textContent = `Game ID: ${gameId}`;
+
 
 connectToGameSocket(gameId);

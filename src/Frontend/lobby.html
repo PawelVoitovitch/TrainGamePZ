@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="./dist/css/main.css">
+<link rel="stylesheet" href="../dist/css/main.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.1.96/css/materialdesignicons.min.css">
 <script src="https://kit.fontawesome.com/7e5f0f75ea.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
@@ -22,12 +22,20 @@
     <div class="wrapper">
         <div class="nav_navigation">
             <a href="index.html" class="nav_navigation-logo"><img src="./dist/img/logo-min.png" alt="game logo"></a>
-            <ul class="nav_navigation-list">
-                <li class="element"><a href="#" class="link">About Game</a></li>
-                <li class="element"><a href="#" class="link">Contact Us</a></li>
-                <li class="element loginEL" id="login"><a href="#" class="link">Login</a></li>
-                <li class="element"><a href="register.html" class="link">Register</a></li>
-            </ul>
+            <div class="nav_navigation-list">
+                <ul class="nav_navigation-list-elements">
+                    <li class="element"><a href="#" class="link">About Game</a></li>
+                    <li class="element"><a href="#" class="link">Contact Us</a></li>
+                    <li class="element loginEL" id="login"><a href="#" class="link">Login</a></li>
+                    <li class="element"><a href="register.html" class="link">Register</a></li>
+                </ul>
+                <div class="burgerButton">
+                    <div class="line line1"></div>
+                    <div class="line line2"></div>
+                    <div class="line line3"></div>
+                </div>
+
+            </div>
         </div>
     </div>
 </nav>
@@ -36,6 +44,8 @@
         <div class="wrapper">
             <div class="main">
                 <section class="main_login">
+    <span class="mdi mdi-close closeBtnLogin"></span>
+    <h2 class="loginText">Log in here !</h2>
     <div class="emailLogin">
         <input type="email" id="emailLogin" placeholder="Email">
         <p class="error-text-login">error</p>
@@ -54,7 +64,7 @@
                     </div>
 
                     <section class="boxLeft">
-                        <h1 class="boxLeft_title">
+                        <h1 class="boxLeft_title" id="gameTitle">
                             Your Name's Table
                         </h1>
                         <div class="boxLeft_users">
@@ -63,24 +73,18 @@
 
                     <section class="boxRight">
                         <div class="boxRight_game-setup">
-                            <div class="boxRight_game-setup-players">
-                                <label for="players">Players: </label>
-                                <input type="number" min="4" max="8" id="players" placeholder="4" value="4">
-                            </div>
-                            <div class="boxRight_game-setup-turnTime">
-                                <label for="turnTime">Turn time: <p class="minutes">(in minutes)</p></label>
-                                <input type="number" min="1" max="10" id="turnTime" placeholder="1" value="1">
-                            </div>
+                            <img src="../dist/img/logo-white.png" alt="game logo" class="logoLobby">
                             <div class="boxRight_game-setup-inviteLink">
                                 <label for="inviteLink">Invite:</label>
-                                <p id="inviteLink">https://ride.gg/ab3Fsg</p>
+                                <p class="inviteLinkText" id="inviteLink">https://ride.gg/ab3Fsg</p>
                             </div>
                         </div>
                         <div class="boxRight_game-buttons">
-                            <button class="boxRight_game-buttons-button start_game"> <a href="#" class="link ">Start
+                            <button class="boxRight_game-buttons-button start_game"> <a href="#" class="link "
+                                    id="startButton">Start
                                     Game</a></button>
-                            <button class="boxRight_game-buttons-button leave_game"> <a href="#"
-                                    class="link">Leave</a></button>
+                            <button class="boxRight_game-buttons-button leave_game"> <a href="#" class="link"
+                                    id="leaveButton">Leave</a></button>
                         </div>
                     </section>
                 </div>
@@ -92,7 +96,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
     <script src="../dist/js/websocket.js"></script>
     <script src="../dist/js/lobby.js"></script>
-    <script src="./dist/js/login.js"></script>
+    <script src="../dist/js/login.js"></script>
+    <script src="../dist/js/main.js"></script>
 </body>
 
 </html>

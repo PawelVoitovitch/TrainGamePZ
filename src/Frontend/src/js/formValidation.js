@@ -23,14 +23,20 @@ const clearErr = (input) => {
 
 const checkForm = (input) => {
 	input.forEach((el) => {
-		if (el.value === "") {
-			if (el.placeholder !== "Confirm Password") {
-				showErr(el, "Enter " + el.placeholder.toLowerCase() + " !");
-			} else {
-				showErr(el, "Enter password" + " !");
-			}
+		if (el.value.trim() === "") {
+			showErr(el, "Enter " + el.placeholder.toLowerCase() + " !");
 		} else {
 			clearErr(el);
+			if (el === username) {
+				checkLenght(username, 3);
+			} else if (el === password) {
+				checkLenght(password, 8);
+			} else if (el === confirmPassword) {
+				checkPassword(password, confirmPassword);
+				checkLenght(password, 8);
+			} else if (el === email) {
+				checkEmail(email);
+			}
 		}
 	});
 	if (!terms.checked) {
@@ -95,9 +101,6 @@ clearBtn.addEventListener("click", (e) => {
 sendBtn.addEventListener("click", (e) => {
 	e.preventDefault();
 	checkForm([username, password, confirmPassword, email]);
-	checkLenght(username, 3);
-	checkLenght(password, 8);
-	checkPassword(password, confirmPassword);
-	checkEmail(email);
+
 	checkErrors();
 });

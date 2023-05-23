@@ -5,6 +5,7 @@ const errorLogin = document.querySelectorAll(".error-text-login");
 const emailLogin = document.getElementById("emailLogin");
 const passwordLogin = document.getElementById("passwordLogin");
 const btnLogin = document.querySelector(".sendLogin");
+const closeBtnLogin = document.querySelector(".closeBtnLogin");
 
 let isOpen = false;
 let errorExist = false;
@@ -42,4 +43,11 @@ const checkFieldNotNull = (input, ind, text) => {
 btnLogin.addEventListener("click", () => {
 	checkFieldNotNull(emailLogin, 0, "Enter login");
 	checkFieldNotNull(passwordLogin, 1, "Enter password");
+});
+
+closeBtnLogin.addEventListener("click", () => {
+	loginForm.style.visibility = "hidden";
+	loginEl.classList.remove("loginIsActive");
+	errorLogin[0].style.visibility = "hidden";
+	errorLogin[1].style.visibility = "hidden";
 });
