@@ -42,6 +42,7 @@ body {
 .nav {
 	width: 100%;
 	background-color: c.$dark;
+	height: 100px;
 	margin: 0;
 	padding: 0;
 	&_navigation {
@@ -190,22 +191,26 @@ main {
 			background-color: c.$beige;
 			visibility: hidden;
 			z-index: 100;
-			.email,
-			.pass {
+			.emailLogin,
+			.passLogin {
 				width: 100%;
-				#email,
-				#password {
+				#emailLogin,
+				#passwordLogin {
 					width: 100%;
 					padding: 0.5em;
 					border-radius: 10px;
 					border: none;
 				}
 			}
-			.check {
-				font-size: 1.2rem;
+
+			.error-text-login {
+				font-size: 1rem;
+				text-align: end;
+				color: c.$red;
+				visibility: hidden;
 			}
 
-			.send {
+			.sendLogin {
 				width: 100%;
 				padding: 0.5em;
 				border-radius: 10px;
@@ -218,7 +223,7 @@ main {
 				transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 			}
 
-			.send:hover {
+			.sendLogin:hover {
 				color: c.$dark;
 				background-color: c.$milk-white;
 				box-shadow: 0 0 5px 2px c.$milk-white;
@@ -452,48 +457,146 @@ main {
 // ===  REJESTRACJA ====
 // =====================
 
-.mainRegister {
-	position: relative;
+.register {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 100%;
-	height: calc(100vh - 100px);
-	.registerForm {
-		width: 100%;
-		height: 100%;
+
+	.form {
+		position: relative;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
+		width: 100%;
+		height: calc(100vh - 100px);
+		padding: 40px;
+		font-size: 20px;
 
-		.inputRegister {
-			margin: 0.6em;
-			width: 40%;
-			padding: 0.5em;
-			border-radius: 10px;
-			border: none;
-			font-size: 2rem;
+		.main_login {
+			top: 0px;
 		}
+	}
 
-		.checkTerms {
-			font-size: 1.5rem;
-			color: c.$milk-white;
-		}
+	h1 {
+		text-align: center;
+		margin-bottom: 30px;
+		color: c.$milk-white;
+	}
 
-		.registerButton {
-			margin-top: 1em;
-			background-color: c.$red;
-			color: c.$milk-white;
-			box-shadow: 0 0 10px 4px c.$red;
-			padding: 0.5em;
-			cursor: pointer;
-			transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-			text-transform: uppercase;
-		}
+	.form-box {
+		width: 500px;
+		margin-bottom: 15px;
+	}
 
-		.registerButton:hover {
-			background-color: c.$beige;
-			color: c.$dark;
-			box-shadow: 0 0 10px 4px c.$beige;
+	.form-box label {
+		display: inline-block;
+		margin-bottom: 5px;
+	}
+
+	.form-box input {
+		width: 500px;
+		padding: 10px;
+		font-size: 16px;
+		border: 1px solid c.$milk-white;
+		border-radius: 5px;
+	}
+
+	.form-box.error input {
+		border: 1px solid c.$red;
+		background-color: c.$milk-white;
+	}
+
+	.form-box .error-text {
+		margin: 5px 0 0 10px;
+		font-size: 1.3rem;
+		color: c.$red;
+		visibility: hidden;
+	}
+
+	.form-box.error .error-text {
+		visibility: visible;
+	}
+
+	.checkTerms {
+		display: flex;
+		width: 100%;
+		justify-content: start;
+		align-items: center;
+		flex-direction: row;
+		font-size: 1.5rem;
+		#terms {
+			width: 10%;
 		}
+	}
+
+	.control-buttons {
+		width: 60%;
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.send,
+	.clear,
+	.close {
+		display: block;
+		padding: 10px 0;
+		margin-left: 10px;
+		width: 100px;
+		font-size: 1.6rem;
+		background-color: c.$red;
+		color: #fff;
+		border: none;
+		border-radius: 8px;
+		box-shadow: 0 0 5px 2px c.$red;
+		cursor: pointer;
+		transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+	}
+
+	.send,
+	.clear {
+		margin-top: 10px;
+		margin-left: 20px;
+	}
+	.send:hover,
+	.clear:hover,
+	.close:hover {
+		background-color: c.$beige;
+		color: c.$grey;
+		box-shadow: 0 0 5px 2px c.$beige;
+	}
+
+	.popup {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		position: absolute;
+		top: -500px;
+		right: 150px;
+		width: 300px;
+		height: 150px;
+		background-color: c.$milk-white;
+		border-radius: 10em;
+		overflow: hidden;
+		box-shadow: 0 0 20px 10px c.$red;
+
+		z-index: 100000;
+		transition: top 0.5s;
+	}
+
+	.popup p {
+		font-size: 1.7rem;
+	}
+
+	.popup .close {
+		margin-top: 20px;
+		border-radius: 20px;
+	}
+
+	.show-popup {
+		top: 0px;
 	}
 }
 
