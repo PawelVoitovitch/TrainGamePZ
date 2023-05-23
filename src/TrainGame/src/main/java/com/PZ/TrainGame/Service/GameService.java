@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 
 @Service
@@ -36,21 +35,7 @@ public class GameService {
             game.getPlayersOrder().add(login);
 
         //TrainDeck
-        ArrayList<TrainCard> trainDeck= new ArrayList<>();
-        for (int i = 0; i<10; i++){
-            trainDeck.add(TrainCard.PINK);
-            trainDeck.add(TrainCard.WHITE);
-            trainDeck.add(TrainCard.BLUE);
-            trainDeck.add(TrainCard.YELLOW);
-            trainDeck.add(TrainCard.ORANGE);
-            trainDeck.add(TrainCard.BLACK);
-            trainDeck.add(TrainCard.RED);
-            trainDeck.add(TrainCard.GREEN);
-            trainDeck.add(TrainCard.RAINBOW);
-        }
-        trainDeck.add(TrainCard.RAINBOW);
-        trainDeck.add(TrainCard.RAINBOW);
-        Collections.shuffle(trainDeck,new Random());
+        ArrayList<TrainCard> trainDeck= (ArrayList<TrainCard>) shuffledDeck();
         game.setVisibleTrains(new TrainCard[]{trainDeck.get(0),trainDeck.get(1),trainDeck.get(2),trainDeck.get(3),trainDeck.get(4)});
         for (int i = 0; i < 5; i++)
             trainDeck.remove(0);
@@ -155,7 +140,6 @@ public class GameService {
         return game;
 
     }
-
     public boolean isGameCreated(String gameId){
         return (GamesStorage.getInstance().getGames().get(gameId)!=null);
     }
@@ -243,6 +227,9 @@ public class GameService {
             }
         }
 
+        if (game.getTrainDeck().size()<2)
+            game.setTrainDeck(new ArrayList<TrainCard>(shuffledDeck()));
+
         game.getPlayersOrder().add(game.getPlayersOrder().poll());
 
         return game;
@@ -289,9 +276,31 @@ public class GameService {
         game.getPlayersOrder().add(game.getPlayersOrder().poll());
 
         if(player.getTrains()<4)
+            game.getPlayersOrder().add("END");
+
+        if(game.getPlayersOrder().peek().equals("END"))
             endGame(game);
 
         return game;
+    }
+
+    private List<TrainCard> shuffledDeck(){
+        ArrayList<TrainCard> trainDeck= new ArrayList<>();
+        for (int i = 0; i<10; i++){
+            trainDeck.add(TrainCard.PINK);
+            trainDeck.add(TrainCard.WHITE);
+            trainDeck.add(TrainCard.BLUE);
+            trainDeck.add(TrainCard.YELLOW);
+            trainDeck.add(TrainCard.ORANGE);
+            trainDeck.add(TrainCard.BLACK);
+            trainDeck.add(TrainCard.RED);
+            trainDeck.add(TrainCard.GREEN);
+            trainDeck.add(TrainCard.RAINBOW);
+        }
+        trainDeck.add(TrainCard.RAINBOW);
+        trainDeck.add(TrainCard.RAINBOW);
+        Collections.shuffle(trainDeck,new Random());
+        return trainDeck;
     }
 
     private Game endGame(Game game){
@@ -300,7 +309,7 @@ public class GameService {
         return game;
     }
 
-    public Game checkTickets(Game game){
+    private Game checkTickets(Game game){
         Graph graph = new Graph();
 
         //dodanie vertexów - miasta
