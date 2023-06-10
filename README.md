@@ -1,53 +1,56 @@
 
-# Train Game
+# Koleją przez Stany
+<img src="./doc/Art/Logos/logo 512x512 transparent white.png" width="400" height="400">
 
-https://docs.google.com/document/d/1S7zgQhnVAtx4eOaVBSJujdr2iT0fE728yZbA4pfw7Q8/edit
+- Internetowa wersja gry familijnej "Wsiąść do pociągu" dla czterech osób!
+- Wybierz się w niesamowitą podróż po wielkich miastach Ameryki!
+- Wyzwól w sobie nieustraszonego stratega, który za pomocą taktycznego myślenia będzie zajmował poszczególne cele na mapie!
+- Zdobywaj punkty poprzez tworzenie tras pomiędzy miastami oraz za realizowanie biletów!
+- Wygrywasz w momencie zdobycia największej liczby punktów!
 
-🇬🇧
-Internet version of the board game "Ticket to ride". It allows free gameplay (and fun!) with friends without the need to download.
+</br>
 
-🇵🇱
-Internetowa wersja gry planszowej "Wsiąść do pociągu". Umożliwia darmową rozgrywkę (i rozrywkę!) ze znajomymi bez konieczności pobierania.
+<p align=center>
+<img src="./doc/Art/GameAssets/GameMap.png" width="960" height="540">
+</p>
 
+## Zasady gry
 
-<p align="center"><img src="./doc/Art/Logos/logo 512x512.png"></p>
-![App Screenshot](https://raw.githubusercontent.com/PawelVoitovitch/TrainGamePZ/main/doc/Art/GUIMockups/3.%20Game%20Page.png)
+Każdy gracz zaczyna z pakietem 35 wagoników kolejowych które służą mu do budowania tras. </br>
+Na starcie gry każdy gracz dobiera [X] kart biletów oraz [X] kart wagoników. </br>
+Karty biletów służą do zdobywania punktów za zbudowanie trasy przedstawionej na bilecie, a karty wagoników służą do budowania tras - w momencie w którym mamy odpowiednią liczbę kart wagoników danego koloru, możemy zbudować odpowiadającą temu kolorowi trasę na mapie. </br>
+Tęczowe karty wagoników symbolizują dowolny kolor, tak samo jak szare pole na planszy. </br>
+Pozostałe karty biletów należy odłożyć obok na stos a z pozostałego stosu kart wagoników należy dobrać 5 kart i położyć we wspólnym obszarze gry. </br></br>
 
+Po dobraniu kart i ustaleniu kolejności graczy, każdy gracz w turze ma do dyspozycji jedną z trzech akcji:</br>
+- Utworzenie trasy pomiędzy miastami wykorzystując do tego swoje karty wagoników. Zużyte karty wagoników są odkładane obok na stos i wyłączone z gry.
+- Dobranie [X] kart wagoników ze wspólnego obszaru gry. Obszar ten następnie jest uzupełniany aby w każdej turze gracza zawierał 5 kart.
+- Dobranie [X] kart biletów ze stosu kart.</br></br>
 
-## Rules
-🇬🇧
-The goal of the game is to score the most points, which are obtained by creating routes between adjacent cities, completing tickets, and creating the longest route on the board.
+Trasy na mapie mogą być zajęte tylko przez jednego gracza. W momencie w którym karty wagoników ze wspólnego obszaru się skończą, brany jest z powrotem obszar zużytych kart.</br></br>
 
-In each turn, a player must perform 1 of 3 actions:
+Gra kończy się w momencie [?]. Po ostatniej turze podliczane są punkty z ukończonych tras z kart biletów każdego gracza. [?]. Gracz z największą liczbą punktów wygrywa!</br></br>
 
-* create a railroad connection
-* draw car cards
-* draw ticket cards
+## Serwis
 
-Creating a railroad connection requires discarding a number of wagon cards.
+Każdy gracz aby zagrać, musi utworzyć wcześniej swoje konto. Po zalogowaniu się może utworzyć własny stół do gry bądź dołączyć do już istniejącego. Aby dołączyć do istniejącego stołu, wymagane jest podanie ID udostępnionego przez twórcę pokoju. </br></br>
 
-Drawing wagon cards involves drawing two wagon cards in chosen or random colors.
-
-Drawing ticket cards involves drawing three cards and keeping at least one
-
-🇵🇱
-Celem gry jest zdobycie największej ilości punktów, które otrzymuje się za utworzenie tras między sąsiadującymi miastami, realizacji biletu oraz stworzenie najdłuższej trasy na planszy.
-
-W każdej turze gracz musi wykonać 1 z 3 akcji: 
-* stworzenie połączenia kolejowego
-* dobranie kart wagonów
-* dobranie kart biletów
-
-Stworzenie połącznie kolejowego wymaga oddania ilości kart wagonów.
-
-Dobranie kart wagonów polega na pobraniu do ręki dwóch kart wagonów w wybranych lub losowych kolorach.
-
-Dobranie kart biletów polega na pobraniu do ręki trzech kart i zatrzymaniu conajmniej jednej.
-## Authors
+## Autorzy
 
 - [@czecho999](https://www.github.com/czecho999) Karol Czechowski
 - [@daveekh](https://www.github.com/daveekh) Dawid Nadzieja
 - [@PawelVoitovitch](https://www.github.com/PawelVoitovitch) Paweł Wójtowicz
 - [@zaju2611](https://www.github.com/zaju2611) Jakub Zając
+
+https://docs.google.com/document/d/1S7zgQhnVAtx4eOaVBSJujdr2iT0fE728yZbA4pfw7Q8/edit
+
+
+
+</br></br></br></br>
+todo:
+- wersja angielska
+- sprawdzenie liczebności [X]
+- warunki ukończenia gry
+- rozbudowanie podsekcji 'serwis'
 
 
