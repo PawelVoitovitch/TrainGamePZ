@@ -10,7 +10,7 @@ Internet version of the board game "Ticket to ride". It allows free gameplay (an
 Internetowa wersja gry planszowej "Wsiąść do pociągu". Umożliwia darmową rozgrywkę (i rozrywkę!) ze znajomymi bez konieczności pobierania.
 
 
-![Logo](./doc/Art/Logos/logo 512x512.png)
+<img src="./doc/Art/Logos/logo 512x512.png">
 ![App Screenshot](https://raw.githubusercontent.com/PawelVoitovitch/TrainGamePZ/main/doc/Art/GUIMockups/3.%20Game%20Page.png)
 
 
