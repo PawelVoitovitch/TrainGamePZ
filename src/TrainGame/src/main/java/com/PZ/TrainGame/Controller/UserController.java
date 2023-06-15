@@ -36,6 +36,11 @@ public class UserController {
         return userService.isUsernameTaken(username);
     }
 
+    @GetMapping(path = "/isEmailTaken/{email}")
+    public Boolean isEmailTaken(@PathVariable("email") String email){
+        return userService.isEmailTaken(email);
+    }
+
     private UserDTO convertToDto(User user){
         UserDTO userDto = modelMapper.map(user, UserDTO.class);
         return userDto;

@@ -60,4 +60,8 @@ public class UserService {
     public Boolean isUsernameTaken(String username) {
         return userRepo.existsByUsername(username);
     }
+
+    public Boolean isEmailTaken(String email) {
+        return userRepo.existsByEmail(email);
+    }
 }
