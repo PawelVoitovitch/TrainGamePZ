@@ -587,8 +587,35 @@ main {
 		flex-direction: row;
 		font-size: 1.5rem;
 		color: c.$milk-white;
+
+		label {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+		}
 		#terms {
 			width: 10%;
+			scale: 1.5;
+			display: none;
+			pointer-events: none;
+		}
+		label::before {
+			content: "";
+			display: inline-block;
+			width: 24px;
+			height: 24px;
+			border-radius: 50%;
+			border: 2px solid c.$milk-white;
+			background-color: c.$background;
+			margin-right: 10px;
+		}
+
+		#terms:checked + label::before {
+			content: "\2713";
+			text-align: center;
+			font-size: 1.5rem;
+			line-height: 20px;
 		}
 	}
 

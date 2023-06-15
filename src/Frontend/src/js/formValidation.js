@@ -8,6 +8,7 @@ const closeBtn = document.querySelector(".close");
 const popup = document.querySelector(".popup");
 const terms = document.getElementById("terms");
 const checkTerms = document.querySelector(".checkTerms");
+const url = "http://localhost:8090";
 
 const showErr = (input, msg) => {
 	const formBox = input.parentElement;
@@ -70,11 +71,14 @@ const checkErrors = () => {
 		}
 	});
 
-	if (errorCount == 0) {
-		popup.classList.add("show-popup");
+	if (errorCount === 0) {
+		const userData = {
+			login: username.value,
+			email: email.value,
+			password: password.value,
+		};
+		registerUser(userData);
 	}
-
-	console.log(errorCount);
 };
 
 const checkEmail = (input) => {
@@ -87,7 +91,27 @@ const checkEmail = (input) => {
 	}
 };
 
-const name = (params) => {};
+const registerUser = (userData) => {
+	fetch(`${url}/user`, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(userData),
+	})
+		.then((response) => {
+			if (response.ok) {
+				popup.classList.add("show-popup");
+			} else {
+				popup.querySelector("p").textContent = "User exist. Log in!";
+				popup.classList.add("show-popup");
+			}
+		})
+		.catch(() => {
+			popup.querySelector("p").textContent = "Registration failed";
+			popup.classList.add("show-popup");
+		});
+};
 
 clearBtn.addEventListener("click", (e) => {
 	e.preventDefault();
@@ -103,4 +127,8 @@ sendBtn.addEventListener("click", (e) => {
 	checkForm([username, password, confirmPassword, email]);
 
 	checkErrors();
+});
+
+popup.querySelector("button").addEventListener("click", function () {
+	popup.classList.remove("show-popup");
 });
