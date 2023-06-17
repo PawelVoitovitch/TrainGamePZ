@@ -73,7 +73,7 @@ const checkErrors = () => {
 
 	if (errorCount === 0) {
 		const userData = {
-			login: username.value,
+			username: username.value,
 			email: email.value,
 			password: password.value,
 		};
@@ -92,7 +92,7 @@ const checkEmail = (input) => {
 };
 
 const registerUser = (userData) => {
-	fetch(`${url}/user`, {
+	fetch(`${url}/user/register`, {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -106,8 +106,15 @@ const registerUser = (userData) => {
 				popup.querySelector("p").textContent = "User exist. Log in!";
 				popup.classList.add("show-popup");
 			}
+			return response.json();
 		})
-		.catch(() => {
+		.then((data) => {
+			sessionStorage.setItem("token", data.token);
+			sessionStorage.setItem("username", username.value);
+			location.reload();
+		})
+		.catch((err) => {
+			console.log(err);
 			popup.querySelector("p").textContent = "Registration failed";
 			popup.classList.add("show-popup");
 		});

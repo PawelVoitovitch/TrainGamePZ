@@ -13,6 +13,7 @@ const visibleTrains = urlParams.get("visibleTrains");
 const url = "http://localhost:8090";
 let firstUser;
 let firstUserText;
+const token = sessionStorage.getItem("token");
 
 setTimeout(() => {
 	firstUser = document.querySelector(
@@ -26,7 +27,12 @@ inviteLink.textContent = gameId;
 
 async function getPlayers(gameId) {
 	try {
-		const response = await fetch(`${url}/game/${gameId}/players`);
+		const response = await fetch(`${url}/game/${gameId}/players`, {
+			headers: {
+				Authorization: `Bearer ${token}`,
+				"Content-Type": "application/json",
+			},
+		});
 		if (!response.ok) {
 			throw new Error("Network response was not ok");
 		}

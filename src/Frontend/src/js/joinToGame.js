@@ -4,7 +4,7 @@ const btnJoin = document.querySelector(".joinToGame");
 
 btnJoin.addEventListener("click", async (event) => {
 	event.preventDefault();
-	let playerName = playerNameInput.value;
+	let playerName = sessionStorage.getItem("username");
 	let gameId = gameIdInput.value;
 	console.log(playerName);
 	console.log(gameId);
@@ -29,10 +29,13 @@ btnJoin.addEventListener("click", async (event) => {
 		});
 		popupAlert.classList.add("showAlertPopup");
 	} else {
+		const token = sessionStorage.getItem("token");
 		const response = await fetch(`${url}/game/join`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
+				Authorization: `Bearer ${token}`,
+				"Access-Control-Allow-Origin": "*",
 			},
 			body: JSON.stringify({
 				player: playerName,

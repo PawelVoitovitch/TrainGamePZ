@@ -107,6 +107,9 @@ input:focus {
 				.element:hover {
 					background-color: c.$beige;
 				}
+				.signOut {
+					display: none;
+				}
 			}
 			.burgerButton {
 				display: none;
@@ -1205,6 +1208,49 @@ main {
 			background-color: c.$milk-white;
 			color: c.$red;
 		}
+	}
+}
+.aboutGame {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	color: c.$milk-white;
+	width: 100%;
+	margin: 0 0 20px 0;
+	padding: 40px;
+	font-size: 1.5rem;
+	.gameAppearance {
+		width: 100%;
+		min-width: 250px;
+		margin: 20px;
+	}
+	.aboutTitle {
+		font-size: 2.5rem;
+		margin: 20px 0 20px 0;
+	}
+
+	.rules,
+	.service {
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
+		flex-direction: column;
+		font-size: 1.3rem;
+
+		text-align: justify;
+	}
+	h2 {
+		width: 100%;
+		margin-bottom: 20px;
+	}
+	.service {
+		margin-bottom: 20px;
+	}
+	.list {
+		display: block;
+		text-align: left;
+		text-align: justify;
 	}
 }
 

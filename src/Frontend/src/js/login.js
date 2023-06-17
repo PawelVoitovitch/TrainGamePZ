@@ -6,6 +6,7 @@ const emailLogin = document.getElementById("emailLogin");
 const passwordLogin = document.getElementById("passwordLogin");
 const btnLogin = document.querySelector(".sendLogin");
 const closeBtnLogin = document.querySelector(".closeBtnLogin");
+const url = "http://localhost:8090";
 
 let isOpen = false;
 let errorExist = false;
@@ -40,9 +41,41 @@ const checkFieldNotNull = (input, ind, text) => {
 	}
 };
 
+const logUser = (userData) => {
+	fetch(`${url}/user/login`, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(userData),
+	})
+		.then((response) => response.json())
+		.then((data) => {
+			sessionStorage.setItem("token", data.token);
+			sessionStorage.setItem("username", emailLogin.value);
+			location.reload();
+		})
+		.catch((err) => {
+			console.log(err);
+		});
+};
+
 btnLogin.addEventListener("click", () => {
 	checkFieldNotNull(emailLogin, 0, "Enter login");
 	checkFieldNotNull(passwordLogin, 1, "Enter password");
+
+	const errors = document.querySelectorAll(".error-text-login");
+	const hasErrors = Array.from(errors).some(
+		(error) => error.style.visibility === "visible"
+	);
+
+	if (!hasErrors) {
+		const userData = {
+			username: emailLogin.value,
+			password: passwordLogin.value,
+		};
+		logUser(userData);
+	}
 });
 
 closeBtnLogin.addEventListener("click", () => {

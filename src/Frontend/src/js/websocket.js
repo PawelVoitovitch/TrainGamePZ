@@ -3,12 +3,12 @@ const destinationCardsQuantity = document.querySelector(
 	".destinationCardsQuantityAll"
 );
 const trainCardsQuantity = document.querySelector(".trainCardsQuantityAll");
-
+const token = sessionStorage.getItem("token");
 function connectToSocket(gameId) {
 	console.log("connecting to the game");
 	let socket = new SockJS(url + "/join", undefined, { crossDomain: true });
 	stompClient = Stomp.over(socket);
-	stompClient.connect({}, function (frame) {
+	stompClient.connect({ Authorization: `Bearer ${token}` }, function (frame) {
 		console.log("connected to the frame: " + frame);
 		stompClient.subscribe(
 			"/topic/lobby/" + gameId,
@@ -29,7 +29,7 @@ function connectToGameSocket(gameId) {
 		crossDomain: true,
 	});
 	stompClient = Stomp.over(socket);
-	stompClient.connect({}, function (frame) {
+	stompClient.connect({ Authorization: `Bearer ${token}` }, function (frame) {
 		console.log("connected to the frame: " + frame);
 		stompClient.subscribe(
 			"/topic/game-progress/" + gameId,
