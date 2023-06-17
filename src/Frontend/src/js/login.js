@@ -29,6 +29,8 @@ login.addEventListener("click", () => {
 		errorLogin[0].style.visibility = "hidden";
 		errorLogin[1].style.visibility = "hidden";
 		isOpen = false;
+		emailLogin.value = "";
+		passwordLogin.value = "";
 	}
 });
 
@@ -56,7 +58,8 @@ const logUser = (userData) => {
 			location.reload();
 		})
 		.catch((err) => {
-			console.log(err);
+			errorLogin[0].style.visibility = "visible";
+			errorLogin[0].textContent = "Invalid data";
 		});
 };
 

@@ -4,11 +4,11 @@ const firstPlayer = atob(firstPlayerFromURL);
 const turnPopup = document.querySelector(".turnPopup");
 const turnText = document.querySelector(".tableName-name");
 const showTurn = document.querySelector(".whoseTurn");
+
 turnArr.push(firstPlayer);
 
-console.log(turnArr);
-
 const turn = () => {
+	const playerName = sessionStorage.getItem("username");
 	if (playerName !== turnArr[0]) {
 		turnText.textContent = `Now it's the turn of: ${turnArr[0]}`;
 		turnText.style.color = "gold";

@@ -130,8 +130,8 @@ public class GameService {
         board.add(new BoardPlace(58,false,null,1,BoardPlaceColor.GREY));
         board.add(new BoardPlace(59,false,null,2,BoardPlaceColor.ORANGE));
         board.add(new BoardPlace(60,false,null,2,BoardPlaceColor.PINK));
-        board.add(new BoardPlace(61,false,null,4,BoardPlaceColor.GREEN));
-        board.add(new BoardPlace(62,false,null,4,BoardPlaceColor.BLUE));
+        board.add(new BoardPlace(61,false,null,4,BoardPlaceColor.BLUE));
+        board.add(new BoardPlace(62,false,null,4,BoardPlaceColor.GREEN));
         board.add(new BoardPlace(63,false,null,3,BoardPlaceColor.GREY));
         game.setBoard(board);
 
