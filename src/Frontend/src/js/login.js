@@ -43,6 +43,12 @@ const checkFieldNotNull = (input, ind, text) => {
 	}
 };
 
+const isUsernameAvailable = async (username) => {
+	const response = await fetch(`${url}/user/isUsernameTaken/${username}`);
+	const data = await response.json();
+	return data;
+};
+
 const logUser = (userData) => {
 	fetch(`${url}/user/login`, {
 		method: "POST",
@@ -63,6 +69,21 @@ const logUser = (userData) => {
 		});
 };
 
+const checkUsernameAvailability = async (username) => {
+	const isTaken = await isUsernameAvailable(username);
+
+	if (!isTaken) {
+		errorLogin[0].textContent = "User not exist!";
+		errorLogin[0].style.visibility = "visible";
+	} else {
+		const userData = {
+			username: emailLogin.value,
+			password: passwordLogin.value,
+		};
+		logUser(userData);
+	}
+};
+
 btnLogin.addEventListener("click", () => {
 	checkFieldNotNull(emailLogin, 0, "Enter login");
 	checkFieldNotNull(passwordLogin, 1, "Enter password");
@@ -73,11 +94,7 @@ btnLogin.addEventListener("click", () => {
 	);
 
 	if (!hasErrors) {
-		const userData = {
-			username: emailLogin.value,
-			password: passwordLogin.value,
-		};
-		logUser(userData);
+		checkUsernameAvailability(emailLogin.value);
 	}
 });
 

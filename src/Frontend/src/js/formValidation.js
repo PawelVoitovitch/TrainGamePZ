@@ -78,6 +78,10 @@ const checkErrors = () => {
 			password: password.value,
 		};
 		registerUser(userData);
+		const usernameTakenMsg = document.querySelector(".usernameErrorText");
+		const emailTakenMsg = document.querySelector(".emailErrorText");
+		usernameTakenMsg.style.visibility = "hidden";
+		emailTakenMsg.style.visibility = "hidden";
 	}
 };
 
@@ -91,33 +95,62 @@ const checkEmail = (input) => {
 	}
 };
 
-const registerUser = (userData) => {
-	fetch(`${url}/user/register`, {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-		},
-		body: JSON.stringify(userData),
-	})
-		.then((response) => {
-			if (response.ok) {
-				popup.classList.add("show-popup");
-			} else {
-				popup.querySelector("p").textContent = "User exist. Log in!";
-				popup.classList.add("show-popup");
-			}
-			return response.json();
+const isUsernameTaken = async (username) => {
+	const response = await fetch(`${url}/user/isUsernameTaken/${username}`);
+	const data = await response.json();
+	return data;
+};
+
+const isEmailTaken = async (email) => {
+	const response = await fetch(`${url}/user/isEmailTaken/${email}`);
+	const data = await response.json();
+	return data;
+};
+
+const registerUser = async (userData) => {
+	const usernameTakenMsg = document.querySelector(".usernameErrorText");
+	const emailTakenMsg = document.querySelector(".emailErrorText");
+
+	const usernameTaken = await isUsernameTaken(userData.username);
+	const emailTaken = await isEmailTaken(userData.email);
+
+	if (usernameTaken) {
+		usernameTakenMsg.textContent = "Username already taken!";
+		usernameTakenMsg.style.visibility = "visible";
+	}
+
+	if (emailTaken) {
+		emailTakenMsg.textContent = "Email already taken!";
+		emailTakenMsg.style.visibility = "visible";
+	}
+	if (!usernameTaken && !emailTaken) {
+		fetch(`${url}/user/register`, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(userData),
 		})
-		.then((data) => {
-			sessionStorage.setItem("token", data.token);
-			sessionStorage.setItem("username", username.value);
-			location.reload();
-		})
-		.catch((err) => {
-			console.log(err);
-			popup.querySelector("p").textContent = "Registration failed";
-			popup.classList.add("show-popup");
-		});
+			.then((response) => {
+				if (response.ok) {
+					popup.classList.add("show-popup");
+				} else {
+					popup.querySelector("p").textContent = "User exist. Log in!";
+					popup.classList.add("show-popup");
+				}
+				return response.json();
+			})
+			.then((data) => {
+				sessionStorage.setItem("token", data.token);
+				sessionStorage.setItem("username", username.value);
+				window.location.href = "index.html";
+			})
+			.catch((err) => {
+				console.log(err);
+				popup.querySelector("p").textContent = "Registration failed";
+				popup.classList.add("show-popup");
+			});
+	}
 };
 
 clearBtn.addEventListener("click", (e) => {
@@ -127,6 +160,10 @@ clearBtn.addEventListener("click", (e) => {
 		element.value = "";
 		clearErr(element);
 	});
+	const usernameTakenMsg = document.querySelector(".usernameErrorText");
+	const emailTakenMsg = document.querySelector(".emailErrorText");
+	usernameTakenMsg.style.visibility = "hidden";
+	emailTakenMsg.style.visibility = "hidden";
 });
 
 sendBtn.addEventListener("click", (e) => {

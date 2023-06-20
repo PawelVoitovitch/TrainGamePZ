@@ -192,6 +192,9 @@ public class GameService {
 
         game.getPlayersOrder().add(game.getPlayersOrder().poll());
 
+        if(game.getPlayersOrder().peek().equals("END"))
+            endGame(game);
+
         return game;
     }
 
@@ -231,6 +234,9 @@ public class GameService {
             game.setTrainDeck(new ArrayList<TrainCard>(shuffledDeck()));
 
         game.getPlayersOrder().add(game.getPlayersOrder().poll());
+
+        if(game.getPlayersOrder().peek().equals("END"))
+            endGame(game);
 
         return game;
     }
