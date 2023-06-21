@@ -28,6 +28,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers("/user/register", "/user/login", "/user/isUsernameTaken/**", "/user/isEmailTaken/**")
                 .permitAll()
+                .requestMatchers("/turn/**", "/join", "/create").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
