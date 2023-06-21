@@ -78,10 +78,6 @@ const checkErrors = () => {
 			password: password.value,
 		};
 		registerUser(userData);
-		const usernameTakenMsg = document.querySelector(".usernameErrorText");
-		const emailTakenMsg = document.querySelector(".emailErrorText");
-		usernameTakenMsg.style.visibility = "hidden";
-		emailTakenMsg.style.visibility = "hidden";
 	}
 };
 
@@ -115,12 +111,12 @@ const registerUser = async (userData) => {
 	const emailTaken = await isEmailTaken(userData.email);
 
 	if (usernameTaken) {
-		usernameTakenMsg.textContent = "Username already taken!";
+		usernameTakenMsg.textContent = "Username already taken !";
 		usernameTakenMsg.style.visibility = "visible";
 	}
 
 	if (emailTaken) {
-		emailTakenMsg.textContent = "Email already taken!";
+		emailTakenMsg.textContent = "Email already taken !";
 		emailTakenMsg.style.visibility = "visible";
 	}
 	if (!usernameTaken && !emailTaken) {
@@ -132,12 +128,6 @@ const registerUser = async (userData) => {
 			body: JSON.stringify(userData),
 		})
 			.then((response) => {
-				if (response.ok) {
-					popup.classList.add("show-popup");
-				} else {
-					popup.querySelector("p").textContent = "User exist. Log in!";
-					popup.classList.add("show-popup");
-				}
 				return response.json();
 			})
 			.then((data) => {

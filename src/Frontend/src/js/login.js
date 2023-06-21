@@ -61,11 +61,11 @@ const logUser = (userData) => {
 		.then((data) => {
 			sessionStorage.setItem("token", data.token);
 			sessionStorage.setItem("username", emailLogin.value);
-			location.reload();
+			window.location.href = "index.html";
 		})
 		.catch((err) => {
 			errorLogin[0].style.visibility = "visible";
-			errorLogin[0].textContent = "Invalid data";
+			errorLogin[0].textContent = "Invalid data !";
 		});
 };
 
@@ -73,7 +73,7 @@ const checkUsernameAvailability = async (username) => {
 	const isTaken = await isUsernameAvailable(username);
 
 	if (!isTaken) {
-		errorLogin[0].textContent = "User not exist!";
+		errorLogin[0].textContent = "User not exist !";
 		errorLogin[0].style.visibility = "visible";
 	} else {
 		const userData = {
