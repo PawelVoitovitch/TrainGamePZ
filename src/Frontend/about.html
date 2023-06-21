@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koleją przez stany | About game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../dist/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.1.96/css/materialdesignicons.min.css">
+<script src="https://kit.fontawesome.com/7e5f0f75ea.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <nav class="nav">
+    <div class="wrapper">
+        <div class="nav_navigation">
+            <a href="index.html" class="nav_navigation-logo"><img src="./dist/img/logo-min.png" alt="game logo"></a>
+            <div class="nav_navigation-list">
+                <ul class="nav_navigation-list-elements">
+                    <li class="element"><a href="about.html" class="link">About Game</a></li>
+                    <li class="element loginEL" id="login"><a href="#" class="link">Login</a></li>
+                    <li class="element"><a href="register.html" class="link">Register</a></li>
+                </ul>
+                <div class="burgerButton">
+                    <div class="line line1"></div>
+                    <div class="line line2"></div>
+                    <div class="line line3"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</nav>
+    <main>
+        <div class="wrapper">
+            <div class="main">
+                <section class="main_login">
+    <span class="mdi mdi-close closeBtnLogin"></span>
+    <h2 class="loginText">Log in here !</h2>
+    <div class="emailLogin">
+        <input type="email" id="emailLogin" placeholder="Email">
+        <p class="error-text-login">error</p>
+    </div>
+    <div class="passLogin">
+        <input type="password" id="passwordLogin" placeholder="Password">
+        <p class="error-text-login">error</p>
+    </div>
+    <button class="sendLogin">Login</button>
+</section>
+                <div class="aboutGame">
+
+                    <h1 class="aboutTitle">About game</h1>
+                    <ul class="list">
+                        <li>Online version of the family game "Ticket to ride" for four people!</li>
+                        <li>Take an amazing journey through the great cities of America!</li>
+                        <li>Bring out the fearless strategist in you to occupy individual targets on the map with
+                            tactical thinking!</li>
+                        <li>Earn points by creating routes between cities and for redeeming tickets!
+                        </li>
+                        <li>You win when you score the most points!</li>
+                    </ul>
+
+                    <img src="../dist/img/game.png" alt="game page appearance" class="gameAppearance">
+                    <div class="rules">
+                        <h2>Rules</h2>
+                        <p>
+                            Each player starts with a package of 35 train cars that he uses to build routes.
+                            At the start of the game, each player draws a minimum of 2 ticket cards.
+                            Ticket cards are used to earn points for building the route depicted on the ticket, and
+                            train cards are used to build routes - the moment we have the right number of train cards of
+                            a given color, we can build the corresponding route of that color on the map.
+                            The rainbow train cards symbolize any color, as does the gray box on the board.
+                            After every player drew their ticket cards, put the remaining in a pile next to it then draw
+                            5 train cards and place them faced up in the board.<br />
+
+                        </p>
+                        <br />
+                        <p> After drawing cards and determining the order of players, each player every turn has one of
+                            three actions available:</p>
+                        <ul class="list">
+                            <li>Create a route between cities using their train cards. The used train cards are put next
+                                to them on the pile and taken out of the game.
+                            </li>
+                            <li>Draw 2 train cards from the board. This area is then replenished so that in each
+                                player's turn it contains 5 cards.</li>
+                            <li>Draw 1 ticket card.</li>
+                        </ul>
+                        <br />
+                        <p>
+                            Routes on the map can only be occupied by one player. When the train cards from the board
+                            run out, used cards are taken back.
+                        </p>
+                        <p>Once one player has only 4 train cars available to build routes, the last turn takes place.
+                            After the last turn, the points from the completed routes from each player's ticket cards
+                            are counted. The player with the most points wins!</p>
+                    </div>
+                    <br />
+
+                    <div class="service">
+                        <h2>Website</h2>
+                        <p>Each player, in order to play, must create an account beforehand. After logging in, he can
+                            create his own game table or join an existing one. To join an existing table, the ID
+                            provided by the room creator is required.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="./dist/js/login.js"></script>
+    <script src="../dist/js/main.js"></script>
+</body>
+
+</html>

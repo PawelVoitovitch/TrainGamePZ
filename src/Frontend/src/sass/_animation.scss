@@ -41,3 +41,18 @@
 		background-position: 200% center;
 	}
 }
+
+@keyframes result {
+	0% {
+		transform: translateX(150%);
+		opacity: 0;
+	}
+	85% {
+		transform: translateX(-20%);
+		opacity: 0.8;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}

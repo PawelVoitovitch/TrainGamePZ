@@ -2,7 +2,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const gameId = urlParams.get("gameId");
 const url = "http://localhost:8090";
 const container = document.querySelector("body");
-
+const closeResultPopupIcon = document.getElementById("closeResultPopup");
 
 async function getPlayers(gameId) {
 	try {
@@ -17,6 +17,7 @@ async function getPlayers(gameId) {
 	}
 }
 
-
-
+closeResultPopupIcon.addEventListener("click", () => {
+	window.location.href = "index.html";
+});
 connectToGameSocket(gameId);
