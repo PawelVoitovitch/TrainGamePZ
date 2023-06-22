@@ -1,7 +1,6 @@
 const ticketArrFromURL = urlParams.get("userTickets");
 const ticketArr = atob(ticketArrFromURL);
-const playerNameFromURL = urlParams.get("playerName");
-const playerName = atob(playerNameFromURL);
+const playerName = sessionStorage.getItem("username");
 const tickets = ticketArr.split(",");
 const popupCards = document.querySelectorAll(".popupCard");
 const popupCardsAfterClick = document.querySelectorAll(".popupCardAfterClick");
@@ -113,10 +112,12 @@ popupCardsAfterClick.forEach((card) => {
 
 const sendChoosenCards = async (choosenCards, destinationPopup) => {
 	try {
+		const token = sessionStorage.getItem("token");
 		const response = await fetch(url + "/game/turn/drawTicket", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
+				Authorization: `Bearer ${token}`,
 			},
 			body: JSON.stringify({
 				player: playerName,

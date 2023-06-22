@@ -8,11 +8,12 @@ const urlParams = new URLSearchParams(window.location.search);
 const ticketArr = urlParams.get("userTickets");
 const gameId = urlParams.get("gameId");
 const inviteLink = document.getElementById("inviteLink");
-const name = urlParams.get("playerName");
+const name = sessionStorage.getItem("username");
 const visibleTrains = urlParams.get("visibleTrains");
 const url = "http://localhost:8090";
 let firstUser;
 let firstUserText;
+const token = sessionStorage.getItem("token");
 
 setTimeout(() => {
 	firstUser = document.querySelector(
@@ -26,7 +27,12 @@ inviteLink.textContent = gameId;
 
 async function getPlayers(gameId) {
 	try {
-		const response = await fetch(`${url}/game/${gameId}/players`);
+		const response = await fetch(`${url}/game/${gameId}/players`, {
+			headers: {
+				Authorization: `Bearer ${token}`,
+				"Content-Type": "application/json",
+			},
+		});
 		if (!response.ok) {
 			throw new Error("Network response was not ok");
 		}
@@ -41,7 +47,7 @@ async function getPlayers(gameId) {
 		if (players.length === 4) {
 			button.classList.add("start");
 			button.addEventListener("click", () => {
-				window.location.href = `/game.html?gameId=${gameId}&playerName=${name}&visibleTrains=${visibleTrains}&userTickets=${ticketArr}&firstTurn=${btoa(
+				window.location.href = `/game.html?gameId=${gameId}&visibleTrains=${visibleTrains}&userTickets=${ticketArr}&firstTurn=${btoa(
 					firstUserText
 				)}`;
 			});

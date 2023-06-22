@@ -49,6 +49,7 @@ function setTrainColor(routeData, userLogin, userColor) {
 }
 
 const placeTrain = (name, routeId, usedColor) => {
+	const token = sessionStorage.getItem("token");
 	const data = {
 		player: name,
 		gameId: gameId,
@@ -60,6 +61,7 @@ const placeTrain = (name, routeId, usedColor) => {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
+			Authorization: `Bearer ${token}`,
 		},
 		body: JSON.stringify(data),
 	})

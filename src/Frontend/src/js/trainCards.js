@@ -10,15 +10,16 @@ let card2 = null;
 const visibleTrainsFromURL = urlParams.get("visibleTrains");
 
 visibleTrains = atob(visibleTrainsFromURL).split(",");
-console.log(visibleTrains);
 updateVisibleCards(visibleTrains);
 
 function sendCardsData(data) {
+	const token = sessionStorage.getItem("token");
 	fetch(url + "/game/turn/drawTrains", {
 		method: "POST",
 		body: JSON.stringify(data),
 		headers: {
 			"Content-Type": "application/json",
+			Authorization: `Bearer ${token}`,
 		},
 	})
 		.then((response) => {
@@ -147,7 +148,7 @@ trainsCardsActive.forEach((card) => {
 
 async function sendBlind() {
 	let blind;
-
+	const token = sessionStorage.getItem("token");
 	blind = [availableColors[0], availableColors[1]];
 
 	const data = {
@@ -161,6 +162,7 @@ async function sendBlind() {
 		body: JSON.stringify(data),
 		headers: {
 			"Content-Type": "application/json",
+			Authorization: `Bearer ${token}`,
 		},
 	});
 	const result = await response.json();
